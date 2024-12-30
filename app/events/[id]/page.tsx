@@ -1,27 +1,19 @@
+"use client";
+import { useState } from "";
 import { Container } from '@/components/sections/layout/container';
 import { Section } from '@/components/sections/layout/section';
-import { GetEventsByCategory } from '@/features/events/section/category/category';
+import { SectionReview } from '@/features/events/section/events/review/secitonReview';
+import EventCard from '@/features/events/components/EventCard';
 
-interface PageProps {
-  params: {
-    id: string;
-  };
-  searchParams?: { [key: string]: string | string[] | undefined };
-}
-
-const Page = async ({ params }: PageProps) => {
-  const idcategory = parseInt(params.id, 10);
-
+export default async function Event({ params }: { params: { id: string } }) {
+  const eventId = await params.id;
   return (
     <Container>
       <Section>
-        <GetEventsByCategory
-          idcategory={idcategory}
-          infoComponent={{ title: 'Todos', description: 'Los Eventos' }}
-          size={10}
-        />
+        <EventCard id={eventId} />
       </Section>
+
+      <SectionReview eventId={eventId} />
     </Container>
   );
 }
-export default Page;
