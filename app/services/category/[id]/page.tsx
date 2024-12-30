@@ -6,7 +6,6 @@ interface CategoryServicesProps {
   params: Promise<{
     id: string;
   }>;
-  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
 export default async function CategoryServices({ params }: CategoryServicesProps) {
