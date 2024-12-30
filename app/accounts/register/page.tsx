@@ -1,0 +1,11 @@
+"use client";
+
+import { Register } from "@/features/auth/secion/register";
+
+export default function Page() {
+  return (
+    <div className="flex items-center justify-center min-h-screen p-4 w-full">
+      <Register />
+    </div>
+  );
+}
