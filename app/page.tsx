@@ -15,9 +15,7 @@ import { MostViewedPromotions } from "@/features/promotions/section/promotions/m
 import { MostPopularPromotions } from "@/features/promotions/section/promotions/mostPopularPromotions";
 
 export default function Home() {
-  const user = getTokenFromCookie();
 
-  console.log("user Homeeeeeee:", user);
 
   return (
     <>
@@ -62,7 +60,7 @@ export default function Home() {
             </p>
           </div>
 
-
+          
           <Section>
             <CategoryHomeServices />
           </Section>
