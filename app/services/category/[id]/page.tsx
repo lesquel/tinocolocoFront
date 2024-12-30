@@ -3,14 +3,18 @@ import { Section } from '@/components/sections/layout/section';
 import { GetServicesByCategory } from '@/features/services/section/categoty/category';
 
 interface CategoryServicesProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
   searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-export default function CategoryServices({ params }: CategoryServicesProps) {
-  const idcategory = parseInt(params.id, 10);
+export default async function CategoryServices({ params }: CategoryServicesProps) {
+  // Resolvemos la promesa de params
+  const { id } = await params;
+
+  // Convertimos el ID de categoría a número
+  const idcategory = parseInt(id, 10);
 
   if (isNaN(idcategory)) {
     return <div>Error: Invalid category ID</div>;

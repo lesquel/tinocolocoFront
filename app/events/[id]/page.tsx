@@ -3,9 +3,12 @@ import { Section } from '@/components/sections/layout/section';
 import { SectionReview } from '@/features/events/section/events/review/secitonReview';
 import EventCard from '@/features/events/components/EventCard';
 
-export default function Event({ params }: { params: { id: string } }) {
+export default async function Event({ params }: { params: Promise<{ id: string }> }) {
+  // Resolvemos la promesa de params
+  const { id } = await params;
+
   // Convertimos el ID a número si es necesario
-  const eventId = Number(params.id);
+  const eventId = Number(id);
 
   return (
     <Container>

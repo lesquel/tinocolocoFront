@@ -1,28 +1,27 @@
-import { Container } from '@/components/sections/layout/container';
-import { Section } from '@/components/sections/layout/section';
-import ServicesCard from '@/features/services/components/ServicesCard';
-import { SectionReview } from '@/features/services/section/services/reviews/secitonReview';
+import { TitleSection } from '@/components/utils/titleSection';
+import { InforShorts } from '@/features/events/components/inforShorts';
+import { AddRentalForm } from '@/features/rentals/sections/addRentalForm';
 
-interface EventPageProps {
-  params: {
-    id: string;
-  };
-  searchParams?: { [key: string]: string | string[] | undefined };
+interface Props {
+  params: Promise<{
+    idEvent: string;
+  }>;
 }
 
-export default function Event({ params }: EventPageProps) {
-  const servicesId = parseInt(params.id, 10);
+export default async function AddRental({ params }: Props) {
+  // Resolvemos la promesa de params
+  const { idEvent } = await params;
 
-  if (isNaN(servicesId)) {
-    return <div>Error: Invalid service ID</div>;
-  }
+  // Convertimos el ID del evento a número
+  const eventId = parseInt(idEvent, 10);
 
   return (
-    <Container>
-      <Section>
-        <ServicesCard id={servicesId} />
-      </Section>
-      <SectionReview serviceId={servicesId} />
-    </Container>
+    <div className="container mx-auto py-6 flex flex-col md:flex-row justify-center relative gap-6">
+      <div className="sticky top-20 ">
+        <TitleSection description="Evento" title="" />
+        <InforShorts idEvent={eventId} />
+      </div>
+      <AddRentalForm idEvent={eventId} />
+    </div>
   );
 }

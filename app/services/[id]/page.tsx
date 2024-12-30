@@ -4,18 +4,18 @@ import ServicesCard from '@/features/services/components/ServicesCard';
 import { SectionReview } from '@/features/services/section/services/reviews/secitonReview';
 
 interface EventPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
   searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-export default function Event({ params }: EventPageProps) {
-  const servicesId = parseInt(params.id, 10);
+export default async function Event({ params }: EventPageProps) {
+  // Resolvemos la promesa de params
+  const { id } = await params;
 
-  if (isNaN(servicesId)) {
-    return <div>Error: Invalid service ID</div>;
-  }
+  // Convertimos el ID de servicio a número
+  const servicesId = parseInt(id, 10);
 
   return (
     <Container>

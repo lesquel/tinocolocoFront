@@ -3,15 +3,18 @@ import { Section } from '@/components/sections/layout/section';
 import { GetEventsByCategory } from '@/features/events/section/category/category';
 
 interface CategoryEventProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
   searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-export default function CategoryEvent({ params }: CategoryEventProps) {
-  const { id } = params;
-  const idcategory = parseInt(id, 10);
+export default async function CategoryEvent({ params }: CategoryEventProps) {
+  // Resolvemos la promesa de params
+  const { id } = await params;
+
+  // Convertimos el ID a número
+  const idcategory = Number(id);
 
   return (
     <Container>

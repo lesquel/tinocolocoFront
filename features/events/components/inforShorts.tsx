@@ -14,7 +14,6 @@ export function InforShorts({ idEvent }: { idEvent: number }) {
   const { data, error, isLoading } = useApiRequest(fetchEvent);
 
   if (error) notFound();
-  if (!data) notFound();
 
   if (isLoading) {
     return (
