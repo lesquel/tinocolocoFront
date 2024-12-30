@@ -80,7 +80,7 @@ export default function AboutSection() {
         <div className="w-full md:w-1/2">
           <Image
             alt="Sobre nosotros"
-            src={data.business_logo_url || No_fount_business.src}
+            src={data ? data.business_logo_url : No_fount_business.src}
             width={400}
             height={400}
           />
