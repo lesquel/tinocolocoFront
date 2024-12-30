@@ -13,8 +13,6 @@ import {
   CardHeader,
 } from '@nextui-org/react';
 import { FaEdit, FaTrash } from 'react-icons/fa'; // Importa los iconos
-// import debounce from "lodash.debounce";
-
 import No_fount_events from '@/public/images/no_fount_events.jpg';
 import { TableLoading } from '@/components/utils/loagins/tableLoading';
 const URL_BACKEND = 'https://tinocoloco.onrender.com/admin/';

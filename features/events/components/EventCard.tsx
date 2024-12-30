@@ -8,12 +8,9 @@ import {
   AccordionItem,
 } from '@nextui-org/react';
 import { useCallback } from 'react';
-
 import { getEvent } from '../services/events';
-
 import { ChipCategory } from './chipCategoy';
 import { ConditionalRentalButton } from './buttonAlquiler';
-
 import { useApiRequest } from '@/hooks/useApiRequest';
 import { ImageCarousel } from '@/components/utils/carucelImg';
 import { getTokenFromCookie } from '@/features/auth/utils/getUserInfo';

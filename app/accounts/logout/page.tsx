@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Card, CardBody, CardFooter, Button } from '@nextui-org/react';
-
 import { logout } from '@/features/auth/utils/logout';
 import { isLogin } from '@/features/auth/utils/isLogin';
 

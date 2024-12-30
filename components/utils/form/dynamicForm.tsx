@@ -3,9 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Input, Textarea, Select, SelectItem } from '@nextui-org/react';
 import { useForm, Controller } from 'react-hook-form';
-
 import { CustomCheckbox } from './checkboxForm';
-
 import { FieldConfig, FormConfig } from '@/interfaces/IUform';
 
 interface DynamicFormProps<T> {

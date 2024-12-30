@@ -2,8 +2,7 @@ import { Link } from '@nextui-org/react';
 import { MdAlternateEmail } from 'react-icons/md';
 import { CiPhone } from 'react-icons/ci';
 import { TbWorld } from 'react-icons/tb';
-
-import { ConfigurationBusiness } from '@/interfaces/IUBusiness';
+import { IUBusiness } from '@/interfaces/IUBusiness';
 
 interface LinkProps {
   name: string;
@@ -21,7 +20,7 @@ const ContactLink: React.FC<LinkProps> = ({ name, value, icon }) => (
   </Link>
 );
 
-export const ContactInfo: React.FC<{ business: ConfigurationBusiness }> = ({
+export const ContactInfo: React.FC<{ business: IUBusiness }> = ({
   business,
 }) => (
   <div className="flex flex-col gap-4 items-center">

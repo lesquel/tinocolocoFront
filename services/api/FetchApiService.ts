@@ -1,6 +1,5 @@
 import { ApiService } from '@/interfaces/IUApiservices';
 import { TypeMethod } from '@/types/typeMethod';
-import { notFound } from 'next/navigation';
 import toast from 'react-hot-toast';
 
 // const host = process.env.NEXT_PUBLIC_BACKEND_HOST || "http://localhost:8000/";

@@ -1,6 +1,5 @@
 'use client';
 import { useCallback, useMemo } from 'react';
-
 import { CardBasic } from '@/components/utils/cardBasic';
 import { SearchableListSection } from '@/components/sections/listComponent/searchListSection';
 import { IUService } from '@/interfaces/IUservices';

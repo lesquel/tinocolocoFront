@@ -1,6 +1,5 @@
 import { Card, Image } from '@nextui-org/react';
 import Link from 'next/link';
-
 import No_Found_Event from '@/public/images/no_fount_events.jpg';
 
 // Define the reusable Card component props interface

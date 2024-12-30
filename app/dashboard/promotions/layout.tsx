@@ -1,4 +1,3 @@
-import { NavInfo } from '@/features/dashboard/components/navInfo';
 
 export default function DashboardServicesLayout({
   children,

@@ -1,6 +1,5 @@
 'use client';
 
-import { CardInfoLoadin } from '@/components/utils/loagins/cardInfoLoading';
 import { TitleSection } from '@/components/utils/titleSection';
 import { getBusiness } from '@/features/business/services/businessServices';
 import { useApiRequest } from '@/hooks/useApiRequest';

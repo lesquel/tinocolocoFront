@@ -4,7 +4,6 @@ import { TitleSection } from '@/components/utils/titleSection';
 import { getMostRankingServices } from '@/features/services/services/services';
 import { useApiRequest } from '@/hooks/useApiRequest';
 import ReactECharts from 'echarts-for-react';
-import { get } from 'http';
 import { useCallback } from 'react';
 
 export function ServiceMostRantingGraphic() {

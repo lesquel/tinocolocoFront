@@ -18,8 +18,7 @@ import {
 } from '@nextui-org/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { MdCheck, MdExpandMore } from 'react-icons/md';
-
+import {  MdExpandMore } from 'react-icons/md';
 import { siteConfig } from '@/config/site';
 import { getTokenFromCookie } from '@/features/auth/utils/getUserInfo';
 import { IUUser, Role } from '@/interfaces/IUser';

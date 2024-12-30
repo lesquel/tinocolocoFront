@@ -1,7 +1,6 @@
 'use client';
 
 import { Button, Link } from '@nextui-org/react';
-
 import EventosBanner from '@/public/images/e.jpg';
 
 export const Banner = () => {

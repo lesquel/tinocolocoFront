@@ -3,9 +3,7 @@ import { Card, CardHeader, CardBody, CardFooter } from '@nextui-org/react';
 import { Avatar } from '@nextui-org/react';
 import { useCallback } from 'react';
 import { FaStar } from 'react-icons/fa6';
-
 import { ReviewsLoading } from '../loagins/reviewsLoading';
-
 import { useApiRequest } from '@/hooks/useApiRequest';
 import { getUser } from '@/features/auth/services/auth';
 

@@ -10,7 +10,6 @@ import {
   Button,
   Divider,
   Tooltip,
-  User,
   Progress,
 } from '@nextui-org/react';
 import { CiEdit } from 'react-icons/ci';

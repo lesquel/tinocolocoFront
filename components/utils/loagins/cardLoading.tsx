@@ -1,5 +1,4 @@
-import { Spacer, Card } from '@nextui-org/react';
-
+import {  Card } from '@nextui-org/react';
 import { TitleSection } from '../titleSection';
 
 export const CardLoadingBasic = () => (

@@ -2,7 +2,6 @@
 
 import { ContactInfo } from './ContactInfo';
 import { SocialMedia } from './SocialMedia';
-
 import { useApiRequest } from '@/hooks/useApiRequest';
 import { getBusiness } from '@/features/business/services/businessServices';
 import { Skeleton } from '@nextui-org/react';

@@ -19,7 +19,6 @@ import {
 } from '@/features/rentals/services/rentals';
 import { useAsyncAction } from '@/hooks/useAsyncAction';
 import { FormConfig } from '@/interfaces/IUform';
-import { IUcodeEmail } from '@/interfaces/IUser';
 import { useErrorsForm } from '@/services/utils/useErrosForm';
 
 export function ModalVerifyEmailRental({ rentalId }: { rentalId: number }) {

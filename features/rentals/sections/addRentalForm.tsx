@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback, useMemo } from 'react';
+import {  useState, useCallback, useMemo } from 'react';
 import { Button, Card, CardBody } from '@nextui-org/react';
 import { FaPlus, FaMinus } from 'react-icons/fa6';
 
@@ -12,7 +12,6 @@ import { SimpleService } from '@/features/rentals/components/simpleService';
 import { AddServices } from '@/features/rentals/sections/addServices';
 import DynamicForm from '@/components/utils/form/dynamicForm';
 import { createRentalConfig } from '@/features/rentals/utils/addRentalCondig';
-import { FormConfig } from '@/interfaces/IUform';
 import { useApiRequest } from '@/hooks/useApiRequest';
 import { getPromotions } from '../../promotions_/services/promotions';
 import { IURental, IUServiceToRentalAdd } from '@/interfaces/IURental';

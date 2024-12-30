@@ -2,7 +2,7 @@ import { Link } from '@nextui-org/react';
 import { CiFacebook, CiInstagram } from 'react-icons/ci';
 import { FaXTwitter } from 'react-icons/fa6';
 
-import { ConfigurationBusiness } from '@/interfaces/IUBusiness';
+import { IUBusiness } from '@/interfaces/IUBusiness';
 
 interface SocialLinkProps {
   name: string;
@@ -20,7 +20,7 @@ const SocialLink: React.FC<SocialLinkProps> = ({ name, value, icon }) => (
   </Link>
 );
 
-export const SocialMedia: React.FC<{ business: ConfigurationBusiness }> = ({
+export const SocialMedia: React.FC<{ business: IUBusiness }> = ({
   business,
 }) => (
   <div className="flex flex-col gap-4 items-center">

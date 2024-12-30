@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-
 import { TitleSection } from '@/components/utils/titleSection';
 import { SearchForm } from '@/components/utils/SearchForm';
 import { ListComponent } from '@/components/sections/listComponent/listComponent';

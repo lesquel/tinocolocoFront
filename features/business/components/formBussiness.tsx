@@ -1,6 +1,5 @@
 'use client';
 import { getBusiness, updateBusiness } from '../services/businessServices';
-
 import DynamicForm from '@/components/utils/form/dynamicForm';
 import { businessFormConfig } from '@/features/business/utils/businessFormConfig';
 import { useApiRequest } from '@/hooks/useApiRequest';

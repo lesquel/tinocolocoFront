@@ -1,5 +1,4 @@
 import { Link } from '@nextui-org/react';
-
 import { siteConfig } from '@/config/site';
 
 export const QuickLinks = () => (

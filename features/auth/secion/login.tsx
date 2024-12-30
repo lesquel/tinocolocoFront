@@ -22,7 +22,6 @@ import { TitleSection } from '@/components/utils/titleSection';
 import { RestauerasePasswordModal } from '../components/modalResectPassword';
 
 export const Login = () => {
-  const router = useRouter();
   const [isClient, setIsClient] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 

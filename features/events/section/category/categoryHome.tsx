@@ -1,7 +1,5 @@
 import { useCallback } from 'react';
-
 import { getCategorys } from '../../services/events';
-
 import { IUCategory, IUCategorys } from '@/interfaces/IUevents';
 import { useApiRequest } from '@/hooks/useApiRequest';
 import { TitleSection } from '@/components/utils/titleSection';

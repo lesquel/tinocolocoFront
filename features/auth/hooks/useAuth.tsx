@@ -1,7 +1,5 @@
 import { useState } from 'react';
-
 import { useAsyncAction } from '../../../hooks/useAsyncAction';
-
 import { IURegister } from '@/interfaces/IUauth';
 import { saveToken } from '@/features/auth/utils/saveUserInfo';
 

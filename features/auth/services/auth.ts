@@ -4,9 +4,7 @@ import type {
   IUGetUsers,
   IUSendPasswordResetCode,
 } from '@/interfaces/IUauth';
-
 import { getTokenFromCookie } from '../utils/getUserInfo';
-
 import { FetchApiService } from '@/services/api/FetchApiService';
 import { endPoints } from '@/config/endPoints';
 import {

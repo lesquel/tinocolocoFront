@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import { Skeleton } from '@nextui-org/react';
-
 import { getBusiness } from '@/features/business/services/businessServices';
 import { useApiRequest } from '@/hooks/useApiRequest';
 import { IUBusiness } from '@/interfaces/IUBusiness';

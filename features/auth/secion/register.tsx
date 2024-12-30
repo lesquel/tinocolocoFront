@@ -10,7 +10,6 @@ import { useForm } from 'react-hook-form';
 import { useState, useEffect } from 'react';
 import { FaEyeSlash, FaEye, FaLock, FaUser } from 'react-icons/fa';
 import { IoIosMail } from 'react-icons/io';
-
 import { IURegister } from '@/interfaces/IUauth';
 import { useAuth } from '@/features/auth/hooks/useAuth';
 import { validationRules } from '@/features/auth/utils/validations';

@@ -2,9 +2,7 @@
 
 import { useCallback } from 'react';
 import { Card, CardBody, CardHeader, Image } from '@nextui-org/react';
-
 import { getEvent } from '../services/events';
-
 import { useApiRequest } from '@/hooks/useApiRequest';
 import NoFountEvent from '@/public/images/no_fount_events.jpg';
 import { CardLoadingBasic } from '@/components/utils/loagins/cardLoading';

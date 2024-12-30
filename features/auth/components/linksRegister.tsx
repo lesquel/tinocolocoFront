@@ -12,7 +12,6 @@ import {
 } from '@nextui-org/react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-
 import { siteConfig } from '@/config/site';
 import { getTokenFromCookie } from '@/features/auth/utils/getUserInfo';
 import { IUUser, Role } from '@/interfaces/IUser';

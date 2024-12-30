@@ -4,7 +4,6 @@ import { TitleSection } from '@/components/utils/titleSection';
 import { getMostPopularEvents } from '@/features/events/services/events';
 import { useApiRequest } from '@/hooks/useApiRequest';
 import ReactECharts from 'echarts-for-react';
-import { color } from 'framer-motion';
 import { useCallback } from 'react';
 export function EventsMostPopularGraphic() {
   const fetchMosdtPopularServices = useCallback(
