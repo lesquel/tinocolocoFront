@@ -1,23 +1,28 @@
 import { Container } from '@/components/sections/layout/container';
 import { Section } from '@/components/sections/layout/section';
-import { SectionReview } from '@/features/events/section/events/review/secitonReview';
-import EventCard from '@/features/events/components/EventCard';
+import { GetEventsByCategory } from '@/features/events/section/category/category';
 
-interface EventPageProps {
+type Props = {
   params: {
     id: string;
   };
+  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-export default async function Event({ params }: EventPageProps) {
-  const eventId = await getEvent(params.id)
+const Page = ({ params }: Props) => {
+  const idcategory = parseInt(params.id, 10);
 
   return (
     <Container>
       <Section>
-        <EventCard id={eventId} />
+        <GetEventsByCategory
+          idcategory={idcategory}
+          infoComponent={{ title: 'Todos', description: 'Los Eventos' }}
+          size={10}
+        />
       </Section>
-      <SectionReview eventId={eventId} />
     </Container>
   );
 }
+
+export default Page;
