@@ -2,14 +2,14 @@ import { Container } from '@/components/sections/layout/container';
 import { Section } from '@/components/sections/layout/section';
 import { GetEventsByCategory } from '@/features/events/section/category/category';
 
-type Props = {
+interface PageProps {
   params: {
     id: string;
   };
   searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-const Page = ({ params }: Props) => {
+const Page = async ({ params }: PageProps) => {
   const idcategory = parseInt(params.id, 10);
 
   return (
