@@ -1,5 +1,3 @@
-"use client";
-
 import { Container } from '@/components/sections/layout/container';
 import { Section } from '@/components/sections/layout/section';
 import { SectionReview } from '@/features/events/section/events/review/secitonReview';
