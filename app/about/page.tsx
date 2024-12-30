@@ -3,7 +3,7 @@
 import { TitleSection } from '@/components/utils/titleSection';
 import { getBusiness } from '@/features/business/services/businessServices';
 import { useApiRequest } from '@/hooks/useApiRequest';
-import { Card, CardBody, Button, Image } from '@nextui-org/react';
+import { Card, CardBody, Image } from '@nextui-org/react';
 import { AboutSectionSkeleton } from '@/components/utils/loagins/about';
 import No_fount_business from '@/public/images/no_fount_events.jpg';
 import Miquel from '@/public/images/miquel.jpeg';
