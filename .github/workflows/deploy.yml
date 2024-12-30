@@ -40,5 +40,5 @@ jobs:
           project: "soquel-tinocolocof-96"
           entrypoint: "jsr:@deno/nextjs-start"
           root: "."
-          include: .next, public
+          
           
