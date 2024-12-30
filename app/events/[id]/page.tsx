@@ -3,14 +3,9 @@ import { Section } from '@/components/sections/layout/section';
 import { SectionReview } from '@/features/events/section/events/review/secitonReview';
 import EventCard from '@/features/events/components/EventCard';
 
-interface EventPageProps {
-  params: {
-    id: string;
-  };
-}
 
-export default function Event({ params }: EventPageProps) {
-  const eventId = parseInt(params.id, 10);
+export default async function Event({ params }: EventPageProps) {
+  const eventId = await getEvent(params.id)
 
   return (
     <Container>
