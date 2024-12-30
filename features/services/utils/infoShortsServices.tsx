@@ -13,7 +13,7 @@ const InfoShortsServices = ({ data }: { data: IUService }) => {
   return (
     <Card className="my-4 max-w-sm">
       <Link
-        href={`/rentals/${data.id}`}
+        href={`/services/${data.id}`}
         className="hover:scale-105 transition-all"
       >
         <CardHeader className="flex-col items-start">
