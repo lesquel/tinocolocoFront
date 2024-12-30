@@ -48,7 +48,6 @@ export default function Home() {
 
           <div className="p-8 rounded-lg shadow-lg">
             <TitleSection
-              classnames="text-center"
               description="nuestros servicios"
               title="Conoce más de"
             />
