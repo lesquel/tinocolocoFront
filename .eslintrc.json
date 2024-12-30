@@ -4,8 +4,7 @@
     "node": true
   },
   "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
+     "next/core-web-vitals",
   ],
   "parserOptions": {
     "ecmaVersion": 2020,
