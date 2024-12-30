@@ -1,6 +1,6 @@
-"use client";
-import { Tabs, Tab } from "@nextui-org/react";
-import { usePathname, useRouter } from "next/navigation";
+'use client';
+import { Tabs, Tab } from '@nextui-org/react';
+import { usePathname, useRouter } from 'next/navigation';
 
 interface NavInfoProps {
   urls: {
@@ -22,10 +22,10 @@ export const NavInfo = ({ urls }: NavInfoProps) => {
       <Tabs
         aria-label="Navigation"
         classNames={{
-          tabList: "bg-zinc-900 p-0.5",
-          tab: "text-zinc-400 data-[selected=true]:text-white",
-          cursor: "bg-blue-600",
-          panel: "pt-2",
+          tabList: 'bg-zinc-900 p-0.5',
+          tab: 'text-zinc-400 data-[selected=true]:text-white',
+          cursor: 'bg-blue-600',
+          panel: 'pt-2',
         }}
         radius="full"
         selectedKey={pathname}

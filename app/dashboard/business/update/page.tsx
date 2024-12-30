@@ -1,5 +1,5 @@
-import { TitleSection } from "@/components/utils/titleSection";
-import { FormBusiness } from "@/features/business/components/formBussiness";
+import { TitleSection } from '@/components/utils/titleSection';
+import { FormBusiness } from '@/features/business/components/formBussiness';
 
 export default function UpdateBusiness() {
   return (

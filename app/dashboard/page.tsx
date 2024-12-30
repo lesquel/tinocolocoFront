@@ -1,4 +1,4 @@
-import HomeDashboard from "@/features/dashboard/section/home";
+import HomeDashboard from '@/features/dashboard/section/home';
 
 export default function Dashboard() {
   return (

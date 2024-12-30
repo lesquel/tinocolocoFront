@@ -1,4 +1,4 @@
-import { NavInfo } from "@/features/dashboard/components/navInfo";
+import { NavInfo } from '@/features/dashboard/components/navInfo';
 
 export default function DashboardServicesLayout({
   children,
@@ -14,8 +14,7 @@ export default function DashboardServicesLayout({
       /> */}
       <div>
         <div className="flex flex-col items-center justify-center w-full max-w-6xl mx-auto">
-
-      {children}
+          {children}
         </div>
       </div>
     </>

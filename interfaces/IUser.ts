@@ -1,6 +1,6 @@
 export enum Role {
-  COSTUMER = "costumer",
-  ADMIN = "admin",
+  COSTUMER = 'costumer',
+  ADMIN = 'admin',
 }
 
 export interface IUGetUser {

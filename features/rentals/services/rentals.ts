@@ -1,14 +1,14 @@
-import { endPoints } from "@/config/endPoints";
-import { getTokenFromCookie } from "@/features/auth/utils/getUserInfo";
+import { endPoints } from '@/config/endPoints';
+import { getTokenFromCookie } from '@/features/auth/utils/getUserInfo';
 import {
   IURental,
   IURentals,
   IUServicesToRental,
   IUServiceToRentalAdd,
-} from "@/interfaces/IURental";
-import { IUReview } from "@/interfaces/IUReview";
-import { FetchApiService } from "@/services/api/FetchApiService";
-import { construcUrl } from "@/services/utils/construcUrl";
+} from '@/interfaces/IURental';
+import { IUReview } from '@/interfaces/IUReview';
+import { FetchApiService } from '@/services/api/FetchApiService';
+import { construcUrl } from '@/services/utils/construcUrl';
 
 const api = new FetchApiService();
 
@@ -42,7 +42,7 @@ export const getMyRentals = async ({ options }: { options?: any }) => {
   const response = await api.get<IURentals>({
     url:
       endPoints.rentals.myRentals.get +
-      (options ? construcUrl({ options }) : ""),
+      (options ? construcUrl({ options }) : ''),
     options: {
       headers: {
         Authorization: `token ${getTokenFromCookie()?.token}`,
@@ -53,14 +53,14 @@ export const getMyRentals = async ({ options }: { options?: any }) => {
   return response;
 };
 
-export const confirmRental = async ({data}: {data: any}) => {
+export const confirmRental = async ({ data }: { data: any }) => {
   const response = await api.post<IURentals>({
     url: endPoints.rentals.confirmRentalEmail.post,
     body: JSON.stringify(data),
     options: {
       headers: {
         Authorization: `token ${getTokenFromCookie()?.token}`,
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     },
   });
@@ -70,12 +70,15 @@ export const confirmRental = async ({data}: {data: any}) => {
 
 export const sendConfirmationEmail = async (data: any) => {
   const response = await api.post<IURentals>({
-    url: endPoints.rentals.get + data.idRental + endPoints.rentals.confirmRental.post,
+    url:
+      endPoints.rentals.get +
+      data.idRental +
+      endPoints.rentals.confirmRental.post,
     body: JSON.stringify(data),
     options: {
       headers: {
         Authorization: `token ${getTokenFromCookie()?.token}`,
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     },
   });
@@ -89,7 +92,7 @@ export const createRental = async (data: any) => {
     options: {
       headers: {
         Authorization: `token ${getTokenFromCookie()?.token}`,
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     },
   });
@@ -104,7 +107,7 @@ export const updateRental = async (data: any) => {
     options: {
       headers: {
         Authorization: `token ${getTokenFromCookie()?.token}`,
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     },
   });
@@ -118,7 +121,7 @@ export const removeServiceFromRental = async (data: any) => {
     options: {
       headers: {
         Authorization: `token ${getTokenFromCookie()?.token}`,
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     },
   });
@@ -139,7 +142,7 @@ export const addServiceToRental = async ({
     options: {
       headers: {
         Authorization: `token ${getTokenFromCookie()?.token}`,
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     },
   });
@@ -154,7 +157,7 @@ export const addReview = async (data: IUReview, id: number) => {
     options: {
       headers: {
         Authorization: `token ${getTokenFromCookie()?.token}`,
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     },
   });
@@ -162,17 +165,19 @@ export const addReview = async (data: IUReview, id: number) => {
   return response;
 };
 
-
-
-export const getServicesToRental = async ({ rentalId }: { rentalId: number }) => {
+export const getServicesToRental = async ({
+  rentalId,
+}: {
+  rentalId: number;
+}) => {
   const response = await api.get<IUServicesToRental[]>({
     url: endPoints.rentals.get + rentalId + endPoints.rentals.services.get,
     options: {
       headers: {
         Authorization: `token ${getTokenFromCookie()?.token}`,
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     },
   });
   return response;
-}
+};

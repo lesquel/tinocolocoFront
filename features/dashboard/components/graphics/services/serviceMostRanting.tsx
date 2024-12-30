@@ -1,11 +1,11 @@
-"use client";
-import { GraphicLoading } from "@/components/utils/loagins/graphicLoading";
-import { TitleSection } from "@/components/utils/titleSection";
-import { getMostRankingServices } from "@/features/services/services/services";
-import { useApiRequest } from "@/hooks/useApiRequest";
-import ReactECharts from "echarts-for-react";
-import { get } from "http";
-import { useCallback } from "react";
+'use client';
+import { GraphicLoading } from '@/components/utils/loagins/graphicLoading';
+import { TitleSection } from '@/components/utils/titleSection';
+import { getMostRankingServices } from '@/features/services/services/services';
+import { useApiRequest } from '@/hooks/useApiRequest';
+import ReactECharts from 'echarts-for-react';
+import { get } from 'http';
+import { useCallback } from 'react';
 
 export function ServiceMostRantingGraphic() {
   const fetchMostPopularServices = useCallback(
@@ -13,7 +13,7 @@ export function ServiceMostRantingGraphic() {
       getMostRankingServices({
         size: 5,
       }),
-    []
+    [],
   );
   const { data, error, isLoading } = useApiRequest(fetchMostPopularServices);
 
@@ -26,10 +26,12 @@ export function ServiceMostRantingGraphic() {
   }
 
   if (!data?.results) {
-    return <div>
-      <TitleSection title="Servicios" description="Mejores Calificados" />
-      No hay servicios
-    </div>;
+    return (
+      <div>
+        <TitleSection title="Servicios" description="Mejores Calificados" />
+        No hay servicios
+      </div>
+    );
   }
 
   const dataServices = data.results.map((service) => ({
@@ -39,68 +41,68 @@ export function ServiceMostRantingGraphic() {
 
   const option = {
     tooltip: {
-      trigger: "axis",
+      trigger: 'axis',
       axisPointer: {
-        type: "shadow",
+        type: 'shadow',
       },
-      formatter: "{b}: {c} estrellas",
+      formatter: '{b}: {c} estrellas',
     },
     xAxis: {
-      type: "category",
+      type: 'category',
       data: dataServices.map((service) => service.name),
       axisLabel: {
         rotate: 30, // Rota las etiquetas si son largas
         fontSize: 12,
-        color: "#fff", // Etiquetas en color blanco
+        color: '#fff', // Etiquetas en color blanco
       },
       axisLine: {
         lineStyle: {
-          color: "#ddd",
+          color: '#ddd',
         },
       },
     },
     yAxis: {
-      type: "value",
+      type: 'value',
       axisLabel: {
-        formatter: "{value}",
+        formatter: '{value}',
         fontSize: 12,
-        color: "#fff", // Etiquetas en color blanco
+        color: '#fff', // Etiquetas en color blanco
       },
       splitLine: {
         lineStyle: {
-          type: "dashed",
-          color: "#444", // Líneas de división sutiles
+          type: 'dashed',
+          color: '#444', // Líneas de división sutiles
         },
       },
     },
     series: [
       {
-        name: "Vistas",
-        type: "bar",
+        name: 'Vistas',
+        type: 'bar',
         data: dataServices.map((service) => service.value),
-        barWidth: "50%",
+        barWidth: '50%',
         itemStyle: {
-          color: "#6B5B95", // Color personalizado para las barras
+          color: '#6B5B95', // Color personalizado para las barras
           barBorderRadius: [4, 4, 0, 0], // Bordes redondeados en la parte superior
           shadowBlur: 10,
-          shadowColor: "rgba(0, 0, 0, 0.2)",
+          shadowColor: 'rgba(0, 0, 0, 0.2)',
         },
         emphasis: {
           itemStyle: {
-            color: "#FF6F61", // Color de barra en hover
+            color: '#FF6F61', // Color de barra en hover
             shadowBlur: 15,
-            shadowColor: "rgba(0, 0, 0, 0.4)",
+            shadowColor: 'rgba(0, 0, 0, 0.4)',
           },
         },
       },
     ],
     grid: {
-      left: "10%",
-      right: "10%",
-      bottom: "15%",
-      top: "15%",
+      left: '10%',
+      right: '10%',
+      bottom: '15%',
+      top: '15%',
     },
-    backgroundColor: "#2b2b2b", // Fondo oscuro
+    backgroundColor: '#2b2b2b', // Fondo oscuro
   };
 
   return (

@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
-import { IoMdClose } from "react-icons/io";
-import Link from "next/link";
-import { Button, Card, CardBody } from "@nextui-org/react";
+import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
+import { IoMdClose } from 'react-icons/io';
+import Link from 'next/link';
+import { Button, Card, CardBody } from '@nextui-org/react';
 
-import { getTokenFromCookie } from "@/features/auth/utils/getUserInfo";
-import { siteConfig } from "@/config/site";
+import { getTokenFromCookie } from '@/features/auth/utils/getUserInfo';
+import { siteConfig } from '@/config/site';
 
 interface CustomToastProps {
   t: {
@@ -66,7 +66,7 @@ export function InforVerificationToast() {
         ),
         {
           duration: 5000,
-          position: "bottom-right",
+          position: 'bottom-right',
         },
       );
     }
@@ -82,7 +82,7 @@ export function InforVerificationToast() {
         ),
         {
           duration: 5000,
-          position: "bottom-right",
+          position: 'bottom-right',
         },
       );
     }

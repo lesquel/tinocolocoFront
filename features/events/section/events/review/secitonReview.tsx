@@ -1,10 +1,10 @@
-"use client";
-import { useState, useCallback } from "react";
+'use client';
+import { useState, useCallback } from 'react';
 
-import { Section } from "@/components/sections/layout/section";
-import { ReviewForm } from "@/components/utils/reviews/ReviewForm";
-import { ReviewList } from "@/components/utils/reviews/ReviewList";
-import { addReview, getReviews } from "@/features/events/services/events";
+import { Section } from '@/components/sections/layout/section';
+import { ReviewForm } from '@/components/utils/reviews/ReviewForm';
+import { ReviewList } from '@/components/utils/reviews/ReviewList';
+import { addReview, getReviews } from '@/features/events/services/events';
 
 export const SectionReview = ({ eventId }: { eventId: number }) => {
   const [reviewsKey, setReviewsKey] = useState(0);

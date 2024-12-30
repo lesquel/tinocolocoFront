@@ -1,6 +1,6 @@
-import { Spacer, Card } from "@nextui-org/react";
+import { Spacer, Card } from '@nextui-org/react';
 
-import { TitleSection } from "../titleSection";
+import { TitleSection } from '../titleSection';
 
 export const CardLoadingBasic = () => (
   <Card className="w-[200px] space-y-5 p-4 rounded-xl">

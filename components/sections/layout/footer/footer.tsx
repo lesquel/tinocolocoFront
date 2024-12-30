@@ -1,7 +1,7 @@
-"use client";
-import { QueryClientProvider } from "react-query";
-import { FooterClientContent } from "./FooterClientContent";
-import { QuickLinks } from "./QuickLinks";
+'use client';
+import { QueryClientProvider } from 'react-query';
+import { FooterClientContent } from './FooterClientContent';
+import { QuickLinks } from './QuickLinks';
 
 export function Footer() {
   return (

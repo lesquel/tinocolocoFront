@@ -1,12 +1,12 @@
-"use client";
-import { useCallback, useState } from "react";
+'use client';
+import { useCallback, useState } from 'react';
 
-import { getMyRentals } from "../services/rentals";
-import { CardRental } from "../components/cardRental";
-import { PaginationComponent } from "@/components/utils/pagination";
+import { getMyRentals } from '../services/rentals';
+import { CardRental } from '../components/cardRental';
+import { PaginationComponent } from '@/components/utils/pagination';
 
-import { useApiRequest } from "@/hooks/useApiRequest";
-import { RentalCardLoading } from "@/components/utils/loagins/rentalsCardLoding";
+import { useApiRequest } from '@/hooks/useApiRequest';
+import { RentalCardLoading } from '@/components/utils/loagins/rentalsCardLoding';
 
 interface PaginationResponse<T> {
   amount_of_pages: number;
@@ -24,13 +24,14 @@ export function AllRentals() {
 
   const fetchRentals = useCallback(
     () =>
-      getMyRentals({ options: { page_size: pageSize, page: currentPage } }) as Promise<
-        PaginationResponse<{ id: string;[key: string]: any }>
-      >,
+      getMyRentals({
+        options: { page_size: pageSize, page: currentPage },
+      }) as Promise<PaginationResponse<{ id: string; [key: string]: any }>>,
     [currentPage], // Dependencia para recargar los datos cuando la página cambie
   );
 
-  const { data, error, isLoading } = useApiRequest<PaginationResponse<any>>(fetchRentals);
+  const { data, error, isLoading } =
+    useApiRequest<PaginationResponse<any>>(fetchRentals);
 
   const handlePageChange = (page: number) => {
     if (page >= 1 && data && page <= data.amount_of_pages) {

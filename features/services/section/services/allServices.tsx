@@ -1,12 +1,12 @@
-"use client";
-import { getServices } from "../../services/services";
+'use client';
+import { getServices } from '../../services/services';
 
-import { IUService } from "@/interfaces/IUservices";
-import { CardBasic } from "@/components/utils/cardBasic";
-import { endPoints } from "@/config/endPoints";
-import NoFountEvent from "@/public/images/no_fount_events.jpg";
-import { SearchableListSection } from "@/components/sections/listComponent/searchListSection";
-import { searchFieldsServices } from "../../utils/searchFielServices";
+import { IUService } from '@/interfaces/IUservices';
+import { CardBasic } from '@/components/utils/cardBasic';
+import { endPoints } from '@/config/endPoints';
+import NoFountEvent from '@/public/images/no_fount_events.jpg';
+import { SearchableListSection } from '@/components/sections/listComponent/searchListSection';
+import { searchFieldsServices } from '../../utils/searchFielServices';
 
 export function AllServices({
   size,
@@ -33,7 +33,7 @@ export function AllServices({
           imageKey="photos"
           item={service}
           titleKey="service_name"
-          url={"/services/"}
+          url={'/services/'}
         />
       )}
       title={infoComponent.title}

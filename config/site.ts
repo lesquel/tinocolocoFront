@@ -1,79 +1,78 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Next.js + NextUI",
-  description: "Make beautiful websites regardless of your design experience.",
+  name: 'Next.js + NextUI',
+  description: 'Make beautiful websites regardless of your design experience.',
   navItems: {
     home: {
-      label: "Home",
-      href: "/",
+      label: 'Home',
+      href: '/',
     },
     events: {
-      label: "Eventos",
-      href: "/events",
+      label: 'Eventos',
+      href: '/events',
     },
     services: {
-      label: "Servicios",
-      href: "/services",
+      label: 'Servicios',
+      href: '/services',
     },
     blog: {
-      label: "Blog",
-      href: "/blog",
+      label: 'Blog',
+      href: '/blog',
     },
     about: {
-      label: "About",
-      href: "/about",
+      label: 'About',
+      href: '/about',
     },
   },
   navItemsHeader: {
-  
     blog: {
-      label: "Promociones",
-      href: "/promotions",
+      label: 'Promociones',
+      href: '/promotions',
     },
     about: {
-      label: "About",
-      href: "/about",
+      label: 'About',
+      href: '/about',
     },
   },
   navMenuItems: {
     rentals: {
-      label: "Rentals",
-      href: "/rentals",
+      label: 'Rentals',
+      href: '/rentals',
       add: {
-        href: "/rentals/add",
+        href: '/rentals/add',
       },
       myRentals: {
-        href: "/rentals",
+        href: '/rentals',
       },
     },
     myRentals: {
-      label: "Mis reservas",
-      href: "/rentals",
+      label: 'Mis reservas',
+      href: '/rentals',
     },
     account: {
-      label: "Cuentas",
-      href: "/accounts",
+      label: 'Cuentas',
+      href: '/accounts',
     },
     edit: {
-      label: "Editar Cuenta",
-      href: "/accounts/edit",
+      label: 'Editar Cuenta',
+      href: '/accounts/edit',
     },
     login: {
-      label: "Iniciar sesion",
-      href: "/accounts/login",
+      label: 'Iniciar sesion',
+      href: '/accounts/login',
     },
     register: {
-      label: "Crear cuenta",
-      href: "/accounts/register",
+      label: 'Crear cuenta',
+      href: '/accounts/register',
     },
     logout: {
-      label: "Cerrar sesion",
-      href: "/accounts/logout",
+      label: 'Cerrar sesion',
+      href: '/accounts/logout',
     },
     dashboard: {
-      label: "Dashboard",
-      href: "/dashboard",
+      label: 'Dashboard',
+      href: '/dashboard',
     },
   },
 };

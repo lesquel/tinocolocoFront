@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { ContactInfo } from "./ContactInfo";
-import { SocialMedia } from "./SocialMedia";
+import { ContactInfo } from './ContactInfo';
+import { SocialMedia } from './SocialMedia';
 
-import { useApiRequest } from "@/hooks/useApiRequest";
-import { getBusiness } from "@/features/business/services/businessServices";
-import { Skeleton } from "@nextui-org/react";
+import { useApiRequest } from '@/hooks/useApiRequest';
+import { getBusiness } from '@/features/business/services/businessServices';
+import { Skeleton } from '@nextui-org/react';
 
 export function FooterClientContent() {
   const { data, error, isLoading } = useApiRequest(getBusiness);
@@ -13,7 +13,9 @@ export function FooterClientContent() {
 
   if (error) {
     return (
-      <div className="text-danger">Error cargando la informacion del neogio</div>
+      <div className="text-danger">
+        Error cargando la informacion del neogio
+      </div>
     );
   }
 
@@ -47,7 +49,11 @@ export function FooterClientContent() {
   }
 
   if (!business) {
-    return <div className="text-foreground-600">No se encontró información del negocio...</div>;
+    return (
+      <div className="text-foreground-600">
+        No se encontró información del negocio...
+      </div>
+    );
   }
 
   return (

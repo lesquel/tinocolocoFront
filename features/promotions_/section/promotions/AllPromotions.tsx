@@ -1,10 +1,10 @@
-"use client";
-import { endPoints } from "@/config/endPoints";
-import { SearchableListSection } from "@/components/sections/listComponent/searchListSection";
-import { CardPromotions } from "../../components/CardPromotions";
-import { IUPromotion } from "@/interfaces/IUPromotions";
-import { getPromotions } from "../../services/promotions";
-import { searchFieldsPromotions } from "../../utils/seacrFieldsPromotions";
+'use client';
+import { endPoints } from '@/config/endPoints';
+import { SearchableListSection } from '@/components/sections/listComponent/searchListSection';
+import { CardPromotions } from '../../components/CardPromotions';
+import { IUPromotion } from '@/interfaces/IUPromotions';
+import { getPromotions } from '../../services/promotions';
+import { searchFieldsPromotions } from '../../utils/seacrFieldsPromotions';
 
 export function AllPromotions({
   size,
@@ -24,10 +24,7 @@ export function AllPromotions({
       pageSize={size}
       searchFields={searchFieldsPromotions}
       renderCard={(promotion) => (
-        <CardPromotions
-          key={promotion.id}
-          promotion={promotion}
-        />
+        <CardPromotions key={promotion.id} promotion={promotion} />
       )}
       title={infoComponent.title}
     />

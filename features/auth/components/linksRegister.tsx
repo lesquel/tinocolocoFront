@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   NavbarContent,
@@ -9,14 +9,14 @@ import {
   DropdownItem,
   Avatar,
   Button,
-} from "@nextui-org/react";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+} from '@nextui-org/react';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
-import { siteConfig } from "@/config/site";
-import { getTokenFromCookie } from "@/features/auth/utils/getUserInfo";
-import { IUUser, Role } from "@/interfaces/IUser";
-import User from "@/public/images/user.png";
+import { siteConfig } from '@/config/site';
+import { getTokenFromCookie } from '@/features/auth/utils/getUserInfo';
+import { IUUser, Role } from '@/interfaces/IUser';
+import User from '@/public/images/user.png';
 export const LinksRegister = () => {
   const [userInfo, setUserInfo] = useState<IUUser | null>(null);
 
@@ -62,7 +62,7 @@ export const LinksRegister = () => {
                   size="sm"
                   src={User.src}
                 />
-                <span>{userInfo?.user?.username ?? "Usuario"}</span>
+                <span>{userInfo?.user?.username ?? 'Usuario'}</span>
               </div>
             </DropdownTrigger>
           </NavbarItem>

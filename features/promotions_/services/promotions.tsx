@@ -1,27 +1,28 @@
-import { FetchApiService } from "@/services/api/FetchApiService";
-import { endPoints } from "@/config/endPoints";
-import { IUPromotionCategory, IUPromotions } from "@/interfaces/IUPromotions";
-import { IUCategorys } from "@/interfaces/IUevents";
-import exp from "constants";
-import { IUReview } from "@/interfaces/IUReview";
-import { getTokenFromCookie } from "@/features/auth/utils/getUserInfo";
-import { construcUrl } from "@/services/utils/construcUrl";
+import { FetchApiService } from '@/services/api/FetchApiService';
+import { endPoints } from '@/config/endPoints';
+import { IUPromotionCategory, IUPromotions } from '@/interfaces/IUPromotions';
+import { IUCategorys } from '@/interfaces/IUevents';
+import exp from 'constants';
+import { IUReview } from '@/interfaces/IUReview';
+import { getTokenFromCookie } from '@/features/auth/utils/getUserInfo';
+import { construcUrl } from '@/services/utils/construcUrl';
 
 const api = new FetchApiService();
 
 export const getPromotions = async (options?: any) => {
   const response = await api.get<IUPromotions>({
-    url: endPoints.promotions.get + (options ? construcUrl({ options }) : ""),
+    url: endPoints.promotions.get + (options ? construcUrl({ options }) : ''),
   });
 
-  console.log("response: images", response);
+  console.log('response: images', response);
 
   return response;
 };
 
-export const getMostPopularPromotions = async ({size}: {size?:number}) => {
+export const getMostPopularPromotions = async ({ size }: { size?: number }) => {
   const response = await api.get<IUPromotions>({
-    url: endPoints.promotions.mostPopular.get + (size ? `?page_size=${size}` : ""),
+    url:
+      endPoints.promotions.mostPopular.get + (size ? `?page_size=${size}` : ''),
   });
   return response;
 };
@@ -29,7 +30,7 @@ export const getMostPopularPromotions = async ({size}: {size?:number}) => {
 export const getMostViewedPromotions = async ({ size }: { size?: number }) => {
   const response = await api.get<IUPromotions>({
     url:
-      endPoints.promotions.mostViewed.get + (size ? `?page_size=${size}` : ""),
+      endPoints.promotions.mostViewed.get + (size ? `?page_size=${size}` : ''),
   });
   return response;
 };
@@ -68,7 +69,7 @@ export const addReview = async (data: IUReview, id: number) => {
     options: {
       headers: {
         Authorization: `token ${getTokenFromCookie()?.token}`,
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     },
   });

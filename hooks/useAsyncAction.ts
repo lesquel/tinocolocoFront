@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export const useAsyncAction = <T>(action: (data: T) => Promise<any>) => {
   const [loading, setLoading] = useState(false);

@@ -1,13 +1,13 @@
-"use client";
-import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
-import { Avatar } from "@nextui-org/react";
-import { useCallback } from "react";
-import { FaStar } from "react-icons/fa6";
+'use client';
+import { Card, CardHeader, CardBody, CardFooter } from '@nextui-org/react';
+import { Avatar } from '@nextui-org/react';
+import { useCallback } from 'react';
+import { FaStar } from 'react-icons/fa6';
 
-import { ReviewsLoading } from "../loagins/reviewsLoading";
+import { ReviewsLoading } from '../loagins/reviewsLoading';
 
-import { useApiRequest } from "@/hooks/useApiRequest";
-import { getUser } from "@/features/auth/services/auth";
+import { useApiRequest } from '@/hooks/useApiRequest';
+import { getUser } from '@/features/auth/services/auth';
 
 interface ReviewListProps {
   fetchReviews: (id: number) => Promise<any>;
@@ -23,8 +23,10 @@ const UserComponent = ({ idUser }: { idUser: number }) => {
   }
 
   return (
-    <h3 className={`text-lg font-semibold ${!userData?.username ? "italic line-through" : ""}`}>
-      {userData?.username || "Usuario eliminado"}
+    <h3
+      className={`text-lg font-semibold ${!userData?.username ? 'italic line-through' : ''}`}
+    >
+      {userData?.username || 'Usuario eliminado'}
     </h3>
   );
 };
@@ -59,8 +61,8 @@ export function ReviewList({ fetchReviews, id }: ReviewListProps) {
                     key={index}
                     className={`h-5 w-5 ${
                       index < review.rating_score
-                        ? "text-yellow-400"
-                        : "text-gray-300"
+                        ? 'text-yellow-400'
+                        : 'text-gray-300'
                     }`}
                   />
                 ))}

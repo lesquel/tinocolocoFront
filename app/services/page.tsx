@@ -1,6 +1,6 @@
-import { Container } from "@/components/sections/layout/container";
-import { Section } from "@/components/sections/layout/section";
-import { AllServices } from "@/features/services/section/services/allServices";
+import { Container } from '@/components/sections/layout/container';
+import { Section } from '@/components/sections/layout/section';
+import { AllServices } from '@/features/services/section/services/allServices';
 
 export default function Events() {
   return (
@@ -9,8 +9,8 @@ export default function Events() {
         <Section>
           <AllServices
             infoComponent={{
-              title: "Servicios",
-              description: "Nuestros servicios",
+              title: 'Servicios',
+              description: 'Nuestros servicios',
             }}
             size={8}
           />

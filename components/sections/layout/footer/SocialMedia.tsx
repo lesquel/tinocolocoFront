@@ -1,8 +1,8 @@
-import { Link } from "@nextui-org/react";
-import { CiFacebook, CiInstagram } from "react-icons/ci";
-import { FaXTwitter } from "react-icons/fa6";
+import { Link } from '@nextui-org/react';
+import { CiFacebook, CiInstagram } from 'react-icons/ci';
+import { FaXTwitter } from 'react-icons/fa6';
 
-import { ConfigurationBusiness } from "@/interfaces/IUBusiness";
+import { ConfigurationBusiness } from '@/interfaces/IUBusiness';
 
 interface SocialLinkProps {
   name: string;
@@ -11,7 +11,11 @@ interface SocialLinkProps {
 }
 
 const SocialLink: React.FC<SocialLinkProps> = ({ name, value, icon }) => (
-  <Link aria-label={name} className="text-white hover:text-[#F43F5E]" href={value}>
+  <Link
+    aria-label={name}
+    className="text-white hover:text-[#F43F5E]"
+    href={value}
+  >
     {icon}
   </Link>
 );

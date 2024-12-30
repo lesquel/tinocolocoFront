@@ -19,7 +19,7 @@ export const CustomCheckbox: React.FC<CustomCheckboxProps> = ({
           onChange={(e) => onChange(e.target.checked)}
         />
         <div
-          className={`w-6 h-6 border-2 rounded-md ${checked ? "bg-blue-500 border-blue-500" : "border-gray-300"} transition-colors`}
+          className={`w-6 h-6 border-2 rounded-md ${checked ? 'bg-blue-500 border-blue-500' : 'border-gray-300'} transition-colors`}
         >
           {checked && (
             <svg

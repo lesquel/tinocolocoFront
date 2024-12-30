@@ -1,4 +1,4 @@
-import { IUImg } from "./IUimg";
+import { IUImg } from './IUimg';
 
 export interface IUEvent {
   id: number;

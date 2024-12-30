@@ -7,26 +7,26 @@ import {
   ModalHeader,
   useDisclosure,
   Chip,
-} from "@nextui-org/react";
-import { useState } from "react";
-import toast from "react-hot-toast";
+} from '@nextui-org/react';
+import { useState } from 'react';
+import toast from 'react-hot-toast';
 
-import DynamicForm from "@/components/utils/form/dynamicForm";
+import DynamicForm from '@/components/utils/form/dynamicForm';
 
 import {
   sendConfirmationEmail,
   confirmRental,
-} from "@/features/rentals/services/rentals";
-import { useAsyncAction } from "@/hooks/useAsyncAction";
-import { FormConfig } from "@/interfaces/IUform";
-import { IUcodeEmail } from "@/interfaces/IUser";
-import { useErrorsForm } from "@/services/utils/useErrosForm";
+} from '@/features/rentals/services/rentals';
+import { useAsyncAction } from '@/hooks/useAsyncAction';
+import { FormConfig } from '@/interfaces/IUform';
+import { IUcodeEmail } from '@/interfaces/IUser';
+import { useErrorsForm } from '@/services/utils/useErrosForm';
 
 export function ModalVerifyEmailRental({ rentalId }: { rentalId: number }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const { error, execute, loading } = useAsyncAction(sendConfirmationEmail);
   const [externalErrors, setExternalErrors] = useState<Record<string, string>>(
-    {}
+    {},
   );
 
   const {
@@ -36,29 +36,29 @@ export function ModalVerifyEmailRental({ rentalId }: { rentalId: number }) {
   } = useAsyncAction<any>(confirmRental);
 
   const sendVerificationEmailAction = (data: any) => {
-    execute({idRental : rentalId}, (response) => {
+    execute({ idRental: rentalId }, (response) => {
       if (response.errors) {
-        toast.error("Error al enviar el código de verificación", {
+        toast.error('Error al enviar el código de verificación', {
           style: {
-            background: "#000000",
-            color: "#FFEBE9",
+            background: '#000000',
+            color: '#FFEBE9',
           },
           iconTheme: {
-            primary: "#FFEBE9",
-            secondary: "#000000",
+            primary: '#FFEBE9',
+            secondary: '#000000',
           },
         });
 
         return;
       }
-      toast.success("Se ha enviado el correo de confirmación", {
+      toast.success('Se ha enviado el correo de confirmación', {
         style: {
-          background: "#000000",
-          color: "#FFEBE9",
+          background: '#000000',
+          color: '#FFEBE9',
         },
         iconTheme: {
-          primary: "#FFEBE9",
-          secondary: "#000000",
+          primary: '#FFEBE9',
+          secondary: '#000000',
         },
       });
     });
@@ -66,19 +66,19 @@ export function ModalVerifyEmailRental({ rentalId }: { rentalId: number }) {
 
   const verificationCodeEmailConfig: FormConfig = {
     confirmation_code: {
-      type: "text",
-      label: "Codigo de verificación",
+      type: 'text',
+      label: 'Codigo de verificación',
       required: true,
       validation: {
-        required: "El codigo de verificación es obligatorio",
+        required: 'El codigo de verificación es obligatorio',
         min: 6,
       },
     },
   };
 
   const onsubmit = (data: any) => {
-    executeVerificationCode({data}, (response) => {
-      console.log("response:", response);
+    executeVerificationCode({ data }, (response) => {
+      console.log('response:', response);
       if (response.errors) {
         useErrorsForm({ response, setExternalErrors });
         return;

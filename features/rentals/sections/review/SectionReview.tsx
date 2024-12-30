@@ -1,16 +1,16 @@
-"use client";
-import { useCallback } from "react";
+'use client';
+import { useCallback } from 'react';
 import {
   Avatar,
   Card,
   CardBody,
   CardFooter,
   CardHeader,
-} from "@nextui-org/react";
-import { FaStar } from "react-icons/fa6";
+} from '@nextui-org/react';
+import { FaStar } from 'react-icons/fa6';
 
-import { useApiRequest } from "@/hooks/useApiRequest";
-import { getUser } from "@/features/auth/services/auth";
+import { useApiRequest } from '@/hooks/useApiRequest';
+import { getUser } from '@/features/auth/services/auth';
 
 const UserComponent = ({ idUser }: { idUser: number }) => {
   const fetchUser = useCallback(() => getUser(idUser), []);
@@ -40,8 +40,8 @@ export const SectionReview = ({ item }: { item: any }) => {
                 key={index}
                 className={`h-5 w-5 ${
                   index < item.rating_score
-                    ? "text-yellow-400"
-                    : "text-gray-300"
+                    ? 'text-yellow-400'
+                    : 'text-gray-300'
                 }`}
               />
             ))}

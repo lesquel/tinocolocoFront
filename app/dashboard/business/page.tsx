@@ -1,5 +1,5 @@
-import { TitleSection } from "@/components/utils/titleSection";
-import { TableBusiness } from "@/features/business/components/tableBussines";
+import { TitleSection } from '@/components/utils/titleSection';
+import { TableBusiness } from '@/features/business/components/tableBussines';
 
 export default function BusinessPage() {
   return (

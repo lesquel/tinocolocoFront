@@ -1,15 +1,18 @@
-import { useCallback } from "react";
+import { useCallback } from 'react';
 
-import { getServiceCategorys } from "@/features/services/services/services";
+import { getServiceCategorys } from '@/features/services/services/services';
 
-import { IUCategory, IUCategorys } from "@/interfaces/IUservices";
-import { useApiRequest } from "@/hooks/useApiRequest";
-import { TitleSection } from "@/components/utils/titleSection";
-import { CategoryCardBasic } from "@/components/utils/categoryBasic";
-import { CardLoagin } from "@/components/utils/loagins/cardLoading";
+import { IUCategory, IUCategorys } from '@/interfaces/IUservices';
+import { useApiRequest } from '@/hooks/useApiRequest';
+import { TitleSection } from '@/components/utils/titleSection';
+import { CategoryCardBasic } from '@/components/utils/categoryBasic';
+import { CardLoagin } from '@/components/utils/loagins/cardLoading';
 
 export function CategoryHomeServices() {
-  const fetchCategorys = useCallback(() => getServiceCategorys({ page_size: 4 }), []);
+  const fetchCategorys = useCallback(
+    () => getServiceCategorys({ page_size: 4 }),
+    [],
+  );
   const { data, error, isLoading } = useApiRequest<any>(fetchCategorys);
 
   if (error) {

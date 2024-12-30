@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import React from "react";
-import { Card, CardBody, Skeleton } from "@nextui-org/react";
+import React from 'react';
+import { Card, CardBody, Skeleton } from '@nextui-org/react';
 
 const RentalEvent = () => {
   return <Skeleton className="w-3/4 h-6 rounded-lg" />;

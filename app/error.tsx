@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { Card } from "@nextui-org/react";
-import { useEffect } from "react";
+import { Card } from '@nextui-org/react';
+import { useEffect } from 'react';
 
 export default function Error({
   error,
@@ -11,7 +11,6 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-  
     console.error(error);
   }, [error]);
 

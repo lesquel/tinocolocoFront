@@ -1,5 +1,5 @@
-import { FetchApiService } from "@/services/api/FetchApiService";
-import { endPoints } from "@/config/endPoints";
+import { FetchApiService } from '@/services/api/FetchApiService';
+import { endPoints } from '@/config/endPoints';
 import {
   IUCategorys,
   IUEvents,
@@ -7,51 +7,56 @@ import {
   IUMostEventPopular,
   IUMostEventViewed,
   IUCategory,
-} from "@/interfaces/IUevents";
-import { construcUrl } from "@/services/utils/construcUrl";
-import { getTokenFromCookie } from "@/features/auth/utils/getUserInfo";
-import { IUUploadPhoto } from "@/interfaces/IUimg";
-import { IUReview, IUReviews } from "@/interfaces/IUReview";
+} from '@/interfaces/IUevents';
+import { construcUrl } from '@/services/utils/construcUrl';
+import { getTokenFromCookie } from '@/features/auth/utils/getUserInfo';
+import { IUUploadPhoto } from '@/interfaces/IUimg';
+import { IUReview, IUReviews } from '@/interfaces/IUReview';
 const api = new FetchApiService();
 
-export const getMostPopularEvents = async ({size = 4}: {size?: number}) => {
+export const getMostPopularEvents = async ({ size = 4 }: { size?: number }) => {
   const response = await api.get<IUMostEventPopular>({
-    url: endPoints.events.event.mostPopular.get + (size ? `?page_size=${size}` : ""),
+    url:
+      endPoints.events.event.mostPopular.get +
+      (size ? `?page_size=${size}` : ''),
   });
 
   return response;
 };
 
-export const getMostViewedEvents = async ({size = 4}: {size?: number}) => {
+export const getMostViewedEvents = async ({ size = 4 }: { size?: number }) => {
   const response = await api.get<IUMostEventViewed>({
-    url: endPoints.events.event.mostViewed.get + (size ? `?page_size=${size}` : ""),
+    url:
+      endPoints.events.event.mostViewed.get +
+      (size ? `?page_size=${size}` : ''),
   });
 
   return response;
 };
 
-
-export const getBetterRatedEvents = async ({size = 4}: {size?: number}) => {
+export const getBetterRatedEvents = async ({ size = 4 }: { size?: number }) => {
   const response = await api.get<IUMostEventViewed>({
-    url: endPoints.events.event.betterRated.get + (size ? `?page_size=${size}` : ""),
+    url:
+      endPoints.events.event.betterRated.get +
+      (size ? `?page_size=${size}` : ''),
   });
 
   return response;
 };
 
 export const getEvents = async (options?: any) => {
-  const url = endPoints.events.get + (options ? construcUrl({ options }) : "");
+  const url = endPoints.events.get + (options ? construcUrl({ options }) : '');
 
-  console.log("url:", url);
+  console.log('url:', url);
   const response = await api.get<IUEvents>({ url });
 
   return response;
 };
 
 export const getEvent = async (id: number) => {
-  const url = endPoints.events.get + id + "/";
+  const url = endPoints.events.get + id + '/';
 
-  console.log("url:", url);
+  console.log('url:', url);
   const response = await api.get<IUEvent>({ url });
 
   return response;
@@ -59,14 +64,14 @@ export const getEvent = async (id: number) => {
 
 export const getCategorys = async (options?: any) => {
   const url =
-    endPoints.events.category.get + (options ? construcUrl({ options }) : "");
+    endPoints.events.category.get + (options ? construcUrl({ options }) : '');
   const response = await api.get<IUCategorys>({ url });
 
   return response;
 };
 
 export const getCategory = async (id: number) => {
-  const url = endPoints.events.category.get + id + "/";
+  const url = endPoints.events.category.get + id + '/';
   const response = await api.get<IUCategory>({ url });
 
   return response;
@@ -82,7 +87,7 @@ export const uploadPhoto = async ({
   const formData = new FormData();
 
   data.forEach((file) => {
-    formData.append("images", file); // Agregar archivo
+    formData.append('images', file); // Agregar archivo
   });
 
   // Realizar la solicitud POST
@@ -106,7 +111,7 @@ export const createEvent = async (data: IUEvent) => {
     options: {
       headers: {
         Authorization: `token ${getTokenFromCookie()?.token}`,
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     },
   });
@@ -117,14 +122,14 @@ export const createEvent = async (data: IUEvent) => {
 export const createCategory = async (data: IUCategory) => {
   const formData = new FormData();
 
-  console.log("data:", data);
-  formData.append("event_category_name", data.event_category_name);
+  console.log('data:', data);
+  formData.append('event_category_name', data.event_category_name);
   formData.append(
-    "event_category_description",
+    'event_category_description',
     data.event_category_description,
   );
-  formData.append("is_active", data.is_active.toString()); // Convertir booleano a string
-  formData.append("event_category_image", data.event_category_image[0]); // Agregar archivo
+  formData.append('is_active', data.is_active.toString()); // Convertir booleano a string
+  formData.append('event_category_image', data.event_category_image[0]); // Agregar archivo
 
   const response = await api.post<IUCategory>({
     url: endPoints.events.category.post,
@@ -155,7 +160,7 @@ export const addReview = async (data: IUReview, id: number) => {
     options: {
       headers: {
         Authorization: `token ${getTokenFromCookie()?.token}`,
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     },
   });

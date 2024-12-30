@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { Skeleton } from "@nextui-org/react";
+import Image from 'next/image';
+import { Skeleton } from '@nextui-org/react';
 
-import { getBusiness } from "@/features/business/services/businessServices";
-import { useApiRequest } from "@/hooks/useApiRequest";
-import { IUBusiness } from "@/interfaces/IUBusiness";
+import { getBusiness } from '@/features/business/services/businessServices';
+import { useApiRequest } from '@/hooks/useApiRequest';
+import { IUBusiness } from '@/interfaces/IUBusiness';
 
 export const Logo = () => {
   const { data, error, isLoading } = useApiRequest<IUBusiness>(getBusiness);
@@ -24,7 +24,7 @@ export const Logo = () => {
 
   return (
     <div className="h-[50px]">
-      {" "}
+      {' '}
       {/* Contenedor con altura fija */}
       <Image
         alt={`${data.business_name} logo`}

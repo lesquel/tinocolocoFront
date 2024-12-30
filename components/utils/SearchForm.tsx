@@ -1,43 +1,53 @@
-"use client"
+'use client';
 
-import React from "react"
-import { useForm, Controller } from "react-hook-form"
-import { Input, Button, Card, CardBody, Select, SelectItem } from "@nextui-org/react"
-import { FaSearch } from "react-icons/fa"
+import React from 'react';
+import { useForm, Controller } from 'react-hook-form';
+import {
+  Input,
+  Button,
+  Card,
+  CardBody,
+  Select,
+  SelectItem,
+} from '@nextui-org/react';
+import { FaSearch } from 'react-icons/fa';
 
 interface FormData {
-  searchValue: string
-  searchField: string
+  searchValue: string;
+  searchField: string;
 }
 
 interface SearchField {
-  key: string
-  value: string
-  label: string
+  key: string;
+  value: string;
+  label: string;
 }
 
 interface SearchFormProps {
-  setSearch: (searchData: any) => void
-  searchFields: SearchField[]
+  setSearch: (searchData: any) => void;
+  searchFields: SearchField[];
 }
 
 export function SearchForm({ setSearch, searchFields }: SearchFormProps) {
-  const { control, handleSubmit } = useForm<FormData>()
+  const { control, handleSubmit } = useForm<FormData>();
 
   const onSubmit = (data: FormData) => {
-    const { searchField, searchValue } = data
+    const { searchField, searchValue } = data;
     const makeUrl = {
       [searchField]: searchValue,
-    }
+    };
 
-    console.log("search makeUrl", makeUrl)
-    setSearch(makeUrl)
-  }
+    console.log('search makeUrl', makeUrl);
+    setSearch(makeUrl);
+  };
 
   return (
     <Card className="w-3/4 sm:w-full max-w-3xl mx-auto flex-1">
       <CardBody>
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col sm:flex-row gap-4">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col sm:flex-row gap-4"
+        >
           <Controller
             control={control}
             defaultValue=""
@@ -53,13 +63,13 @@ export function SearchForm({ setSearch, searchFields }: SearchFormProps) {
           />
           <Controller
             control={control}
-            defaultValue={searchFields[0]?.value || ""}
+            defaultValue={searchFields[0]?.value || ''}
             name="searchField"
             render={({ field }) => (
               <Select
                 {...field}
                 className="w-full sm:w-48"
-                defaultSelectedKeys={[searchFields[0]?.value || ""]}
+                defaultSelectedKeys={[searchFields[0]?.value || '']}
                 aria-label="Campos de Búsqueda"
               >
                 {searchFields.map(({ key, value, label }) => (
@@ -70,12 +80,11 @@ export function SearchForm({ setSearch, searchFields }: SearchFormProps) {
               </Select>
             )}
           />
-          <Button color="danger"  type="submit" className="w-full sm:w-auto">
+          <Button color="danger" type="submit" className="w-full sm:w-auto">
             Buscar
           </Button>
         </form>
       </CardBody>
     </Card>
-  )
+  );
 }
-

@@ -1,14 +1,11 @@
-"use client";
-import { CardBasic } from "@/components/utils/cardBasic";
-import { endPoints } from "@/config/endPoints";
-import NoFountEvent from "@/public/images/no_fount_events.jpg";
-import { getEvents } from "@/features/events/services/events";
-import { IUEvent } from "@/interfaces/IUevents";
-import { SearchableListSection } from "@/components/sections/listComponent/searchListSection";
-import { searchFieldsEvent } from "../../utils/searchFielEvent";
-
-
-
+'use client';
+import { CardBasic } from '@/components/utils/cardBasic';
+import { endPoints } from '@/config/endPoints';
+import NoFountEvent from '@/public/images/no_fount_events.jpg';
+import { getEvents } from '@/features/events/services/events';
+import { IUEvent } from '@/interfaces/IUevents';
+import { SearchableListSection } from '@/components/sections/listComponent/searchListSection';
+import { searchFieldsEvent } from '../../utils/searchFielEvent';
 
 export function AllEvents({
   size,
@@ -35,7 +32,7 @@ export function AllEvents({
           imageKey="photos"
           item={event}
           titleKey="event_name"
-          url={"/events/"}
+          url={'/events/'}
         />
       )}
       title={infoComponent.title}

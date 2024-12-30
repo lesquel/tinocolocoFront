@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   Card,
@@ -6,20 +6,20 @@ import {
   Chip,
   Accordion,
   AccordionItem,
-} from "@nextui-org/react";
-import { useCallback } from "react";
+} from '@nextui-org/react';
+import { useCallback } from 'react';
 
-import { getEvent } from "../services/events";
+import { getEvent } from '../services/events';
 
-import { ChipCategory } from "./chipCategoy";
-import { ConditionalRentalButton } from "./buttonAlquiler";
+import { ChipCategory } from './chipCategoy';
+import { ConditionalRentalButton } from './buttonAlquiler';
 
-import { useApiRequest } from "@/hooks/useApiRequest";
-import { ImageCarousel } from "@/components/utils/carucelImg";
-import { getTokenFromCookie } from "@/features/auth/utils/getUserInfo";
-import { IUEvent } from "@/interfaces/IUevents";
-import { CardInfoLoadin } from "@/components/utils/loagins/cardInfoLoading";
-import { notFound } from "next/navigation";
+import { useApiRequest } from '@/hooks/useApiRequest';
+import { ImageCarousel } from '@/components/utils/carucelImg';
+import { getTokenFromCookie } from '@/features/auth/utils/getUserInfo';
+import { IUEvent } from '@/interfaces/IUevents';
+import { CardInfoLoadin } from '@/components/utils/loagins/cardInfoLoading';
+import { notFound } from 'next/navigation';
 
 export default function EventCard({ id }: { id: number }) {
   const fetchEvent = useCallback(() => getEvent(id), [id]);
@@ -30,11 +30,10 @@ export default function EventCard({ id }: { id: number }) {
   userInfo?.user.email_verified;
   userInfo?.user.has_completed_profile;
 
-  if (error)  notFound()
+  if (error) notFound();
   if (isLoading) {
     return <CardInfoLoadin />;
   }
-
 
   const event = data;
 
@@ -70,10 +69,10 @@ export default function EventCard({ id }: { id: number }) {
               <p className="text-sm text-default-500">Detalles de eventos:</p>
               <div className="flex flex-wrap items-center gap-2 mt-1">
                 <Chip size="sm">
-                  {event.event_allowed_hours}{" "}
+                  {event.event_allowed_hours}{' '}
                   {event.event_allowed_hours === 1
-                    ? "hora extra permitida"
-                    : "horas extras permitidas"}
+                    ? 'hora extra permitida'
+                    : 'horas extras permitidas'}
                 </Chip>
                 <Chip size="sm">
                   ${event.event_extra_hour_rate} extra por hora
@@ -98,11 +97,11 @@ export default function EventCard({ id }: { id: number }) {
                   <ChipCategory idCategory={event.event_category} />
                   <p>Precio del evento: ${event.event_reference_value}</p>
                   <p>
-                    Fecha de creación:{" "}
+                    Fecha de creación:{' '}
                     {new Date(event.creation_date).toLocaleDateString()}
                   </p>
                   <p>
-                    Fecha de actualización:{" "}
+                    Fecha de actualización:{' '}
                     {new Date(
                       event.last_actualization_date,
                     ).toLocaleDateString()}
@@ -112,7 +111,7 @@ export default function EventCard({ id }: { id: number }) {
             </Accordion>
 
             <div className="mt-4 flex gap-2">
-              <ConditionalRentalButton id={event.id}  />
+              <ConditionalRentalButton id={event.id} />
               {/* <Button
                 isIconOnly
                 variant="flat"

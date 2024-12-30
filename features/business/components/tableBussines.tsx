@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import {
   Image,
   Table,
@@ -7,11 +7,11 @@ import {
   TableColumn,
   TableHeader,
   TableRow,
-} from "@nextui-org/react";
+} from '@nextui-org/react';
 
-import { getBusiness } from "../services/businessServices";
+import { getBusiness } from '../services/businessServices';
 
-import { useApiRequest } from "@/hooks/useApiRequest";
+import { useApiRequest } from '@/hooks/useApiRequest';
 interface Data {
   key: string;
   value: string;
@@ -29,7 +29,7 @@ export const TableBusiness = () => {
 
   const makeData: Data[] = Object.entries(data).map(([key, value]) => ({
     key,
-    value: typeof value === "string" ? value : JSON.stringify(value),
+    value: typeof value === 'string' ? value : JSON.stringify(value),
   }));
 
   return (
@@ -45,8 +45,8 @@ export const TableBusiness = () => {
               {item.key}
             </TableCell>
             <TableCell className="break-words">
-              {item.key === "business_logo_url" ? (
-                item.value != "null" ? (
+              {item.key === 'business_logo_url' ? (
+                item.value != 'null' ? (
                   <Image
                     alt="Logo de la empresa"
                     className="max-w-full h-auto"

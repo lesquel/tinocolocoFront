@@ -1,7 +1,7 @@
-import { Card, Image } from "@nextui-org/react";
-import Link from "next/link";
+import { Card, Image } from '@nextui-org/react';
+import Link from 'next/link';
 
-import No_Found_Event from "@/public/images/no_fount_events.jpg";
+import No_Found_Event from '@/public/images/no_fount_events.jpg';
 
 // Define the reusable Card component props interface
 interface ICardProps {
@@ -21,7 +21,7 @@ export function CategoryCardBasic({
   linkUrl,
   width = 160,
   height = 160,
-  className = "",
+  className = '',
 }: ICardProps) {
   return (
     <Link

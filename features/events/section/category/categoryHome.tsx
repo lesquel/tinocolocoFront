@@ -1,12 +1,12 @@
-import { useCallback } from "react";
+import { useCallback } from 'react';
 
-import { getCategorys } from "../../services/events";
+import { getCategorys } from '../../services/events';
 
-import { IUCategory, IUCategorys } from "@/interfaces/IUevents";
-import { useApiRequest } from "@/hooks/useApiRequest";
-import { TitleSection } from "@/components/utils/titleSection";
-import { CategoryCardBasic } from "@/components/utils/categoryBasic";
-import { CardLoagin } from "@/components/utils/loagins/cardLoading";
+import { IUCategory, IUCategorys } from '@/interfaces/IUevents';
+import { useApiRequest } from '@/hooks/useApiRequest';
+import { TitleSection } from '@/components/utils/titleSection';
+import { CategoryCardBasic } from '@/components/utils/categoryBasic';
+import { CardLoagin } from '@/components/utils/loagins/cardLoading';
 
 export function CategoryHome() {
   const fetchCategorys = useCallback(() => getCategorys({ page_size: 4 }), []);

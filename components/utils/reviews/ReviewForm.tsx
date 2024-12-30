@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { Button, Textarea } from "@nextui-org/react";
-import { useCallback, useState } from "react";
-import { Controller, useForm } from "react-hook-form";
-import { FaStar } from "react-icons/fa6";
+import { Button, Textarea } from '@nextui-org/react';
+import { useCallback, useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import { FaStar } from 'react-icons/fa6';
 
-import { useAsyncAction } from "@/hooks/useAsyncAction";
-import { IUReview } from "@/interfaces/IUReview";
+import { useAsyncAction } from '@/hooks/useAsyncAction';
+import { IUReview } from '@/interfaces/IUReview';
 
 interface ReviewFormData {
   rating_score: number;
@@ -30,15 +30,15 @@ export const ReviewForm = ({
 
   const handleFormSubmit = useCallback(
     (data: ReviewFormData) => {
-      console.log("data", data);
+      console.log('data', data);
       const reviewData: IUReview = {
         ...data,
         rating_score: rating,
         id: id,
       };
-      console.log("reviewData", reviewData);
+      console.log('reviewData', reviewData);
       execute(reviewData, (response) => {
-        console.log("response eeeeeeeeeeeeeeeeeeeeeeeeee", response);
+        console.log('response eeeeeeeeeeeeeeeeeeeeeeeeee', response);
         onReviewAdded();
 
         reset();
@@ -60,11 +60,11 @@ export const ReviewForm = ({
               <FaStar
                 key={index}
                 className="cursor-pointer"
-                color={ratingValue <= rating ? "#ffc107" : "#e4e5e9"}
+                color={ratingValue <= rating ? '#ffc107' : '#e4e5e9'}
                 size={24}
                 onClick={() => {
                   setRating(ratingValue);
-                  setValue("rating_score", ratingValue);
+                  setValue('rating_score', ratingValue);
                 }}
               />
             );
@@ -91,7 +91,7 @@ export const ReviewForm = ({
             )}
           </>
         )}
-        rules={{ required: "El comentario es obligatorio." }}
+        rules={{ required: 'El comentario es obligatorio.' }}
       />
 
       {error && (

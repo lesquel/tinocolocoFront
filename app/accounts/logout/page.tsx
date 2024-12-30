@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
-import { Card, CardBody, CardFooter, Button } from "@nextui-org/react";
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { Card, CardBody, CardFooter, Button } from '@nextui-org/react';
 
-import { logout } from "@/features/auth/utils/logout";
-import { isLogin } from "@/features/auth/utils/isLogin";
+import { logout } from '@/features/auth/utils/logout';
+import { isLogin } from '@/features/auth/utils/isLogin';
 
 export default function Logout() {
   const router = useRouter();
@@ -14,9 +14,9 @@ export default function Logout() {
   useEffect(() => {
     if (isLogin()) {
       logout();
-      window.location.href = "/";
+      window.location.href = '/';
     } else {
-      router.push("/accounts/login");
+      router.push('/accounts/login');
     }
   }, [router]);
 

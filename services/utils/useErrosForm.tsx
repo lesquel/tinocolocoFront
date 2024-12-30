@@ -9,7 +9,7 @@ export const useErrorsForm = ({
     const formattedErrors = Object.fromEntries(
       Object.entries(response.errors).map(([field, messages]) => [
         field,
-        Array.isArray(messages) ? messages.join(", ") : messages,
+        Array.isArray(messages) ? messages.join(', ') : messages,
       ]),
     );
 

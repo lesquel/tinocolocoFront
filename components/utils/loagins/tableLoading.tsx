@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React from "react";
+import React from 'react';
 import {
   Table,
   TableHeader,
@@ -9,7 +9,7 @@ import {
   TableRow,
   TableCell,
   Skeleton,
-} from "@nextui-org/react";
+} from '@nextui-org/react';
 
 interface SkeletonTableProps {
   columns: number;

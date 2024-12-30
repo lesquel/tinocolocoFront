@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState } from 'react';
 import {
   Card,
   CardHeader,
@@ -12,8 +12,8 @@ import {
   Tooltip,
   User,
   Progress,
-} from "@nextui-org/react";
-import { CiEdit } from "react-icons/ci";
+} from '@nextui-org/react';
+import { CiEdit } from 'react-icons/ci';
 import {
   FaUserCircle,
   FaEnvelope,
@@ -21,19 +21,19 @@ import {
   FaCalendar,
   FaGlobe,
   FaVenusMars,
-} from "react-icons/fa";
+} from 'react-icons/fa';
 
-import { useApiRequest } from "@/hooks/useApiRequest";
-import { getTokenFromCookie } from "@/features/auth/utils/getUserInfo";
-import { getUser } from "@/features/auth/services/auth";
-import { saveToken } from "@/features/auth/utils/saveUserInfo";
-import { Container } from "@/components/sections/layout/container";
-import { Section } from "@/components/sections/layout/section";
-import { TitleSection } from "@/components/utils/titleSection";
-import { ModalVerifyEmail } from "@/components/utils/modal/modalVerifyEmail";
-import FormEditUser from "@/features/auth/components/formEditUser";
-import UserImagen from "@/public/images/user.png";
-import { AccountPageLoading } from "@/components/utils/loagins/accountsLoading";
+import { useApiRequest } from '@/hooks/useApiRequest';
+import { getTokenFromCookie } from '@/features/auth/utils/getUserInfo';
+import { getUser } from '@/features/auth/services/auth';
+import { saveToken } from '@/features/auth/utils/saveUserInfo';
+import { Container } from '@/components/sections/layout/container';
+import { Section } from '@/components/sections/layout/section';
+import { TitleSection } from '@/components/utils/titleSection';
+import { ModalVerifyEmail } from '@/components/utils/modal/modalVerifyEmail';
+import FormEditUser from '@/features/auth/components/formEditUser';
+import UserImagen from '@/public/images/user.png';
+import { AccountPageLoading } from '@/components/utils/loagins/accountsLoading';
 
 export default function AccountPage() {
   const infoUserToken = getTokenFromCookie();
@@ -79,7 +79,7 @@ export default function AccountPage() {
               <p className="text-small text-default-500">@{user.username}</p>
               <div className="flex flex-wrap gap-2 mt-2">
                 <Chip color="primary" size="sm" variant="flat">
-                  {user.role || "customer"}
+                  {user.role || 'customer'}
                 </Chip>
                 {user.email_verified ? (
                   <Chip color="success" size="sm" variant="flat">
@@ -112,7 +112,7 @@ export default function AccountPage() {
                   endContent={<CiEdit />}
                   onClick={toggleEditMode}
                 >
-                  {isEditMode ? "Ver Info" : "Editar Perfil"}
+                  {isEditMode ? 'Ver Info' : 'Editar Perfil'}
                 </Button>
               </div>
             </CardBody>
@@ -121,7 +121,7 @@ export default function AccountPage() {
           <Card className="col-span-3 md:col-span-2">
             <CardHeader>
               <h4 className="text-large font-bold">
-                {isEditMode ? "Editar Información" : "Información Detallada"}
+                {isEditMode ? 'Editar Información' : 'Información Detallada'}
               </h4>
             </CardHeader>
             <Divider />
@@ -164,18 +164,18 @@ export default function AccountPage() {
                     icon={<FaCalendar />}
                     label="Fecha de Registro"
                     value={new Date(user.date_joined).toLocaleDateString(
-                      "es-ES",
+                      'es-ES',
                       {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
                       },
                     )}
                   />
                   <UserInfoItem
                     icon={<FaUserCircle />}
                     label="Estado"
-                    value={user.is_active ? "Activo" : "Inactivo"}
+                    value={user.is_active ? 'Activo' : 'Inactivo'}
                   />
                 </div>
               )}
@@ -187,34 +187,31 @@ export default function AccountPage() {
   );
 }
 
-
 function UserInfoItem({ icon, label, value }) {
   return (
     <div className="flex items-center gap-2">
       {/* Icono con Tooltip */}
-      <Tooltip content={value || "No disponible"}>
+      <Tooltip content={value || 'No disponible'}>
         <div>{icon}</div>
       </Tooltip>
-      
+
       {/* Información */}
       <div className="flex-1">
         <p className="font-bold">{label}</p>
-        <p className="text-default-500">{value || "No disponible"}</p>
+        <p className="text-default-500">{value || 'No disponible'}</p>
       </div>
     </div>
   );
 }
 
-
-
 function calculateProfileCompleteness(user) {
   const fields = [
-    "identity_card",
-    "email",
-    "first_name",
-    "last_name",
-    "sex",
-    "nationality",
+    'identity_card',
+    'email',
+    'first_name',
+    'last_name',
+    'sex',
+    'nationality',
   ];
   const completedFields = fields.filter((field) => user[field]);
 

@@ -1,10 +1,10 @@
-"use client";
-import { getServiceCategorys } from "../../../services/services/services";
+'use client';
+import { getServiceCategorys } from '../../../services/services/services';
 
-import { SearchableListSection } from "@/components/sections/listComponent/searchListSection";
-import { endPoints } from "@/config/endPoints";
-import { IUCategory } from "@/interfaces/IUservices";
-import { CategoryCardBasic } from "@/components/utils/categoryBasic";
+import { SearchableListSection } from '@/components/sections/listComponent/searchListSection';
+import { endPoints } from '@/config/endPoints';
+import { IUCategory } from '@/interfaces/IUservices';
+import { CategoryCardBasic } from '@/components/utils/categoryBasic';
 
 export function CategoryDashboard() {
   return (

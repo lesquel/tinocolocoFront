@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useCallback, useState } from "react";
-import { Spacer } from "@nextui-org/react";
+import { useCallback, useState } from 'react';
+import { Spacer } from '@nextui-org/react';
 
-import { useApiRequest } from "@/hooks/useApiRequest";
-import { PaginationComponent } from "@/components/utils/pagination";
-import { CardLoagin } from "@/components/utils/loagins/cardLoading";
+import { useApiRequest } from '@/hooks/useApiRequest';
+import { PaginationComponent } from '@/components/utils/pagination';
+import { CardLoagin } from '@/components/utils/loagins/cardLoading';
 
 interface PaginationResponse<T> {
   amount_of_pages: number;
@@ -35,9 +35,9 @@ export function ListComponent<T>({
   renderCard,
   searchParams = {},
   pageSize = 10,
-  noDataMessage = "No hay datos",
-  errorMessage = "Error al obtener los datos",
-  loadingMessage = "Cargando...",
+  noDataMessage = 'No hay datos',
+  errorMessage = 'Error al obtener los datos',
+  loadingMessage = 'Cargando...',
 }: ListComponentProps<T>) {
   const [currentPage, setCurrentPage] = useState(1);
 

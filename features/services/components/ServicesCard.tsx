@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   Card,
@@ -6,28 +6,27 @@ import {
   Chip,
   Accordion,
   AccordionItem,
-} from "@nextui-org/react";
-import { useCallback } from "react";
+} from '@nextui-org/react';
+import { useCallback } from 'react';
 
-import { getService } from "../services/services";
+import { getService } from '../services/services';
 
-import { ChipCategory } from "./chipCategoy";
+import { ChipCategory } from './chipCategoy';
 
-import { useApiRequest } from "@/hooks/useApiRequest";
-import { ImageCarousel } from "@/components/utils/carucelImg";
-import { IUService } from "@/interfaces/IUservices";
-import { CardInfoLoadin } from "@/components/utils/loagins/cardInfoLoading";
-import { notFound } from "next/navigation";
+import { useApiRequest } from '@/hooks/useApiRequest';
+import { ImageCarousel } from '@/components/utils/carucelImg';
+import { IUService } from '@/interfaces/IUservices';
+import { CardInfoLoadin } from '@/components/utils/loagins/cardInfoLoading';
+import { notFound } from 'next/navigation';
 
 export default function ServicesCard({ id }: { id: number }) {
   const fetchEvent = useCallback(() => getService(id), []);
   const { data, error, isLoading } = useApiRequest<IUService>(fetchEvent);
 
-  if (error) notFound()
+  if (error) notFound();
   if (isLoading) {
     return <CardInfoLoadin />;
   }
-
 
   return (
     <Card className="w-full mx-auto">
@@ -75,11 +74,11 @@ export default function ServicesCard({ id }: { id: number }) {
                 <div className="space-y-2">
                   <ChipCategory idCategory={data.service_category} />
                   <p>
-                    Fecha de creacion:{" "}
+                    Fecha de creacion:{' '}
                     {new Date(data.creation_date).toLocaleDateString()}
                   </p>
                   <p>
-                    Fecha de actualización:{" "}
+                    Fecha de actualización:{' '}
                     {new Date(
                       data.last_actualization_date,
                     ).toLocaleDateString()}

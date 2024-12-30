@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { GraphicLoading } from "@/components/utils/loagins/graphicLoading";
-import { TitleSection } from "@/components/utils/titleSection";
-import { getUsersMostRentals } from "@/features/auth/services/auth";
-import { useApiRequest } from "@/hooks/useApiRequest";
-import ReactECharts from "echarts-for-react";
-import { useCallback } from "react";
+import { GraphicLoading } from '@/components/utils/loagins/graphicLoading';
+import { TitleSection } from '@/components/utils/titleSection';
+import { getUsersMostRentals } from '@/features/auth/services/auth';
+import { useApiRequest } from '@/hooks/useApiRequest';
+import ReactECharts from 'echarts-for-react';
+import { useCallback } from 'react';
 
 export function UserMostRentalsGraphic() {
   const fetchUsers = useCallback(
@@ -13,7 +13,7 @@ export function UserMostRentalsGraphic() {
       getUsersMostRentals({
         size: 5, // Obtenemos solo los 5 usuarios con más rentas
       }),
-    []
+    [],
   );
 
   const { data, error, isLoading } = useApiRequest(fetchUsers);
@@ -37,40 +37,40 @@ export function UserMostRentalsGraphic() {
 
   // Extraer el nombre de usuario y el número de rentas
   const userData = data.results.map((user) => ({
-    name: user.username || "Desconocido", // Nombre del usuario
+    name: user.username || 'Desconocido', // Nombre del usuario
     reservations: user.reservation_count || 0, // Número de rentas
   }));
 
   // Configuración del gráfico de barras
   const option = {
     tooltip: {
-      trigger: "axis",
-      formatter: "{b}: {c} rentas", // Muestra el nombre del usuario y las rentas
+      trigger: 'axis',
+      formatter: '{b}: {c} rentas', // Muestra el nombre del usuario y las rentas
     },
     xAxis: {
-      type: "category",
+      type: 'category',
       data: userData.map((user) => user.name), // Los nombres de usuario en el eje X
       axisLabel: {
-        color: "#fff", // Color de las etiquetas en el eje X
+        color: '#fff', // Color de las etiquetas en el eje X
       },
     },
     yAxis: {
-      type: "value",
+      type: 'value',
       axisLabel: {
-        color: "#fff", // Color de las etiquetas en el eje Y
+        color: '#fff', // Color de las etiquetas en el eje Y
       },
     },
     series: [
       {
-        name: "Rentas",
-        type: "bar",
+        name: 'Rentas',
+        type: 'bar',
         data: userData.map((user) => user.reservations), // Número de rentas para cada usuario
         itemStyle: {
           barBorderRadius: 5,
           borderWidth: 1,
-          borderType: "solid",
-          borderColor: "#73c0de",
-          shadowColor: "#5470c6",
+          borderType: 'solid',
+          borderColor: '#73c0de',
+          shadowColor: '#5470c6',
           shadowBlur: 3,
         },
       },

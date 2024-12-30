@@ -7,20 +7,20 @@ import {
   ModalHeader,
   useDisclosure,
   Chip,
-} from "@nextui-org/react";
-import { useState } from "react";
-import toast from "react-hot-toast";
+} from '@nextui-org/react';
+import { useState } from 'react';
+import toast from 'react-hot-toast';
 
-import DynamicForm from "../form/dynamicForm";
+import DynamicForm from '../form/dynamicForm';
 
 import {
   sendVerificationEmail,
   verificationCodeEmail,
-} from "@/features/auth/services/auth";
-import { useAsyncAction } from "@/hooks/useAsyncAction";
-import { FormConfig } from "@/interfaces/IUform";
-import { IUcodeEmail } from "@/interfaces/IUser";
-import { useErrorsForm } from "@/services/utils/useErrosForm";
+} from '@/features/auth/services/auth';
+import { useAsyncAction } from '@/hooks/useAsyncAction';
+import { FormConfig } from '@/interfaces/IUform';
+import { IUcodeEmail } from '@/interfaces/IUser';
+import { useErrorsForm } from '@/services/utils/useErrosForm';
 
 export function ModalVerifyEmail() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -38,26 +38,26 @@ export function ModalVerifyEmail() {
   const sendVerificationEmailAction = (data: any) => {
     execute({}, (response) => {
       if (response.errors) {
-        toast.error("Error al enviar el código de verificación", {
+        toast.error('Error al enviar el código de verificación', {
           style: {
-            background: "#000000",
-            color: "#FFEBE9",
+            background: '#000000',
+            color: '#FFEBE9',
           },
           iconTheme: {
-            primary: "#FFEBE9",
-            secondary: "#000000",
+            primary: '#FFEBE9',
+            secondary: '#000000',
           },
         });
         return;
       }
-      toast.success("Se ha enviado el correo de confirmación", {
+      toast.success('Se ha enviado el correo de confirmación', {
         style: {
-          background: "#000000",
-          color: "#FFEBE9",
+          background: '#000000',
+          color: '#FFEBE9',
         },
         iconTheme: {
-          primary: "#FFEBE9",
-          secondary: "#000000",
+          primary: '#FFEBE9',
+          secondary: '#000000',
         },
       });
     });
@@ -65,11 +65,11 @@ export function ModalVerifyEmail() {
 
   const verificationCodeEmailConfig: FormConfig = {
     code: {
-      type: "text",
-      label: "Codigo de verificación",
+      type: 'text',
+      label: 'Codigo de verificación',
       required: true,
       validation: {
-        required: "El codigo de verificación es obligatorio",
+        required: 'El codigo de verificación es obligatorio',
         min: 6,
       },
     },
@@ -77,7 +77,7 @@ export function ModalVerifyEmail() {
 
   const onsubmit = (data: any) => {
     executeVerificationCode(data, (response) => {
-      console.log("response:", response);
+      console.log('response:', response);
       if (response.errors) {
         useErrorsForm({ response, setExternalErrors });
         return;
@@ -112,7 +112,11 @@ export function ModalVerifyEmail() {
                 <Button color="danger" variant="flat" onPress={onClose}>
                   Close
                 </Button>
-                <Button color="danger" variant="flat" onPress={sendVerificationEmailAction}>
+                <Button
+                  color="danger"
+                  variant="flat"
+                  onPress={sendVerificationEmailAction}
+                >
                   Volver a enviar
                 </Button>
               </ModalFooter>

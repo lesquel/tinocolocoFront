@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import React, { useCallback } from "react";
-import { Card, Image, CardBody } from "@nextui-org/react";
-import Link from "next/link";
+import React, { useCallback } from 'react';
+import { Card, Image, CardBody } from '@nextui-org/react';
+import Link from 'next/link';
 
-import { IURental } from "@/interfaces/IURental";
-import { getEvent } from "@/features/events/services/events";
-import { useApiRequest } from "@/hooks/useApiRequest";
-import { IUEvent } from "@/interfaces/IUevents";
-import NoFountRental from "@/public/images/no_fount_events.jpg";
+import { IURental } from '@/interfaces/IURental';
+import { getEvent } from '@/features/events/services/events';
+import { useApiRequest } from '@/hooks/useApiRequest';
+import { IUEvent } from '@/interfaces/IUevents';
+import NoFountRental from '@/public/images/no_fount_events.jpg';
 
 const RentalEvent = ({ idEvent }: { idEvent: number }) => {
   const fetchEvent = useCallback(() => getEvent(idEvent), [idEvent]);
@@ -44,15 +44,15 @@ export function CardRental({ rental }: { rental: IURental }) {
           <RentalEvent idEvent={rental.event} />
           <div className="flex flex-col gap-3 pt-2 text-small text-default-400">
             <p>
-              <span className="font-medium">Fecha de creación:</span>{" "}
+              <span className="font-medium">Fecha de creación:</span>{' '}
               {rental.event_rental_creation_date}
             </p>
             <p>
-              <span className="font-medium">Fecha de inicio:</span>{" "}
+              <span className="font-medium">Fecha de inicio:</span>{' '}
               {rental.event_rental_start_time}
             </p>
             <p>
-              <span className="font-medium">Hora de finalización:</span>{" "}
+              <span className="font-medium">Hora de finalización:</span>{' '}
               {rental.event_rental_planified_end_time}
             </p>
           </div>

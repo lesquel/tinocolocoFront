@@ -4,14 +4,14 @@ export interface SelectOption {
 }
 
 export type FieldType =
-  | "text"
-  | "textarea"
-  | "select"
-  | "file"
-  | "number"
-  | "checkbox"
-  | "date"
-  | "time";
+  | 'text'
+  | 'textarea'
+  | 'select'
+  | 'file'
+  | 'number'
+  | 'checkbox'
+  | 'date'
+  | 'time';
 
 export interface FieldConfig {
   type: FieldType;

@@ -1,6 +1,6 @@
-import { Container } from "@/components/sections/layout/container";
-import { Section } from "@/components/sections/layout/section";
-import { AllPromotions } from "@/features/promotions_/section/promotions/AllPromotions";
+import { Container } from '@/components/sections/layout/container';
+import { Section } from '@/components/sections/layout/section';
+import { AllPromotions } from '@/features/promotions_/section/promotions/AllPromotions';
 
 export default function Promotions() {
   return (
@@ -8,7 +8,7 @@ export default function Promotions() {
       <Section>
         <AllPromotions
           size={10}
-          infoComponent={{ title: "Todos", description: "Promociones" }}
+          infoComponent={{ title: 'Todos', description: 'Promociones' }}
         />
       </Section>
     </Container>

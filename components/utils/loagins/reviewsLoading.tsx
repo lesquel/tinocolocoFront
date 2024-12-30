@@ -5,7 +5,7 @@ import {
   CardFooter,
   Skeleton,
   Spacer,
-} from "@nextui-org/react";
+} from '@nextui-org/react';
 
 export default function ReviewCardSkeleton() {
   return (

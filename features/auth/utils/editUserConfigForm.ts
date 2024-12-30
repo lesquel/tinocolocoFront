@@ -1,25 +1,25 @@
-import { FormConfig } from "@/interfaces/IUform";
+import { FormConfig } from '@/interfaces/IUform';
 
 export const editUserConfigForm: FormConfig = {
   identity_card: {
-    type: "text",
-    label: "Número de cédula",
+    type: 'text',
+    label: 'Número de cédula',
     required: true,
     validation: {
       maxLength: 100,
     },
   },
   username: {
-    type: "text",
-    label: "Nombre de usuario",
+    type: 'text',
+    label: 'Nombre de usuario',
     required: true,
     validation: {
       maxLength: 100,
     },
   },
   first_name: {
-    type: "text",
-    label: "Nombre",
+    type: 'text',
+    label: 'Nombre',
     required: true,
     validation: {
       maxLength: 100,
@@ -27,8 +27,8 @@ export const editUserConfigForm: FormConfig = {
   },
 
   last_name: {
-    type: "text",
-    label: "Apellido",
+    type: 'text',
+    label: 'Apellido',
     required: true,
     validation: {
       maxLength: 100,
@@ -36,18 +36,18 @@ export const editUserConfigForm: FormConfig = {
   },
 
   sex: {
-    type: "select",
-    label: "Sexo",
+    type: 'select',
+    label: 'Sexo',
     options: [
-      { label: "Masculino", value: "M" },
-      { label: "Femenino", value: "F" },
+      { label: 'Masculino', value: 'M' },
+      { label: 'Femenino', value: 'F' },
     ],
     required: true,
   },
 
   nationality: {
-    type: "text",
-    label: "Nacionalidad",
+    type: 'text',
+    label: 'Nacionalidad',
     required: true,
     validation: {
       maxLength: 100,

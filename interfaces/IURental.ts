@@ -1,6 +1,6 @@
-import { PaymentMethod } from "@/types/paymentMethod";
-import { StatusRental } from "@/types/statusRental";
-import { IUService } from "./IUservices";
+import { PaymentMethod } from '@/types/paymentMethod';
+import { StatusRental } from '@/types/statusRental';
+import { IUService } from './IUservices';
 
 export interface IURental {
   id: number;

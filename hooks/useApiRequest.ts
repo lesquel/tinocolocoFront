@@ -1,5 +1,5 @@
-"use client";
-import { useState, useEffect, useCallback } from "react";
+'use client';
+import { useState, useEffect, useCallback } from 'react';
 
 export function useApiRequest<T>(
   apiFunction: () => Promise<T>,
@@ -17,7 +17,7 @@ export function useApiRequest<T>(
         setError(null);
       })
       .catch((err) => {
-        setError("Error al obtener los datos");
+        setError('Error al obtener los datos');
         console.error(err);
       })
       .finally(() => {

@@ -24,6 +24,12 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "features/dashboard/components/graphics/user/UserMostRentals.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "features/dashboard/components/graphics/user/UserMostRentals.tsx"
+  ],
   "exclude": ["node_modules"]
 }

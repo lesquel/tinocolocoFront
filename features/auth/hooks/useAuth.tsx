@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { useAsyncAction } from "../../../hooks/useAsyncAction";
+import { useAsyncAction } from '../../../hooks/useAsyncAction';
 
-import { IURegister } from "@/interfaces/IUauth";
-import { saveToken } from "@/features/auth/utils/saveUserInfo";
+import { IURegister } from '@/interfaces/IUauth';
+import { saveToken } from '@/features/auth/utils/saveUserInfo';
 
 export const useAuth = (setError: any, api: any) => {
-  const [generalError, setGeneralError] = useState("");
+  const [generalError, setGeneralError] = useState('');
   const { loading, error, execute } = useAsyncAction(api);
 
   const handleRegister = (data: IURegister, onSuccess: (res: any) => void) => {
@@ -17,11 +17,11 @@ export const useAuth = (setError: any, api: any) => {
         // Aquí se aseguran los errores se pasen correctamente a setError
         Object.keys(response.errors).forEach((field) => {
           setError(field, {
-            type: "server",
-            message: response.errors[field].join(", "), // Mensaje de error
+            type: 'server',
+            message: response.errors[field].join(', '), // Mensaje de error
           });
         });
-        setGeneralError("Error en el formulario");
+        setGeneralError('Error en el formulario');
       } else {
         saveToken(response);
         onSuccess?.(response);

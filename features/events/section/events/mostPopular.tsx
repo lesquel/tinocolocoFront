@@ -1,12 +1,12 @@
-"use client";
-import { getMostPopularEvents } from "@/features/events/services/events";
-import { useApiRequest } from "@/hooks/useApiRequest";
-import { IUMostEventPopular, IUEvent } from "@/interfaces/IUevents";
-import { TitleSection } from "@/components/utils/titleSection";
-import { CardBasic } from "@/components/utils/cardBasic";
-import NoFountServices from "@/public/images/no_fount_events.jpg";
-import { CardLoagin } from "@/components/utils/loagins/cardLoading";
-import { useCallback } from "react";
+'use client';
+import { getMostPopularEvents } from '@/features/events/services/events';
+import { useApiRequest } from '@/hooks/useApiRequest';
+import { IUMostEventPopular, IUEvent } from '@/interfaces/IUevents';
+import { TitleSection } from '@/components/utils/titleSection';
+import { CardBasic } from '@/components/utils/cardBasic';
+import NoFountServices from '@/public/images/no_fount_events.jpg';
+import { CardLoagin } from '@/components/utils/loagins/cardLoading';
+import { useCallback } from 'react';
 
 export function MostPopularEvents() {
   const fecthEvent = useCallback(() => getMostPopularEvents({ size: 4 }), []);

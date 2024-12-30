@@ -1,10 +1,10 @@
-import { useCallback } from "react";
-import { Chip } from "@nextui-org/react";
+import { useCallback } from 'react';
+import { Chip } from '@nextui-org/react';
 
-import { getServiceCategory } from "../services/services";
+import { getServiceCategory } from '../services/services';
 
-import { useApiRequest } from "@/hooks/useApiRequest";
-import { IUCategory } from "@/interfaces/IUservices";
+import { useApiRequest } from '@/hooks/useApiRequest';
+import { IUCategory } from '@/interfaces/IUservices';
 
 export function ChipCategory({ idCategory }: { idCategory: number }) {
   const fetchCategoryService = useCallback(

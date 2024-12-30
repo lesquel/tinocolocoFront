@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 import {
   Button,
   Tooltip,
@@ -9,12 +9,12 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
-} from "@nextui-org/react";
-import { redirect } from "next/navigation";
-import Link from "next/link";
+} from '@nextui-org/react';
+import { redirect } from 'next/navigation';
+import Link from 'next/link';
 
-import { getTokenFromCookie } from "@/features/auth/utils/getUserInfo";
-import { siteConfig } from "@/config/site";
+import { getTokenFromCookie } from '@/features/auth/utils/getUserInfo';
+import { siteConfig } from '@/config/site';
 
 interface UserInfo {
   user: {
@@ -28,7 +28,7 @@ export const ConditionalRentalButton = ({ id }: { id: number }) => {
   const [modalContent, setModalContent] = useState<{
     title: string;
     message: string;
-  }>({ title: "", message: "" });
+  }>({ title: '', message: '' });
 
   const userInfo = getTokenFromCookie();
 
@@ -41,8 +41,8 @@ export const ConditionalRentalButton = ({ id }: { id: number }) => {
 
     if (!userInfo.user.email_verified) {
       setModalContent({
-        title: "Verificación de correo requerida",
-        message: "Por favor, verifica tu correo electrónico antes de alquilar.",
+        title: 'Verificación de correo requerida',
+        message: 'Por favor, verifica tu correo electrónico antes de alquilar.',
       });
       setIsModalOpen(true);
 
@@ -51,8 +51,8 @@ export const ConditionalRentalButton = ({ id }: { id: number }) => {
 
     if (!userInfo.user.has_completed_profile) {
       setModalContent({
-        title: "Perfil incompleto",
-        message: "Por favor, completa tu perfil antes de alquilar.",
+        title: 'Perfil incompleto',
+        message: 'Por favor, completa tu perfil antes de alquilar.',
       });
       setIsModalOpen(true);
 
@@ -80,8 +80,8 @@ export const ConditionalRentalButton = ({ id }: { id: number }) => {
         <Tooltip
           content={
             !userInfo.user.email_verified
-              ? "Verifica tu correo electrónico"
-              : "Completa tu perfil"
+              ? 'Verifica tu correo electrónico'
+              : 'Completa tu perfil'
           }
         >
           {buttonContent}

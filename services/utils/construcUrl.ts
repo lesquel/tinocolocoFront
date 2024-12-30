@@ -1,5 +1,5 @@
 export const construcUrl = ({ options }: { options: any }) => {
-  let url = "?";
+  let url = '?';
 
   for (const [key, value] of Object.entries(options)) {
     if (value) {

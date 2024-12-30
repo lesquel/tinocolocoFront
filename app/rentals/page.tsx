@@ -1,5 +1,5 @@
-import { TitleSection } from "@/components/utils/titleSection";
-import { AllRentals } from "@/features/rentals/sections/allRentals";
+import { TitleSection } from '@/components/utils/titleSection';
+import { AllRentals } from '@/features/rentals/sections/allRentals';
 
 export default function Rentals() {
   return (

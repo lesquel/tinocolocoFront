@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import { Card, CardBody, Button, Image } from "@nextui-org/react";
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
+import React, { useState } from 'react';
+import { Card, CardBody, Button, Image } from '@nextui-org/react';
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa6';
 
-import No_Found_Event from "@/public/images/no_fount_events.jpg";
-import { IUImg } from "@/interfaces/IUimg";
+import No_Found_Event from '@/public/images/no_fount_events.jpg';
+import { IUImg } from '@/interfaces/IUimg';
 
 export function ImageCarousel({ images }: { images: IUImg[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -63,7 +63,7 @@ export function ImageCarousel({ images }: { images: IUImg[] }) {
               <div
                 key={index}
                 className={`h-2 w-2 rounded-full ${
-                  index === currentIndex ? "bg-white" : "bg-white/50"
+                  index === currentIndex ? 'bg-white' : 'bg-white/50'
                 }`}
               />
             ))}

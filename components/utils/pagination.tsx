@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { Pagination, Button } from "@nextui-org/react";
+import { Pagination, Button } from '@nextui-org/react';
 
 interface PaginationComponentProps {
   totalPages: number;
@@ -25,7 +25,7 @@ export function PaginationComponent({
         color="danger"
         page={currentPage}
         total={totalPages}
-        onChange={onPageChange} 
+        onChange={onPageChange}
       />
       <div className="flex gap-2">
         <Button

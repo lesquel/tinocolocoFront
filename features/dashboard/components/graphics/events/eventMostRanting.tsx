@@ -1,10 +1,10 @@
-"use client";
-import { GraphicLoading } from "@/components/utils/loagins/graphicLoading";
-import { TitleSection } from "@/components/utils/titleSection";
-import { getBetterRatedEvents } from "@/features/events/services/events";
-import { useApiRequest } from "@/hooks/useApiRequest";
-import ReactECharts from "echarts-for-react";
-import { useCallback } from "react";
+'use client';
+import { GraphicLoading } from '@/components/utils/loagins/graphicLoading';
+import { TitleSection } from '@/components/utils/titleSection';
+import { getBetterRatedEvents } from '@/features/events/services/events';
+import { useApiRequest } from '@/hooks/useApiRequest';
+import ReactECharts from 'echarts-for-react';
+import { useCallback } from 'react';
 
 export function EventsMostRantingGraphic() {
   const fetchMostPopularEvents = useCallback(
@@ -12,7 +12,7 @@ export function EventsMostRantingGraphic() {
       getBetterRatedEvents({
         size: 5,
       }),
-    []
+    [],
   );
   const { data, error, isLoading } = useApiRequest(fetchMostPopularEvents);
 
@@ -25,10 +25,12 @@ export function EventsMostRantingGraphic() {
   }
 
   if (!data?.results) {
-    return <div>
-      <TitleSection title="Eventos" description="Mejores Calificados" />
-      No hay eventos
-    </div>;
+    return (
+      <div>
+        <TitleSection title="Eventos" description="Mejores Calificados" />
+        No hay eventos
+      </div>
+    );
   }
 
   const dataEvents = data.results.map((event) => ({
@@ -38,68 +40,68 @@ export function EventsMostRantingGraphic() {
 
   const option = {
     tooltip: {
-      trigger: "axis",
+      trigger: 'axis',
       axisPointer: {
-        type: "shadow",
+        type: 'shadow',
       },
-      formatter: "{b}: {c} vistas",
+      formatter: '{b}: {c} vistas',
     },
     xAxis: {
-      type: "category",
+      type: 'category',
       data: dataEvents.map((event) => event.name),
       axisLabel: {
         rotate: 30, // Rota las etiquetas si son largas
         fontSize: 12,
-        color: "#fff", // Etiquetas en color blanco
+        color: '#fff', // Etiquetas en color blanco
       },
       axisLine: {
         lineStyle: {
-          color: "#ddd",
+          color: '#ddd',
         },
       },
     },
     yAxis: {
-      type: "value",
+      type: 'value',
       axisLabel: {
-        formatter: "{value}",
+        formatter: '{value}',
         fontSize: 12,
-        color: "#fff", // Etiquetas en color blanco
+        color: '#fff', // Etiquetas en color blanco
       },
       splitLine: {
         lineStyle: {
-          type: "dashed",
-          color: "#444", // Líneas de división sutiles
+          type: 'dashed',
+          color: '#444', // Líneas de división sutiles
         },
       },
     },
     series: [
       {
-        name: "Vistas",
-        type: "bar",
+        name: 'Vistas',
+        type: 'bar',
         data: dataEvents.map((event) => event.value),
-        barWidth: "50%",
+        barWidth: '50%',
         itemStyle: {
-          color: "#6B5B95", // Color personalizado para las barras
+          color: '#6B5B95', // Color personalizado para las barras
           barBorderRadius: [4, 4, 0, 0], // Bordes redondeados en la parte superior
           shadowBlur: 10,
-          shadowColor: "rgba(0, 0, 0, 0.2)",
+          shadowColor: 'rgba(0, 0, 0, 0.2)',
         },
         emphasis: {
           itemStyle: {
-            color: "#FF6F61", // Color de barra en hover
+            color: '#FF6F61', // Color de barra en hover
             shadowBlur: 15,
-            shadowColor: "rgba(0, 0, 0, 0.4)",
+            shadowColor: 'rgba(0, 0, 0, 0.4)',
           },
         },
       },
     ],
     grid: {
-      left: "10%",
-      right: "10%",
-      bottom: "15%",
-      top: "15%",
+      left: '10%',
+      right: '10%',
+      bottom: '15%',
+      top: '15%',
     },
-    backgroundColor: "#2b2b2b", // Fondo oscuro
+    backgroundColor: '#2b2b2b', // Fondo oscuro
   };
 
   return (

@@ -1,9 +1,9 @@
-import { Link } from "@nextui-org/react";
-import { MdAlternateEmail } from "react-icons/md";
-import { CiPhone } from "react-icons/ci";
-import { TbWorld } from "react-icons/tb";
+import { Link } from '@nextui-org/react';
+import { MdAlternateEmail } from 'react-icons/md';
+import { CiPhone } from 'react-icons/ci';
+import { TbWorld } from 'react-icons/tb';
 
-import { ConfigurationBusiness } from "@/interfaces/IUBusiness";
+import { ConfigurationBusiness } from '@/interfaces/IUBusiness';
 
 interface LinkProps {
   name: string;
@@ -12,7 +12,10 @@ interface LinkProps {
 }
 
 const ContactLink: React.FC<LinkProps> = ({ name, value, icon }) => (
-  <Link href={value} className="group flex items-center space-x-2 text-white hover:text-[#F43F5E]">
+  <Link
+    href={value}
+    className="group flex items-center space-x-2 text-white hover:text-[#F43F5E]"
+  >
     <span className="group-hover:text-[#F43F5E]">{icon}</span>
     <span className="group-hover:text-[#F43F5E]">{name}</span>
   </Link>
@@ -26,7 +29,9 @@ export const ContactInfo: React.FC<{ business: ConfigurationBusiness }> = ({
     <ul className="mt-4 space-y-2 text-foreground-700">
       {business.business_email && (
         <ContactLink
-          icon={<MdAlternateEmail className="h-6 w-6 group-hover:text-[#F43F5E]" />}
+          icon={
+            <MdAlternateEmail className="h-6 w-6 group-hover:text-[#F43F5E]" />
+          }
           name="Email"
           value={`mailto:${business.business_email}`}
         />

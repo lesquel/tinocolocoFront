@@ -1,17 +1,17 @@
-"use client";
-import { useCallback, useMemo } from "react";
+'use client';
+import { useCallback, useMemo } from 'react';
 
-import { CardBasic } from "@/components/utils/cardBasic";
-import { SearchableListSection } from "@/components/sections/listComponent/searchListSection";
-import { IUService } from "@/interfaces/IUservices";
-import { endPoints } from "@/config/endPoints";
-import NoFountEvent from "@/public/images/no_fount_events.jpg";
-import { getCategory, getEvents } from "@/features/events/services/events";
-import { useApiRequest } from "@/hooks/useApiRequest";
-import { IUCategory } from "@/interfaces/IUevents";
-import { CardLoagin } from "@/components/utils/loagins/cardLoading";
-import { searchFieldsEventCategory } from "../../utils/searchFielEvent";
-import { notFound } from "next/navigation";
+import { CardBasic } from '@/components/utils/cardBasic';
+import { SearchableListSection } from '@/components/sections/listComponent/searchListSection';
+import { IUService } from '@/interfaces/IUservices';
+import { endPoints } from '@/config/endPoints';
+import NoFountEvent from '@/public/images/no_fount_events.jpg';
+import { getCategory, getEvents } from '@/features/events/services/events';
+import { useApiRequest } from '@/hooks/useApiRequest';
+import { IUCategory } from '@/interfaces/IUevents';
+import { CardLoagin } from '@/components/utils/loagins/cardLoading';
+import { searchFieldsEventCategory } from '../../utils/searchFielEvent';
+import { notFound } from 'next/navigation';
 
 export function GetEventsByCategory({
   idcategory,
@@ -63,7 +63,7 @@ export function GetEventsByCategory({
           imageKey="photos"
           item={service}
           titleKey="service_name"
-          url={"/events/"}
+          url={'/events/'}
         />
       )}
       title={infoComponent.title}

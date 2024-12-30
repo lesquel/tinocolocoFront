@@ -1,10 +1,10 @@
-"use client";
-import { useState } from "react";
-import { SearchableTableSection } from "@/features/dashboard/section/SearchableTableSection";
-import { getPromotions } from "../../../features/promotions_/services/promotions";
-import { IUPromotion } from "@/interfaces/IUPromotions";
-import { SearchForm } from "@/components/utils/SearchForm";
-import { searchFieldsPromotions } from "../../../features/promotions_/utils/seacrFieldsPromotions";
+'use client';
+import { useState } from 'react';
+import { SearchableTableSection } from '@/features/dashboard/section/SearchableTableSection';
+import { getPromotions } from '../../../features/promotions_/services/promotions';
+import { IUPromotion } from '@/interfaces/IUPromotions';
+import { SearchForm } from '@/components/utils/SearchForm';
+import { searchFieldsPromotions } from '../../../features/promotions_/utils/seacrFieldsPromotions';
 
 export default function DashboardEvents() {
   const [searchParams, setSearchParams] = useState<any>({});
@@ -15,7 +15,10 @@ export default function DashboardEvents() {
 
   return (
     <div>
-      <SearchForm setSearch={handleSearch} searchFields={searchFieldsPromotions} />
+      <SearchForm
+        setSearch={handleSearch}
+        searchFields={searchFieldsPromotions}
+      />
       <SearchableTableSection<IUPromotion>
         pageSize={10}
         title="Todas las promociones"
@@ -23,19 +26,22 @@ export default function DashboardEvents() {
         added_url="promotions/promotion/"
         searchParams={searchParams}
         columns={[
-          { name: "ID", uid: "id" },
-          { name: "Foto", uid: "promotion_image_url" },
-          { name: "Nombre de la promocion", uid: "promotion_name" },
-          { name: "Fecha del creacion", uid: "creation_date" },
-          { name: "Descripción", uid: "promotion_description" },
-          { name: "Porcentaje de descuento", uid: "promotion_discount_percentage" },
-          { name: "Valido desde", uid: "valid_from" },
-          { name: "Valido hasta", uid: "valid_until" },
-          { name: "Estado", uid: "is_active" },
-          { name: "Acciones", uid: "actions" },
+          { name: 'ID', uid: 'id' },
+          { name: 'Foto', uid: 'promotion_image_url' },
+          { name: 'Nombre de la promocion', uid: 'promotion_name' },
+          { name: 'Fecha del creacion', uid: 'creation_date' },
+          { name: 'Descripción', uid: 'promotion_description' },
+          {
+            name: 'Porcentaje de descuento',
+            uid: 'promotion_discount_percentage',
+          },
+          { name: 'Valido desde', uid: 'valid_from' },
+          { name: 'Valido hasta', uid: 'valid_until' },
+          { name: 'Estado', uid: 'is_active' },
+          { name: 'Acciones', uid: 'actions' },
         ]}
-        onEdit={(item) => console.log("Editar evento", item)}
-        onDelete={(item) => console.log("Eliminar evento", item)}
+        onEdit={(item) => console.log('Editar evento', item)}
+        onDelete={(item) => console.log('Eliminar evento', item)}
       />
     </div>
   );

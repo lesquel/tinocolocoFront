@@ -1,10 +1,10 @@
-"use client";
-import { endPoints } from "@/config/endPoints";
-import { getCategorys } from "@/features/events/services/events";
-import { IUCategory, IUEvent } from "@/interfaces/IUevents";
-import { SearchableListSection } from "@/components/sections/listComponent/searchListSection";
-import { CategoryCardBasic } from "@/components/utils/categoryBasic";
-import { searchFieldsCategory } from "../../utils/searchFielCategory";
+'use client';
+import { endPoints } from '@/config/endPoints';
+import { getCategorys } from '@/features/events/services/events';
+import { IUCategory, IUEvent } from '@/interfaces/IUevents';
+import { SearchableListSection } from '@/components/sections/listComponent/searchListSection';
+import { CategoryCardBasic } from '@/components/utils/categoryBasic';
+import { searchFieldsCategory } from '../../utils/searchFielCategory';
 
 export function AllCategorysEvent({
   size,

@@ -1,15 +1,15 @@
-"use client";
-import { useCallback, useState } from "react";
+'use client';
+import { useCallback, useState } from 'react';
 
-import { editUserConfigForm } from "../utils/editUserConfigForm";
-import { getTokenFromCookie } from "../utils/getUserInfo";
-import { editUser, getUser } from "../services/auth";
+import { editUserConfigForm } from '../utils/editUserConfigForm';
+import { getTokenFromCookie } from '../utils/getUserInfo';
+import { editUser, getUser } from '../services/auth';
 
-import DynamicForm from "@/components/utils/form/dynamicForm";
-import { useAsyncAction } from "@/hooks/useAsyncAction";
-import { useApiRequest } from "@/hooks/useApiRequest";
-import { useErrorsForm } from "@/services/utils/useErrosForm";
-import { FormLoading } from "@/components/utils/loagins/formLoading";
+import DynamicForm from '@/components/utils/form/dynamicForm';
+import { useAsyncAction } from '@/hooks/useAsyncAction';
+import { useApiRequest } from '@/hooks/useApiRequest';
+import { useErrorsForm } from '@/services/utils/useErrosForm';
+import { FormLoading } from '@/components/utils/loagins/formLoading';
 
 export default function FormEditUser() {
   const userInfo = getTokenFromCookie();
@@ -31,7 +31,7 @@ export default function FormEditUser() {
 
         return;
       }
-      window.location.href = "/accounts";
+      window.location.href = '/accounts';
     });
   };
 

@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import React from "react";
-import { FaStar } from "react-icons/fa6";
+import React from 'react';
+import { FaStar } from 'react-icons/fa6';
 
 interface StarRatingProps {
   rating: number;
@@ -25,13 +25,13 @@ export const StarRating: React.FC<StarRatingProps> = ({
               aria-label={`Rate ${ratingValue} out of 5 stars`}
               aria-pressed={rating === ratingValue}
               className="cursor-pointer"
-              color={ratingValue <= rating ? "#ffc107" : "#e4e5e9"}
+              color={ratingValue <= rating ? '#ffc107' : '#e4e5e9'}
               role="button"
               size={24}
               tabIndex={0}
               onClick={() => onRatingChange(ratingValue)}
               onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
+                if (e.key === 'Enter' || e.key === ' ') {
                   onRatingChange(ratingValue);
                 }
               }}

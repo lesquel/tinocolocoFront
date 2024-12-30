@@ -1,6 +1,6 @@
-import { Container } from "@/components/sections/layout/container";
-import { Section } from "@/components/sections/layout/section";
-import { AllCategorysServices } from "@/features/services/section/services/AllCategorysServices";
+import { Container } from '@/components/sections/layout/container';
+import { Section } from '@/components/sections/layout/section';
+import { AllCategorysServices } from '@/features/services/section/services/AllCategorysServices';
 
 export default function CategoryServices() {
   return (
@@ -8,7 +8,7 @@ export default function CategoryServices() {
       <Section>
         <AllCategorysServices
           size={10}
-          infoComponent={{ title: "Todos", description: "Categorias" }}
+          infoComponent={{ title: 'Todos', description: 'Categorias' }}
         />
       </Section>
     </Container>

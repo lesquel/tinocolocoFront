@@ -1,9 +1,9 @@
-"use client";
-import { useState } from "react";
+'use client';
+import { useState } from 'react';
 
-import { TitleSection } from "@/components/utils/titleSection";
-import { SearchForm } from "@/components/utils/SearchForm";
-import { ListComponent } from "@/components/sections/listComponent/listComponent";
+import { TitleSection } from '@/components/utils/titleSection';
+import { SearchForm } from '@/components/utils/SearchForm';
+import { ListComponent } from '@/components/sections/listComponent/listComponent';
 
 interface SearchField {
   key: string;
@@ -27,16 +27,15 @@ interface SearchableListSectionProps<T> {
   searchFields: SearchField[];
 }
 
-
 export function SearchableListSection<T>({
   title,
   description,
   fetchData,
   renderCard,
   pageSize = 10,
-  noDataMessage = "No hay datos",
-  errorMessage = "Error al obtener los datos",
-  loadingMessage = "Cargando...",
+  noDataMessage = 'No hay datos',
+  errorMessage = 'Error al obtener los datos',
+  loadingMessage = 'Cargando...',
   searchFields,
 }: SearchableListSectionProps<T>) {
   const [search, setSearch] = useState<any>({});

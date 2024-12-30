@@ -1,8 +1,6 @@
+'use client';
 
-
-'use client'
-
-import { Card, CardBody, Skeleton } from "@nextui-org/react";
+import { Card, CardBody, Skeleton } from '@nextui-org/react';
 
 function StaffCardSkeleton() {
   return (
@@ -32,7 +30,7 @@ export function AboutSectionSkeleton() {
           <div className="h-8 w-1/4 rounded-lg bg-default-200"></div>
         </Skeleton>
       </div>
-      
+
       <div className="flex flex-col md:flex-row gap-8 mb-12">
         <div className="w-full md:w-1/2">
           <Skeleton className="rounded-lg">
@@ -83,4 +81,3 @@ export function AboutSectionSkeleton() {
     </div>
   );
 }
-

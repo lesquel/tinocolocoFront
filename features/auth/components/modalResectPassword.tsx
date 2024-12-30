@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Button,
   Modal,
@@ -10,31 +10,38 @@ import {
   ModalHeader,
   useDisclosure,
   Chip,
-  Input
-} from "@nextui-org/react";
-import toast from "react-hot-toast";
-import { useAsyncAction } from "@/hooks/useAsyncAction";
-import { useErrorsForm } from "@/services/utils/useErrosForm";
-import { sendPasswordResetCode, resetPassword } from "@/features/auth/services/auth";
-import { IUSendPasswordResetCode } from "@/interfaces/IUauth";
+  Input,
+} from '@nextui-org/react';
+import toast from 'react-hot-toast';
+import { useAsyncAction } from '@/hooks/useAsyncAction';
+import { useErrorsForm } from '@/services/utils/useErrosForm';
+import {
+  sendPasswordResetCode,
+  resetPassword,
+} from '@/features/auth/services/auth';
+import { IUSendPasswordResetCode } from '@/interfaces/IUauth';
 export function RestauerasePasswordModal() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [step, setStep] = useState(1);
-  const [email, setEmail] = useState("");
-  const [code, setCode] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [externalErrors, setExternalErrors] = useState<Record<string, string>>({});
+  const [email, setEmail] = useState('');
+  const [code, setCode] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [externalErrors, setExternalErrors] = useState<Record<string, string>>(
+    {},
+  );
 
-  const { execute: executeSendEmail, loading: loadingSendEmail } = useAsyncAction(sendPasswordResetCode);
-  const { execute: executeResetPassword, loading: loadingResetPassword } = useAsyncAction(resetPassword);
+  const { execute: executeSendEmail, loading: loadingSendEmail } =
+    useAsyncAction(sendPasswordResetCode);
+  const { execute: executeResetPassword, loading: loadingResetPassword } =
+    useAsyncAction(resetPassword);
 
   const sendVerificationEmail = () => {
     executeSendEmail({ email }, (response) => {
       if (response.errors) {
-        toast.error("Error al enviar el código de verificación");
+        toast.error('Error al enviar el código de verificación');
         return;
       }
-      toast.success("Se ha enviado el correo de confirmación");
+      toast.success('Se ha enviado el correo de confirmación');
       setStep(2);
     });
   };
@@ -42,7 +49,7 @@ export function RestauerasePasswordModal() {
   const verifyCodeAndResetPassword = () => {
     const resetData: IUSendPasswordResetCode = {
       code,
-      new_password: newPassword
+      new_password: newPassword,
     };
 
     executeResetPassword({ data: resetData }, (response) => {
@@ -50,7 +57,7 @@ export function RestauerasePasswordModal() {
         useErrorsForm({ response, setExternalErrors });
         return;
       }
-      toast.success("Contraseña actualizada correctamente");
+      toast.success('Contraseña actualizada correctamente');
       onOpenChange(false);
       window.location.reload();
     });
@@ -68,7 +75,9 @@ export function RestauerasePasswordModal() {
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">
-                {step === 1 ? "Ingresa tu email" : "Verifica y resetea tu contraseña"}
+                {step === 1
+                  ? 'Ingresa tu email'
+                  : 'Verifica y resetea tu contraseña'}
               </ModalHeader>
               <ModalBody className="flex flex-col gap-4 justify-center items-center">
                 {step === 1 ? (
@@ -101,11 +110,19 @@ export function RestauerasePasswordModal() {
                   Cerrar
                 </Button>
                 {step === 1 ? (
-                  <Button color="primary" onPress={sendVerificationEmail} isLoading={loadingSendEmail}>
+                  <Button
+                    color="primary"
+                    onPress={sendVerificationEmail}
+                    isLoading={loadingSendEmail}
+                  >
                     Enviar código
                   </Button>
                 ) : (
-                  <Button color="primary" onPress={verifyCodeAndResetPassword} isLoading={loadingResetPassword}>
+                  <Button
+                    color="primary"
+                    onPress={verifyCodeAndResetPassword}
+                    isLoading={loadingResetPassword}
+                  >
                     Verificar y resetear
                   </Button>
                 )}
@@ -117,4 +134,3 @@ export function RestauerasePasswordModal() {
     </>
   );
 }
-

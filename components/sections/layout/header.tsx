@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import {
   Navbar,
   NavbarBrand,
@@ -15,16 +15,16 @@ import {
   DropdownItem,
   Avatar,
   Button,
-} from "@nextui-org/react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { MdCheck, MdExpandMore } from "react-icons/md";
+} from '@nextui-org/react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { MdCheck, MdExpandMore } from 'react-icons/md';
 
-import { siteConfig } from "@/config/site";
-import { getTokenFromCookie } from "@/features/auth/utils/getUserInfo";
-import { IUUser, Role } from "@/interfaces/IUser";
-import { Logo } from "@/components/utils/logo";
-import User from "@/public/images/user.png";
+import { siteConfig } from '@/config/site';
+import { getTokenFromCookie } from '@/features/auth/utils/getUserInfo';
+import { IUUser, Role } from '@/interfaces/IUser';
+import { Logo } from '@/components/utils/logo';
+import User from '@/public/images/user.png';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,12 +39,12 @@ export default function Header() {
   const navItems = Object.entries(siteConfig.navItemsHeader);
 
   const events = [
-    { key: "events", label: "Eventos", href: "/events" },
-    { key: "categories", label: "Categorias", href: "/events/category" },
+    { key: 'events', label: 'Eventos', href: '/events' },
+    { key: 'categories', label: 'Categorias', href: '/events/category' },
   ];
   const services = [
-    { key: "services", label: "Servicios", href: "/services" },
-    { key: "categories", label: "Categorias", href: "/services/category" },
+    { key: 'services', label: 'Servicios', href: '/services' },
+    { key: 'categories', label: 'Categorias', href: '/services/category' },
   ];
 
   return (
@@ -57,7 +57,7 @@ export default function Header() {
     >
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
         />
       </NavbarContent>
 
@@ -73,7 +73,7 @@ export default function Header() {
         <NavbarBrand>
           <Logo />
         </NavbarBrand>
-        
+
         <Dropdown>
           <NavbarItem>
             <DropdownTrigger>
@@ -98,7 +98,6 @@ export default function Header() {
           </DropdownMenu>
         </Dropdown>
 
-       
         <Dropdown>
           <NavbarItem>
             <DropdownTrigger>
@@ -125,7 +124,7 @@ export default function Header() {
           <NavbarItem key={key} isActive={pathname === item.href}>
             <Link
               className={`text-foreground hover:text-[#F43F5E] transition-colors ${
-                pathname === item.href ? "font-semibold" : ""
+                pathname === item.href ? 'font-semibold' : ''
               }`}
               href={item.href}
             >
@@ -134,7 +133,6 @@ export default function Header() {
           </NavbarItem>
         ))}
       </NavbarContent>
-
 
       <NavbarContent justify="end">
         {!userInfo ? (
@@ -178,7 +176,7 @@ export default function Header() {
                     src={User.src}
                   />
                   <span className="ml-2 hidden sm:inline-block">
-                    {userInfo?.user?.username ?? "Usuario"}
+                    {userInfo?.user?.username ?? 'Usuario'}
                   </span>
                 </Button>
               </DropdownTrigger>
@@ -231,7 +229,7 @@ export default function Header() {
           <NavbarMenuItem key={key}>
             <Link
               className={`w-full text-foreground hover:text-primary transition-colors ${
-                pathname === item.href ? "font-semibold" : ""
+                pathname === item.href ? 'font-semibold' : ''
               }`}
               href={item.href}
               onClick={() => setIsMenuOpen(false)}
@@ -241,7 +239,6 @@ export default function Header() {
           </NavbarMenuItem>
         ))}
 
-        
         {events.map((item) => (
           <NavbarMenuItem key={item.key}>
             <Link

@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { NavbarItem } from "@nextui-org/react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { NavbarItem } from '@nextui-org/react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 interface NavItemsProps {
   items: {
@@ -21,9 +21,9 @@ export function NavItems({ items }: NavItemsProps) {
       {Object.entries(items).map(([key, item]) => (
         <NavbarItem key={key} isActive={pathname === item.href}>
           <Link
-            aria-current={pathname === item.href ? "page" : undefined}
+            aria-current={pathname === item.href ? 'page' : undefined}
             className={`text-foreground hover:text-[#F43F5E] transition-colors ${
-              pathname === item.href ? "font-semibold" : ""
+              pathname === item.href ? 'font-semibold' : ''
             }`}
             href={item.href}
           >

@@ -1,4 +1,4 @@
-import { SidebarDashboard } from "@/features/dashboard/components/sliderbar";
+import { SidebarDashboard } from '@/features/dashboard/components/sliderbar';
 
 export default function DashboardLayout({
   children,

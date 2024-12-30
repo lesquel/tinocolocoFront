@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { Login } from "@/features/auth/secion/login";
+import { Login } from '@/features/auth/secion/login';
 
 export default function Page() {
   return (

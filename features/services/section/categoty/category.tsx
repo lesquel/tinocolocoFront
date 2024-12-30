@@ -1,17 +1,20 @@
-"use client";
-import { useCallback, useMemo } from "react";
+'use client';
+import { useCallback, useMemo } from 'react';
 
-import { CardBasic } from "@/components/utils/cardBasic";
-import { SearchableListSection } from "@/components/sections/listComponent/searchListSection";
-import { IUService } from "@/interfaces/IUservices";
-import { endPoints } from "@/config/endPoints";
-import NoFountEvent from "@/public/images/no_fount_events.jpg";
-import { getServiceCategory, getServices } from "@/features/services/services/services";
-import { useApiRequest } from "@/hooks/useApiRequest";
-import { IUCategory } from "@/interfaces/IUservices";
-import { CardLoagin } from "@/components/utils/loagins/cardLoading";
-import { searchFieldsServices } from "../../utils/searchFielServices";
-import { notFound } from "next/navigation";
+import { CardBasic } from '@/components/utils/cardBasic';
+import { SearchableListSection } from '@/components/sections/listComponent/searchListSection';
+import { IUService } from '@/interfaces/IUservices';
+import { endPoints } from '@/config/endPoints';
+import NoFountEvent from '@/public/images/no_fount_events.jpg';
+import {
+  getServiceCategory,
+  getServices,
+} from '@/features/services/services/services';
+import { useApiRequest } from '@/hooks/useApiRequest';
+import { IUCategory } from '@/interfaces/IUservices';
+import { CardLoagin } from '@/components/utils/loagins/cardLoading';
+import { searchFieldsServices } from '../../utils/searchFielServices';
+import { notFound } from 'next/navigation';
 
 export function GetServicesByCategory({
   idcategory,
@@ -36,14 +39,15 @@ export function GetServicesByCategory({
   // Memoize the fetchServices function to ensure stable references
   const fetchEvents = useMemo(() => {
     if (categoryData) {
-      return () => getServices({ category: categoryData.service_category_name });
+      return () =>
+        getServices({ category: categoryData.service_category_name });
     }
 
     return () => Promise.resolve([]); // Fallback for when categoryData is not available
   }, [categoryData]);
 
   // Handle loading, error, or no data for category
-  if (categoryError) notFound()
+  if (categoryError) notFound();
   if (isCategoryLoading) return <CardLoagin description="Cargando categoría" />;
 
   return (
@@ -64,7 +68,7 @@ export function GetServicesByCategory({
           imageKey="photos"
           item={service}
           titleKey="service_name"
-          url={"/services/"}
+          url={'/services/'}
         />
       )}
       title={infoComponent.title}

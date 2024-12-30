@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState } from 'react';
 import {
   Table,
   TableHeader,
@@ -14,26 +14,26 @@ import {
   CardBody,
   CardHeader,
   Divider,
-} from "@nextui-org/react";
-import { notFound, useRouter } from "next/navigation";
+} from '@nextui-org/react';
+import { notFound, useRouter } from 'next/navigation';
 
-import { getRental, addReview } from "../services/rentals";
+import { getRental, addReview } from '../services/rentals';
 
-import { SectionReview } from "./review/SectionReview";
+import { SectionReview } from './review/SectionReview';
 
-import { useApiRequest } from "@/hooks/useApiRequest";
-import { IURental } from "@/interfaces/IURental";
-import { InforShorts } from "@/features/events/components/inforShorts";
-import { TitleSection } from "@/components/utils/titleSection";
-import { AllInfoShortsServices } from "@/features/services/utils/infoShortsServices";
-import { TableLoading } from "@/components/utils/loagins/tableLoading";
-import { RentalCardLoading } from "@/components/utils/loagins/rentalsCardLoding";
-import { ReviewsLoading } from "@/components/utils/loagins/reviewsLoading";
-import { getTokenFromCookie } from "@/features/auth/utils/getUserInfo";
-import { Role } from "@/interfaces/IUser";
-import { ReviewForm } from "@/components/utils/reviews/ReviewForm";
-import { ModalVerifyEmailRental } from "../utils/modalVeridyEmailRental";
-import NotFound from "@/app/404";
+import { useApiRequest } from '@/hooks/useApiRequest';
+import { IURental } from '@/interfaces/IURental';
+import { InforShorts } from '@/features/events/components/inforShorts';
+import { TitleSection } from '@/components/utils/titleSection';
+import { AllInfoShortsServices } from '@/features/services/utils/infoShortsServices';
+import { TableLoading } from '@/components/utils/loagins/tableLoading';
+import { RentalCardLoading } from '@/components/utils/loagins/rentalsCardLoding';
+import { ReviewsLoading } from '@/components/utils/loagins/reviewsLoading';
+import { getTokenFromCookie } from '@/features/auth/utils/getUserInfo';
+import { Role } from '@/interfaces/IUser';
+import { ReviewForm } from '@/components/utils/reviews/ReviewForm';
+import { ModalVerifyEmailRental } from '../utils/modalVeridyEmailRental';
+import NotFound from '@/app/404';
 
 export function RentalSection({ id }: { id: number }) {
   const [addedReviews, setAddedReviews] = useState(0);
@@ -46,7 +46,7 @@ export function RentalSection({ id }: { id: number }) {
     setAddedReviews((prev) => prev + 1);
   }, []);
 
-  if (error) notFound()
+  if (error) notFound();
 
   if (isLoading) {
     return (
@@ -67,20 +67,19 @@ export function RentalSection({ id }: { id: number }) {
     );
   }
 
-
   return (
     <div className="space-y-8">
       <Card className="p-6">
         <CardHeader className="flex justify-between items-center flex-col">
           <TitleSection description=" la Reserva" title="Información de" />
-          {data.current_status.status === "pending" && (
-                    <div className="mb-4 flex flex-col justify-center items-center gap-2">
-                      <p className="mb-2">
-                        Para realizar la reserva, por favor, confirma la Reserva.
-                      </p>
-                      <ModalVerifyEmailRental rentalId={id} />
-                    </div>
-                  )}
+          {data.current_status.status === 'pending' && (
+            <div className="mb-4 flex flex-col justify-center items-center gap-2">
+              <p className="mb-2">
+                Para realizar la reserva, por favor, confirma la Reserva.
+              </p>
+              <ModalVerifyEmailRental rentalId={id} />
+            </div>
+          )}
         </CardHeader>
         <CardBody>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -109,8 +108,10 @@ export function RentalSection({ id }: { id: number }) {
             <div>
               <Card className="p-4">
                 <CardHeader className="flex justify-between items-center">
-                  <h3 className="text-xl font-semibold">Detalles de la Reserva</h3>
-                  {data.current_status.status === "pending" ? (
+                  <h3 className="text-xl font-semibold">
+                    Detalles de la Reserva
+                  </h3>
+                  {data.current_status.status === 'pending' ? (
                     <Chip color="warning" size="sm" variant="dot">
                       Pendiente
                     </Chip>
@@ -121,8 +122,10 @@ export function RentalSection({ id }: { id: number }) {
                   )}
                 </CardHeader>
                 <CardBody>
-                  
-                  <Table aria-label="Información de la Reserva" className="mt-4">
+                  <Table
+                    aria-label="Información de la Reserva"
+                    className="mt-4"
+                  >
                     <TableHeader>
                       <TableColumn>Propiedad</TableColumn>
                       <TableColumn>Valor</TableColumn>
@@ -146,7 +149,9 @@ export function RentalSection({ id }: { id: number }) {
                       </TableRow>
                       <TableRow key="end_time">
                         <TableCell>Hora de finalización planificada</TableCell>
-                        <TableCell>{data.event_rental_planified_end_time}</TableCell>
+                        <TableCell>
+                          {data.event_rental_planified_end_time}
+                        </TableCell>
                       </TableRow>
                       <TableRow key="cost">
                         <TableCell>Costo</TableCell>
@@ -154,7 +159,9 @@ export function RentalSection({ id }: { id: number }) {
                       </TableRow>
                       <TableRow key="payment_method">
                         <TableCell>Método de pago</TableCell>
-                        <TableCell>{data.event_rental_payment_method}</TableCell>
+                        <TableCell>
+                          {data.event_rental_payment_method}
+                        </TableCell>
                       </TableRow>
                       <TableRow key="attendees">
                         <TableCell>Asistentes (min-max)</TableCell>

@@ -1,13 +1,13 @@
-"use client";
-import { useState } from "react";
+'use client';
+import { useState } from 'react';
 
-import DynamicForm from "@/components/utils/form/dynamicForm";
-import { TitleSection } from "@/components/utils/titleSection";
-import { IUEvent } from "@/interfaces/IUevents";
-import { EventFormConfig } from "@/features/events/utils/eventFormConfig";
-import { useAsyncAction } from "@/hooks/useAsyncAction";
-import { createEvent, uploadPhoto } from "@/features/events/services/events";
-import { FormConfig } from "@/interfaces/IUform";
+import DynamicForm from '@/components/utils/form/dynamicForm';
+import { TitleSection } from '@/components/utils/titleSection';
+import { IUEvent } from '@/interfaces/IUevents';
+import { EventFormConfig } from '@/features/events/utils/eventFormConfig';
+import { useAsyncAction } from '@/hooks/useAsyncAction';
+import { createEvent, uploadPhoto } from '@/features/events/services/events';
+import { FormConfig } from '@/interfaces/IUform';
 
 const updateEventPhotos = () => {};
 
@@ -25,7 +25,7 @@ export function CreateForm() {
   const handleSubmit = (data: IUEvent, photos: File[]) => {
     execute(data, (response) => {
       uploadExecute({ data: photos, idEvent: response.id }, (response) => {
-        console.log("response image:", response);
+        console.log('response image:', response);
       });
     });
   };

@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { GraphicLoading } from "@/components/utils/loagins/graphicLoading";
-import { TitleSection } from "@/components/utils/titleSection";
-import { getUsersMostRentals } from "@/features/auth/services/auth";
-import { useApiRequest } from "@/hooks/useApiRequest";
-import ReactECharts from "echarts-for-react";
-import { useCallback } from "react";
+import { GraphicLoading } from '@/components/utils/loagins/graphicLoading';
+import { TitleSection } from '@/components/utils/titleSection';
+import { getUsersMostRentals } from '@/features/auth/services/auth';
+import { useApiRequest } from '@/hooks/useApiRequest';
+import ReactECharts from 'echarts-for-react';
+import { useCallback } from 'react';
 
 export function UserRentalsDistribution() {
   const fetchUsers = useCallback(
@@ -13,7 +13,7 @@ export function UserRentalsDistribution() {
       getUsersMostRentals({
         size: 50, // Aumentamos el tamaño de la consulta para tener más datos
       }),
-    []
+    [],
   );
 
   const { data, error, isLoading } = useApiRequest(fetchUsers);
@@ -36,45 +36,52 @@ export function UserRentalsDistribution() {
   }
 
   // Extraer el número de rentas de cada usuario
-  const reservationCounts = data.results.map((user) => user.reservation_count || 0);
+  const reservationCounts = data.results.map(
+    (user) => user.reservation_count || 0,
+  );
 
   // Definir rangos para el histograma
   const bins = [0, 1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 40, 50]; // Definimos los rangos de rentas
   const counts = bins.map((bin, index) => {
-    if (index === 0) return reservationCounts.filter((count) => count <= bin).length;
-    return reservationCounts.filter((count) => count > bins[index - 1] && count <= bin).length;
+    if (index === 0)
+      return reservationCounts.filter((count) => count <= bin).length;
+    return reservationCounts.filter(
+      (count) => count > bins[index - 1] && count <= bin,
+    ).length;
   });
 
   // Configuración del gráfico de histograma
   const option = {
     tooltip: {
-      trigger: "axis",
-      formatter: "{b}: {c} usuarios",
+      trigger: 'axis',
+      formatter: '{b}: {c} usuarios',
     },
     xAxis: {
-      type: "category",
-      data: bins.map((bin, index) => (index === 0 ? `<=${bin}` : `>${bins[index - 1]}-${bin}`)), // Rango de rentas
+      type: 'category',
+      data: bins.map((bin, index) =>
+        index === 0 ? `<=${bin}` : `>${bins[index - 1]}-${bin}`,
+      ), // Rango de rentas
       axisLabel: {
-        color: "#fff",
+        color: '#fff',
       },
     },
     yAxis: {
-      type: "value",
+      type: 'value',
       axisLabel: {
-        color: "#fff",
+        color: '#fff',
       },
     },
     series: [
       {
-        name: "Usuarios",
-        type: "bar",
+        name: 'Usuarios',
+        type: 'bar',
         data: counts, // Frecuencia de cada rango
         itemStyle: {
           barBorderRadius: 5,
           borderWidth: 1,
-          borderType: "solid",
-          borderColor: "#73c0de",
-          shadowColor: "#5470c6",
+          borderType: 'solid',
+          borderColor: '#73c0de',
+          shadowColor: '#5470c6',
           shadowBlur: 3,
         },
       },

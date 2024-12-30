@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import React from "react";
+import React from 'react';
 import {
   Card,
   CardHeader,
   CardBody,
   Skeleton,
   Divider,
-} from "@nextui-org/react";
+} from '@nextui-org/react';
 
-import { Container } from "@/components/sections/layout/container";
-import { Section } from "@/components/sections/layout/section";
-import { TitleSection } from "@/components/utils/titleSection";
+import { Container } from '@/components/sections/layout/container';
+import { Section } from '@/components/sections/layout/section';
+import { TitleSection } from '@/components/utils/titleSection';
 
 function SkeletonInfoItem() {
   return (

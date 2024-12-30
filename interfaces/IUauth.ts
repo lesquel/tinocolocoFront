@@ -1,4 +1,4 @@
-import { IUUser } from "./IUser";
+import { IUUser } from './IUser';
 
 export interface IURegister {
   username: string;

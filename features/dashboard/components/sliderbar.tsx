@@ -1,25 +1,29 @@
-"use client";
-import React from "react";
-import { Card, Button, Tooltip } from "@nextui-org/react";
-import { FaHome, FaSearch } from "react-icons/fa";
-import { GiPartyFlags } from "react-icons/gi";
-import { MdBusinessCenter, MdRoomService } from "react-icons/md";
-import { RiDiscountPercentFill } from "react-icons/ri";
-import { redirect } from "next/navigation";
-import Link from "next/link";
+'use client';
+import React from 'react';
+import { Card, Button, Tooltip } from '@nextui-org/react';
+import { FaHome, FaSearch } from 'react-icons/fa';
+import { GiPartyFlags } from 'react-icons/gi';
+import { MdBusinessCenter, MdRoomService } from 'react-icons/md';
+import { RiDiscountPercentFill } from 'react-icons/ri';
+import { redirect } from 'next/navigation';
+import Link from 'next/link';
 
 export const SidebarDashboard = () => {
-  const [selected, setSelected] = React.useState("home");
+  const [selected, setSelected] = React.useState('home');
 
   const menuItems = [
-    { key: "home", icon: <FaHome />, href: "/dashboard" },
-    { key: "eventos", icon: <GiPartyFlags />, href: "/dashboard/events" },
-    { key: "servicios", icon: <MdRoomService />, href: "/dashboard/services" },
-    { key: "promociones", icon: <RiDiscountPercentFill  />, href: "/dashboard/promotions" },
+    { key: 'home', icon: <FaHome />, href: '/dashboard' },
+    { key: 'eventos', icon: <GiPartyFlags />, href: '/dashboard/events' },
+    { key: 'servicios', icon: <MdRoomService />, href: '/dashboard/services' },
     {
-      key: "business",
+      key: 'promociones',
+      icon: <RiDiscountPercentFill />,
+      href: '/dashboard/promotions',
+    },
+    {
+      key: 'business',
       icon: <MdBusinessCenter />,
-      href: "/dashboard/business",
+      href: '/dashboard/business',
     },
   ];
 
@@ -38,7 +42,7 @@ export const SidebarDashboard = () => {
             as={Link}
             href={item.href}
             className={`w-12 h-12 min-w-0 p-0 bg-transparent hover:bg-zinc-800 ${
-              selected === item.key ? "bg-zinc-800" : ""
+              selected === item.key ? 'bg-zinc-800' : ''
             }`}
             onClick={() => {
               setSelected(item.key);
@@ -46,7 +50,7 @@ export const SidebarDashboard = () => {
           >
             <div
               className={`text-white ${
-                selected === item.key ? "text-blue-500" : ""
+                selected === item.key ? 'text-blue-500' : ''
               }`}
             >
               {item.icon}

@@ -1,6 +1,6 @@
-import { TitleSection } from "@/components/utils/titleSection";
-import { InforShorts } from "@/features/events/components/inforShorts";
-import { AddRentalForm } from "@/features/rentals/sections/addRentalForm";
+import { TitleSection } from '@/components/utils/titleSection';
+import { InforShorts } from '@/features/events/components/inforShorts';
+import { AddRentalForm } from '@/features/rentals/sections/addRentalForm';
 
 interface Props {
   params: { idEvent: string };

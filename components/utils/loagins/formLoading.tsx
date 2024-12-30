@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { Skeleton } from "@nextui-org/react";
+import { Skeleton } from '@nextui-org/react';
 
 interface SkeletonFormProps {
   inputCount: number;

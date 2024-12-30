@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState } from "react";
-import { Button, Input, Textarea, Select, SelectItem } from "@nextui-org/react";
-import { useForm, Controller } from "react-hook-form";
+import React, { useEffect, useState } from 'react';
+import { Button, Input, Textarea, Select, SelectItem } from '@nextui-org/react';
+import { useForm, Controller } from 'react-hook-form';
 
-import { CustomCheckbox } from "./checkboxForm";
+import { CustomCheckbox } from './checkboxForm';
 
-import { FieldConfig, FormConfig } from "@/interfaces/IUform";
+import { FieldConfig, FormConfig } from '@/interfaces/IUform';
 
 interface DynamicFormProps<T> {
   formConfig: FormConfig;
@@ -43,7 +43,7 @@ const DynamicForm = <T extends Record<string, any>>({
       if (formConfig[fieldName]) {
         // Si el campo existe en el formulario, se configura como un error específico
         setError(fieldName as keyof T, {
-          type: "manual",
+          type: 'manual',
           message: errorMessage,
         });
       } else {
@@ -82,14 +82,14 @@ const DynamicForm = <T extends Record<string, any>>({
     };
 
     switch (config.type) {
-      case "text":
-      case "number":
-      case "date":
-      case "time":
+      case 'text':
+      case 'number':
+      case 'date':
+      case 'time':
         return <Input key={fieldName} {...commonProps} type={config.type} />;
-      case "textarea":
+      case 'textarea':
         return <Textarea key={fieldName} {...commonProps} />;
-      case "select":
+      case 'select':
         return (
           <Select key={fieldName} {...commonProps}>
             {config.options ? (
@@ -99,11 +99,11 @@ const DynamicForm = <T extends Record<string, any>>({
                 </SelectItem>
               ))
             ) : (
-              <SelectItem key={"a"}>No hay opciones disponibles</SelectItem> // Mensaje si no hay opciones
+              <SelectItem key={'a'}>No hay opciones disponibles</SelectItem> // Mensaje si no hay opciones
             )}
           </Select>
         );
-      case "file":
+      case 'file':
         return (
           <Input
             key={fieldName}
@@ -113,7 +113,7 @@ const DynamicForm = <T extends Record<string, any>>({
             onChange={handleImageChange}
           />
         );
-      case "checkbox":
+      case 'checkbox':
         return (
           <Controller
             key={fieldName}

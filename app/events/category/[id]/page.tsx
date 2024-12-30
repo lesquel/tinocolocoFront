@@ -1,6 +1,6 @@
-import { Container } from "@/components/sections/layout/container";
-import { Section } from "@/components/sections/layout/section";
-import { GetEventsByCategory } from "@/features/events/section/category/category";
+import { Container } from '@/components/sections/layout/container';
+import { Section } from '@/components/sections/layout/section';
+import { GetEventsByCategory } from '@/features/events/section/category/category';
 
 export default async function CategotyEvent({
   params,
@@ -15,7 +15,7 @@ export default async function CategotyEvent({
       <Section>
         <GetEventsByCategory
           idcategory={idcategory}
-          infoComponent={{ title: "Todos", description: "Los Eventos" }}
+          infoComponent={{ title: 'Todos', description: 'Los Eventos' }}
           size={10}
         />
       </Section>

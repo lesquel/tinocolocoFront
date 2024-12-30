@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   Button,
@@ -7,19 +7,19 @@ import {
   CardHeader,
   Input,
   Link,
-} from "@nextui-org/react";
-import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
-import { FaEyeSlash, FaEye, FaLock } from "react-icons/fa";
-import { IoIosMail } from "react-icons/io";
+} from '@nextui-org/react';
+import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import { FaEyeSlash, FaEye, FaLock } from 'react-icons/fa';
+import { IoIosMail } from 'react-icons/io';
 
-import { IURegister } from "@/interfaces/IUauth";
-import { useAuth } from "@/features/auth/hooks/useAuth";
-import { validationRules } from "@/features/auth/utils/validations";
-import { login as loginService } from "@/features/auth/services/auth";
-import { TitleSection } from "@/components/utils/titleSection";
-import { RestauerasePasswordModal } from "../components/modalResectPassword";
+import { IURegister } from '@/interfaces/IUauth';
+import { useAuth } from '@/features/auth/hooks/useAuth';
+import { validationRules } from '@/features/auth/utils/validations';
+import { login as loginService } from '@/features/auth/services/auth';
+import { TitleSection } from '@/components/utils/titleSection';
+import { RestauerasePasswordModal } from '../components/modalResectPassword';
 
 export const Login = () => {
   const router = useRouter();
@@ -33,12 +33,12 @@ export const Login = () => {
     setError,
     trigger,
   } = useForm<IURegister>({
-    mode: "onChange", // Validación en tiempo real
+    mode: 'onChange', // Validación en tiempo real
   });
 
   const { loading, handleRegister, generalError } = useAuth(
     setError,
-    loginService
+    loginService,
   );
 
   useEffect(() => {
@@ -51,16 +51,16 @@ export const Login = () => {
         if (response.errors) {
           Object.keys(response.errors).forEach((field) => {
             setError(field as keyof IURegister, {
-              type: "server",
-              message: response.errors[field].join(", "),
+              type: 'server',
+              message: response.errors[field].join(', '),
             });
           });
         } else {
-          window.location.href = "/";
+          window.location.href = '/';
         }
       });
     } catch (error) {
-      console.error("Login error:", error);
+      console.error('Login error:', error);
     }
   };
 
@@ -90,7 +90,7 @@ export const Login = () => {
               <IoIosMail className="text-default-400 pointer-events-none flex-shrink-0" />
             }
             variant="bordered"
-            {...register("username", validationRules.username)}
+            {...register('username', validationRules.username)}
             errorMessage={errors.username?.message}
             isInvalid={!!errors.username}
           />
@@ -113,15 +113,15 @@ export const Login = () => {
             startContent={
               <FaLock className="text-default-400 pointer-events-none flex-shrink-0" />
             }
-            type={isVisible ? "text" : "password"}
+            type={isVisible ? 'text' : 'password'}
             variant="bordered"
-            {...register("password", validationRules.password)}
+            {...register('password', validationRules.password)}
             errorMessage={errors.password?.message}
             isInvalid={!!errors.password}
           />
 
           <div className="flex justify-between items-center">
-            Recuerdame{" "}
+            Recuerdame{' '}
             <input className="mr-2" id="remember-me" type="checkbox" />
             <RestauerasePasswordModal />
           </div>
@@ -134,7 +134,7 @@ export const Login = () => {
             type="submit"
             variant="shadow"
           >
-            {loading ? "Iniciando sesión..." : "Iniciar sesión"}
+            {loading ? 'Iniciando sesión...' : 'Iniciar sesión'}
           </Button>
         </form>
         <div className="text-center mt-4">

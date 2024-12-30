@@ -1,14 +1,14 @@
-"use client";
-import { useCallback } from "react";
+'use client';
+import { useCallback } from 'react';
 
-import { getMostViewedServices } from "../../services/services";
+import { getMostViewedServices } from '../../services/services';
 
-import { useApiRequest } from "@/hooks/useApiRequest";
-import { TitleSection } from "@/components/utils/titleSection";
-import { IUMostServiceViewed, IUService } from "@/interfaces/IUservices";
-import { CardBasic } from "@/components/utils/cardBasic";
-import NoFountServices from "@/public/images/no_fount_events.jpg";
-import { CardLoagin } from "@/components/utils/loagins/cardLoading";
+import { useApiRequest } from '@/hooks/useApiRequest';
+import { TitleSection } from '@/components/utils/titleSection';
+import { IUMostServiceViewed, IUService } from '@/interfaces/IUservices';
+import { CardBasic } from '@/components/utils/cardBasic';
+import NoFountServices from '@/public/images/no_fount_events.jpg';
+import { CardLoagin } from '@/components/utils/loagins/cardLoading';
 export function MostViewedSServices() {
   const fetchServices = useCallback(
     () => getMostViewedServices({ size: 4 }),

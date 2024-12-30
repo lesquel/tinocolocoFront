@@ -1,17 +1,17 @@
-"use client";
-import { TitleSection } from "@/components/utils/titleSection";
-import { UserActiveGraphic } from "../components/graphics/user/userActive";
-import { UserEmailVerificate } from "../components/graphics/user/userEmailVerificate";
-import { UserSexGraphic } from "../components/graphics/user/userSex";
-import { Card, CardBody, Tab, Tabs } from "@nextui-org/react";
-import { ServiciosMostPopularGraphic } from "../components/graphics/services/serviciosMostPopular";
-import { ServiceMostViewGraphic } from "../components/graphics/services/serviceMostView";
-import { EventsMostPopularGraphic } from "../components/graphics/events/eventMostPopular";
-import { EventsMostViewGraphic } from "../components/graphics/events/eventMostView";
-import { EventsMostRantingGraphic } from "../components/graphics/events/eventMostRanting";
-import { ServiceMostRantingGraphic } from "../components/graphics/services/serviceMostRanting";
-import { UserRentalsDistribution } from "../components/graphics/user/UserRentalsDistribution";
-import { UserMostRentalsGraphic } from "../components/graphics/user/UserMostRentals";
+'use client';
+import { TitleSection } from '@/components/utils/titleSection';
+import { UserActiveGraphic } from '../components/graphics/user/userActive';
+import { UserEmailVerificate } from '../components/graphics/user/userEmailVerificate';
+import { UserSexGraphic } from '../components/graphics/user/userSex';
+import { Card, CardBody, Tab, Tabs } from '@nextui-org/react';
+import { ServiciosMostPopularGraphic } from '../components/graphics/services/serviciosMostPopular';
+import { ServiceMostViewGraphic } from '../components/graphics/services/serviceMostView';
+import { EventsMostPopularGraphic } from '../components/graphics/events/eventMostPopular';
+import { EventsMostViewGraphic } from '../components/graphics/events/eventMostView';
+import { EventsMostRantingGraphic } from '../components/graphics/events/eventMostRanting';
+import { ServiceMostRantingGraphic } from '../components/graphics/services/serviceMostRanting';
+import { UserRentalsDistribution } from '../components/graphics/user/UserRentalsDistribution';
+import { UserMostRentalsGraphic } from '../components/graphics/user/UserMostRentals';
 
 export default function HomeDashboard() {
   return (
@@ -46,16 +46,14 @@ export default function HomeDashboard() {
         <Tab key="Events" title="Eventos">
           <Card>
             <CardBody>
-
-            <CardBody>
-              <TitleSection title="Graficos" description="Eventos" />
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
-                <EventsMostPopularGraphic />
-                <EventsMostViewGraphic />
-                <EventsMostRantingGraphic />
-              </div>
-            </CardBody>
-
+              <CardBody>
+                <TitleSection title="Graficos" description="Eventos" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                  <EventsMostPopularGraphic />
+                  <EventsMostViewGraphic />
+                  <EventsMostRantingGraphic />
+                </div>
+              </CardBody>
             </CardBody>
           </Card>
         </Tab>

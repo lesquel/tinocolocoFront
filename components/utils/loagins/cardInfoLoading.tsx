@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   Card,
@@ -7,7 +7,7 @@ import {
   Chip,
   Accordion,
   AccordionItem,
-} from "@nextui-org/react";
+} from '@nextui-org/react';
 
 export function CardInfoLoadin() {
   return (

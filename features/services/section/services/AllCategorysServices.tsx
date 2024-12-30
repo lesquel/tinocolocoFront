@@ -1,10 +1,10 @@
-"use client";
-import { endPoints } from "@/config/endPoints";
-import { SearchableListSection } from "@/components/sections/listComponent/searchListSection";
-import { CategoryCardBasic } from "@/components/utils/categoryBasic";
-import { searchFieldsCategory } from "../../utils/searchFielCategory";
-import { IUCategory } from "@/interfaces/IUservices";
-import { getServiceCategorys } from "@/features/services/services/services";
+'use client';
+import { endPoints } from '@/config/endPoints';
+import { SearchableListSection } from '@/components/sections/listComponent/searchListSection';
+import { CategoryCardBasic } from '@/components/utils/categoryBasic';
+import { searchFieldsCategory } from '../../utils/searchFielCategory';
+import { IUCategory } from '@/interfaces/IUservices';
+import { getServiceCategorys } from '@/features/services/services/services';
 
 export function AllCategorysServices({
   size,

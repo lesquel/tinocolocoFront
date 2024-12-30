@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useCallback } from "react";
-import { useApiRequest } from "@/hooks/useApiRequest";
-import { getService } from "@/features/services/services/services";
-import { Card, CardBody, Image, Button } from "@nextui-org/react";
-import { FaTrash } from "react-icons/fa6";
-import NoFountEvent from "@/public/images/no_fount_events.jpg";
+import { useCallback } from 'react';
+import { useApiRequest } from '@/hooks/useApiRequest';
+import { getService } from '@/features/services/services/services';
+import { Card, CardBody, Image, Button } from '@nextui-org/react';
+import { FaTrash } from 'react-icons/fa6';
+import NoFountEvent from '@/public/images/no_fount_events.jpg';
 
 interface SimpleServiceProps {
   idService: number;
@@ -53,7 +53,9 @@ export function SimpleService({
             }
           />
           <CardBody className="flex-1 ml-2">
-            <h3 className="text-xl font-semibold mb-2">{data.service_name} {data.id}</h3>
+            <h3 className="text-xl font-semibold mb-2">
+              {data.service_name} {data.id}
+            </h3>
             <div className="flex items-center gap-2 mt-2">
               <span className="font-medium">Cantidad: </span>
               <span className="font-medium">{serviceQuantity}</span>
@@ -73,4 +75,3 @@ export function SimpleService({
     </div>
   );
 }
-

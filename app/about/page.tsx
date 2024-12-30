@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import { CardInfoLoadin } from "@/components/utils/loagins/cardInfoLoading";
-import { TitleSection } from "@/components/utils/titleSection";
-import { getBusiness } from "@/features/business/services/businessServices";
-import { useApiRequest } from "@/hooks/useApiRequest";
-import { Card, CardBody, Button, Image } from "@nextui-org/react";
-import { AboutSectionSkeleton } from "@/components/utils/loagins/about";
-import No_fount_business from "@/public/images/no_fount_events.jpg";
-import Miquel from "@/public/images/miquel.jpeg";
-import Bryan from "@/public/images/bryan.jpeg";
-import Jandry from "@/public/images/jandry.jpeg";
-import Johan from "@/public/images/no_fount_events.jpg";
+import { CardInfoLoadin } from '@/components/utils/loagins/cardInfoLoading';
+import { TitleSection } from '@/components/utils/titleSection';
+import { getBusiness } from '@/features/business/services/businessServices';
+import { useApiRequest } from '@/hooks/useApiRequest';
+import { Card, CardBody, Button, Image } from '@nextui-org/react';
+import { AboutSectionSkeleton } from '@/components/utils/loagins/about';
+import No_fount_business from '@/public/images/no_fount_events.jpg';
+import Miquel from '@/public/images/miquel.jpeg';
+import Bryan from '@/public/images/bryan.jpeg';
+import Jandry from '@/public/images/jandry.jpeg';
+import Johan from '@/public/images/no_fount_events.jpg';
 
 interface StaffCardProps {
   name: string;
@@ -20,7 +20,7 @@ interface StaffCardProps {
 
 function StaffCard({ name, role, imageUrl }: StaffCardProps) {
   return (
-    <Card shadow="sm" isPressable onPress={() => console.log("card pressed")}>
+    <Card shadow="sm" isPressable onPress={() => console.log('card pressed')}>
       <CardBody className="overflow-visible p-0">
         <Image
           shadow="sm"
@@ -52,23 +52,23 @@ export default function AboutSection() {
 
   const staffMembers = [
     {
-      name: "Miquel",
-      role: "Diseñador",
+      name: 'Miquel',
+      role: 'Diseñador',
       imageUrl: Miquel.src,
     },
     {
-      name: "Bryan",
-      role: "Diseñador",
+      name: 'Bryan',
+      role: 'Diseñador',
       imageUrl: Bryan.src,
     },
     {
-      name: "Jandry",
-      role: "Diseñador",
+      name: 'Jandry',
+      role: 'Diseñador',
       imageUrl: Jandry.src,
     },
     {
-      name: "Johan",
-      role: "Desarrollador",
+      name: 'Johan',
+      role: 'Desarrollador',
       imageUrl: Johan.src,
     },
   ];

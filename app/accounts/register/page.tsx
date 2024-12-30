@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { Register } from "@/features/auth/secion/register";
+import { Register } from '@/features/auth/secion/register';
 
 export default function Page() {
   return (
