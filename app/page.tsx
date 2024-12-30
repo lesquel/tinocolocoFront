@@ -11,8 +11,8 @@ import { MostPopularServices } from "@/features/services/section/services/mostPo
 import { MostViewedSServices } from "@/features/services/section/services/mostViewedService";
 import { getTokenFromCookie } from "@/features/auth/utils/getUserInfo";
 import { CategoryHomeServices } from "@/features/services/section/categoty/categoryHome";
-import { MostViewedPromotions } from "@/features/promotions/section/promotions/mostViewPromotions";
-import { MostPopularPromotions } from "@/features/promotions/section/promotions/mostPopularPromotions";
+import { MostViewedPromotions } from "../features/promotions/section/promotions/mostViewPromotions";
+import { MostPopularPromotions } from "../features/promotions/section/promotions/mostPopularPromotions";
 
 export default function Home() {
 
