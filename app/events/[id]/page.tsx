@@ -24,5 +24,4 @@ const Page = async ({ params }: PageProps) => {
     </Container>
   );
 }
-
 export default Page;
