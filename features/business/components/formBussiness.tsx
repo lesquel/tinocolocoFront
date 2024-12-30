@@ -7,10 +7,14 @@ import { useAsyncAction } from '@/hooks/useAsyncAction';
 import { useErrorsForm } from '@/services/utils/useErrosForm';
 import { redirect } from 'next/navigation';
 import { useState } from 'react';
+
 export const FormBusiness = () => {
   const { error: errorGetBusiness, execute: executeGetBusiness } =
     useAsyncAction(updateBusiness);
   const { data, error } = useApiRequest(getBusiness);
+
+  // Define the externalErrors state outside of handleSubmit
+  const [externalErrorss, setExternalErrors] = useState<Record<string, string>>();
 
   if (error) {
     return <div>Error al obtener la información de la empresa</div>;
@@ -19,10 +23,10 @@ export const FormBusiness = () => {
   if (!data) {
     return <div>Cargando...</div>;
   }
+
   const handleSubmit = (data: any, photos: File[]) => {
     data = { ...data, business_logo: photos[0] };
-    const [externalErrorss, setExternalErrors] =
-      useState<Record<string, string>>();
+
     executeGetBusiness(data, (response: any) => {
       if (response.errors) {
         useErrorsForm({ response, setExternalErrors });
@@ -38,7 +42,7 @@ export const FormBusiness = () => {
         formConfig={businessFormConfig}
         initialData={data}
         onSubmit={handleSubmit}
-        externalErrors={externalErrorss}
+        externalErrors={externalErrorss} // Use the state here
       />
     </div>
   );

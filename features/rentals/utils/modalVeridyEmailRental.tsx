@@ -32,7 +32,7 @@ export function ModalVerifyEmailRental({ rentalId }: { rentalId: number }) {
     error: verificationCodeError,
     execute: executeVerificationCode,
     loading: loadingVerificationCode,
-  } = useAsyncAction<any>(confirmRental);
+  } = useAsyncAction(confirmRental);
 
   const sendVerificationEmailAction = (data: any) => {
     execute({ idRental: rentalId }, (response) => {

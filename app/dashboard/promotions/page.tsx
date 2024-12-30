@@ -19,7 +19,8 @@ export default function DashboardEvents() {
         setSearch={handleSearch}
         searchFields={searchFieldsPromotions}
       />
-      <SearchableTableSection<IUPromotion>
+      <SearchableTableSection
+      description=''
         pageSize={10}
         title="Todas las promociones"
         fetchData={getPromotions}

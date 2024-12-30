@@ -66,6 +66,7 @@ export function RentalSection({ id }: { id: number }) {
       </Card>
     );
   }
+  if (!data) return <div>Error al obtener la información de la Reserva</div>;
 
   return (
     <div className="space-y-8">

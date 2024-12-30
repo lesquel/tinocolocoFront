@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { Card, CardBody, CardHeader, Image } from '@nextui-org/react';
+import { Card, CardBody, CardHeader, Image, Link } from '@nextui-org/react';
 
 import { getService } from '../services/services';
 

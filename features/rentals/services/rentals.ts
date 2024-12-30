@@ -150,7 +150,7 @@ export const addServiceToRental = async ({
   return response;
 };
 
-export const addReview = async (data: IUReview, id: number) => {
+export const addReview = async (data: IUReview, id?: number) => {
   const response = await api.post<IUReview>({
     url: endPoints.rentals.get + data.id + endPoints.rentals.reviews.post,
     body: JSON.stringify(data),

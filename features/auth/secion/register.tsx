@@ -6,7 +6,7 @@ import {
   Input,
   Link,
 } from '@nextui-org/react';
-import { useForm } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { useState, useEffect } from 'react';
 import { FaEyeSlash, FaEye, FaLock, FaUser } from 'react-icons/fa';
 import { IoIosMail } from 'react-icons/io';
@@ -27,20 +27,21 @@ export const Register = () => {
     setError,
     watch, // Watch function to get form values
     trigger, // Trigger validation manually
-  } = useForm<IURegister>({
+  } = useForm<any>({
     mode: 'onChange', // Automatically trigger validation on change
   });
 
   const { handleRegister, generalError, loading } = useAuth(
     setError,
-    registerService,
+    registerService
   );
 
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  const onSubmit = async (data: IURegister) => {
+  // Define a proper type for the onSubmit function
+  const onSubmit: SubmitHandler<IURegister> = async (data) => {
     try {
       await handleRegister(data, (response: any) => {
         if (response.errors) {
@@ -87,7 +88,7 @@ export const Register = () => {
             }
             variant="bordered"
             {...register('email', validationRules.email)}
-            errorMessage={errors.email?.message}
+            errorMessage={errors.email?.message as string}
             isInvalid={!!errors.email}
           />
 
@@ -98,7 +99,7 @@ export const Register = () => {
             }
             variant="bordered"
             {...register('username', validationRules.username)}
-            errorMessage={errors.username?.message}
+            errorMessage={errors.username?.message as string}
             isInvalid={!!errors.username}
           />
 
@@ -123,7 +124,7 @@ export const Register = () => {
             type={isVisible ? 'text' : 'password'}
             variant="bordered"
             {...register('password', validationRules.password)}
-            errorMessage={errors.password?.message}
+            errorMessage={errors.password?.message as string}
             isInvalid={!!errors.password}
           />
 
@@ -151,7 +152,7 @@ export const Register = () => {
               validate: (value) =>
                 value === watch('password') || 'Las contraseñas no coinciden',
             })}
-            errorMessage={errors.confirmPassword?.message}
+            errorMessage={errors.confirmPassword?.message as string}
             isInvalid={!!errors.confirmPassword}
           />
 

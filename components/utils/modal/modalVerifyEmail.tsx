@@ -33,7 +33,7 @@ export function ModalVerifyEmail() {
     error: verificationCodeError,
     execute: executeVerificationCode,
     loading: loadingVerificationCode,
-  } = useAsyncAction<IUcodeEmail>(verificationCodeEmail);
+  } = useAsyncAction(verificationCodeEmail);
 
   const sendVerificationEmailAction = (data: any) => {
     execute({}, (response) => {

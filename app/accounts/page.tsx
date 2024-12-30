@@ -36,8 +36,9 @@ import { AccountPageLoading } from '@/components/utils/loagins/accountsLoading';
 
 export default function AccountPage() {
   const infoUserToken = getTokenFromCookie();
+  if (!infoUserToken) return <div>Error al obtener la información del usuario</div>;
   const fetchUser = useCallback(
-    () => getUser(infoUserToken?.user?.id),
+    () => getUser(infoUserToken?.user?.id  ),
     [infoUserToken?.user?.id],
   );
   const { data: user, error, isLoading } = useApiRequest(fetchUser);
@@ -45,10 +46,10 @@ export default function AccountPage() {
 
   if (error) return <div>Error al obtener la información del usuario</div>;
   if (isLoading) return <AccountPageLoading />;
-
+  if (!user) return <div>Error al obtener la información del usuario</div>;
   saveToken({
-    token: infoUserToken?.token,
     user: user,
+    token: infoUserToken?.token,
   });
 
   const profileCompleteness = calculateProfileCompleteness(user);
@@ -70,7 +71,7 @@ export default function AccountPage() {
                 className="w-20 h-20 text-large"
                 radius="full"
                 size="lg"
-                src={user.avatar || UserImagen.src}
+                src={ UserImagen.src}
               />
               <h4 className="text-large font-bold mt-2">
                 {user.full_name || user.username}
@@ -186,7 +187,7 @@ export default function AccountPage() {
   );
 }
 
-function UserInfoItem({ icon, label, value }) {
+function UserInfoItem({ icon, label, value }: any) {
   return (
     <div className="flex items-center gap-2">
       {/* Icono con Tooltip */}
@@ -203,7 +204,7 @@ function UserInfoItem({ icon, label, value }) {
   );
 }
 
-function calculateProfileCompleteness(user) {
+function calculateProfileCompleteness(user: any) {
   const fields = [
     'identity_card',
     'email',

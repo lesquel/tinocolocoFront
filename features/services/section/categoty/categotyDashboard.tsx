@@ -5,10 +5,12 @@ import { SearchableListSection } from '@/components/sections/listComponent/searc
 import { endPoints } from '@/config/endPoints';
 import { IUCategory } from '@/interfaces/IUservices';
 import { CategoryCardBasic } from '@/components/utils/categoryBasic';
+import { searchFieldsCategory } from '../../utils/searchFielCategory';
 
 export function CategoryDashboard() {
   return (
-    <SearchableListSection<IUCategory>
+    <SearchableListSection
+      searchFields={searchFieldsCategory}
       description="Eventos"
       endpoint={endPoints.services.category.get}
       errorMessage="Error al obtener las categorías"

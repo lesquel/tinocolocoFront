@@ -12,6 +12,7 @@ export interface IUService {
   service_description: string;
   service_unitary_cost: number;
   service_category: number;
+  avg_rating: number;
 }
 
 export interface IUServices {
@@ -25,6 +26,7 @@ export interface IUServices {
 
 export interface IUCategory {
   id: number;
+  service_category: number;
   view_count: number;
   is_active: boolean;
   creation_date: Date;

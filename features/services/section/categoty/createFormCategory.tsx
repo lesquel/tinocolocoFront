@@ -18,7 +18,7 @@ export function CreateFormCategory() {
   return (
     <div className="flex flex-col justify-center items-center">
       <TitleSection description="de Evento" title="Crear Categoría" />
-      <DynamicForm<IUCategory>
+      <DynamicForm
         formConfig={categoryFormConfig}
         onSubmit={handleSubmit}
       />

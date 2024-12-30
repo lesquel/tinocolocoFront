@@ -47,7 +47,7 @@ export function ReviewList({ fetchReviews, id }: ReviewListProps) {
 
   return (
     <div className="space-y-4">
-      {reviews.map((review) => (
+      {reviews.map((review: any) => (
         <Card key={review.id}>
           <CardHeader className="flex flex-row items-center gap-4">
             <Avatar />

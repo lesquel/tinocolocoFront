@@ -128,7 +128,7 @@ export const createService = async (data: IUService) => {
   return response;
 };
 
-export const createCategory = async (data: IUCategory) => {
+export const createCategory = async (data: any) => {
   const formData = new FormData();
 
   console.log('data:', data);
@@ -162,7 +162,7 @@ export const getReviews = async (id: number) => {
   return response;
 };
 
-export const addReview = async (data: IUReview, id: number) => {
+export const addReview = async (data: IUReview, id?: number) => {
   const response = await api.post<IUReview>({
     url: endPoints.services.get + data.id + endPoints.services.reviews.post,
     body: JSON.stringify(data),

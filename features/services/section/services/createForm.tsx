@@ -40,7 +40,7 @@ export function CreateForm() {
   return (
     <div className="flex flex-col justify-center items-center">
       <TitleSection description="Evento" title="Crear" />
-      <DynamicForm<IUService> formConfig={formConfig} onSubmit={handleSubmit} />
+      <DynamicForm formConfig={formConfig} onSubmit={handleSubmit} />
     </div>
   );
 }

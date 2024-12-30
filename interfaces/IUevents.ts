@@ -14,6 +14,7 @@ export interface IUEvent {
   event_extra_hour_rate: string;
   event_category: number;
   reservation_count: number;
+  avg_rating: number
 }
 
 export interface IUOneEvent {

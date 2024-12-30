@@ -14,7 +14,7 @@ export function AllPromotions({
   infoComponent: { title: string; description: string };
 }) {
   return (
-    <SearchableListSection<IUPromotion>
+    <SearchableListSection
       description={infoComponent.description}
       endpoint={endPoints.promotions.get}
       errorMessage="Error al obtener los promociones"

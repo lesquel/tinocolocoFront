@@ -6,30 +6,26 @@ import { useApiRequest } from '@/hooks/useApiRequest';
 import { PaginationComponent } from '@/components/utils/pagination';
 import { CardLoagin } from '@/components/utils/loagins/cardLoading';
 
-interface PaginationResponse<T> {
+interface PaginationResponse {
   amount_of_pages: number;
   count: number;
   current_page: number;
   next: string | null;
   previous: string | null;
   page_size: number;
-  results: T[];
+  results: any[];
 }
 
-interface ListComponentProps<T> {
-  fetchData: (params: {
-    page: number;
-    page_size: number;
-    [key: string]: any;
-  }) => Promise<PaginationResponse<T>>;
-  renderCard: (item: T) => JSX.Element;
+interface ListComponentProps {
+  fetchData: (params: any) => any;
+  renderCard: (item: any) => JSX.Element;
   searchParams?: { [key: string]: any };
   pageSize?: number;
   noDataMessage?: string;
   errorMessage?: string;
   loadingMessage?: string;
 }
-export function ListComponent<T>({
+export function ListComponent({
   fetchData,
   renderCard,
   searchParams = {},
@@ -37,7 +33,7 @@ export function ListComponent<T>({
   noDataMessage = 'No hay datos',
   errorMessage = 'Error al obtener los datos',
   loadingMessage = 'Cargando...',
-}: ListComponentProps<T>) {
+}: ListComponentProps) {
   const [currentPage, setCurrentPage] = useState(1);
 
   const fetchItems = useCallback(
@@ -46,7 +42,7 @@ export function ListComponent<T>({
     [currentPage, pageSize, searchParams, fetchData],
   );
 
-  const { data, error, isLoading } = useApiRequest<PaginationResponse<T>>(
+  const { data, error, isLoading } = useApiRequest<PaginationResponse>(
     fetchItems,
     [currentPage, pageSize, searchParams],
   );

@@ -17,26 +17,22 @@ import No_fount_events from '@/public/images/no_fount_events.jpg';
 import { TableLoading } from '@/components/utils/loagins/tableLoading';
 const URL_BACKEND = 'https://tinocoloco.onrender.com/admin/';
 
-interface SearchableTableSectionProps<T> {
+interface SearchableTableSectionProps {
   title: string;
   description: string;
-  fetchData: (params: {
-    page: number;
-    page_size: number;
-    [key: string]: any;
-  }) => Promise<{ count: number; results: T[] }>;
+  fetchData: (params: any) => any;
   added_url: string;
-  columns: { name: string; uid: string }[];
+  columns: { name: string; uid: string }[]; // Especificación de las columnas
   pageSize?: number;
   noDataMessage?: string;
   errorMessage?: string;
   loadingMessage?: string;
   searchParams: any;
-  onEdit: (item: T) => void; // Callback para la acción de editar
-  onDelete: (item: T) => void; // Callback para la acción de eliminar
+  onEdit: (item: any) => void; // Callback para la acción de editar
+  onDelete: (item: any) => void; // Callback para la acción de eliminar
 }
 
-export const SearchableTableSection = <T extends Record<string, any>>({
+export const SearchableTableSection = ({
   title,
   description,
   fetchData,
@@ -49,9 +45,9 @@ export const SearchableTableSection = <T extends Record<string, any>>({
   searchParams,
   onEdit,
   onDelete,
-}: SearchableTableSectionProps<T>) => {
+}: SearchableTableSectionProps) => {
   const [page, setPage] = useState(1);
-  const [data, setData] = useState<{ count: number; results: T[] }>({
+  const [data, setData] = useState<{ count: number; results: any[] }>({
     count: 0,
     results: [],
   });
@@ -85,7 +81,7 @@ export const SearchableTableSection = <T extends Record<string, any>>({
     loadData(searchParams, page);
   }, [loadData, searchParams, page]); // Reload data when searchParams or page changes
 
-  const renderCell = useCallback((item: T, columnKey: keyof T) => {
+  const renderCell = useCallback((item: any, columnKey: keyof any) => {
     const value = item[columnKey];
     if (columnKey === 'photos' && Array.isArray(value) && value.length > 0) {
       return (
@@ -191,7 +187,7 @@ export const SearchableTableSection = <T extends Record<string, any>>({
                     <button
                       onClick={() =>
                         window.open(
-                          `${URL_BACKEND}${added_url}${item.id}/change /`,
+                          `${URL_BACKEND}${added_url}${item.id}/change/`,
                           '_blank',
                         )
                       }

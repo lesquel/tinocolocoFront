@@ -30,7 +30,7 @@ export function GetEventsByCategory({
     data: categoryData,
     error: categoryError,
     isLoading: isCategoryLoading,
-  } = useApiRequest<IUCategory>(fetchCategory);
+  } = useApiRequest(fetchCategory);
 
   // Memoize the fetchServices function to ensure stable references
   const fetchEvents = useMemo(() => {
@@ -45,9 +45,9 @@ export function GetEventsByCategory({
   if (isCategoryLoading) return <CardLoagin description="Cargando categoría" />;
 
   return (
-    <SearchableListSection<IUService>
+    <SearchableListSection
       searchFields={searchFieldsEventCategory}
-      description={`${infoComponent.description}  (${categoryData.event_category_name})`}
+      description={`${infoComponent.description}  (${ categoryData ? categoryData.event_category_name : ''})`}
       endpoint={endPoints.events.get}
       errorMessage="Error al obtener los evento de la categoría"
       fetchData={fetchEvents}

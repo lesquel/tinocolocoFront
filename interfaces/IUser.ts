@@ -19,6 +19,7 @@ export interface IUGetUser {
   is_active: boolean;
   preferred_language: string;
   has_completed_profile: boolean;
+  reservation_count: number
 }
 
 export interface IUUserMostRentals {

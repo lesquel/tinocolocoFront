@@ -15,7 +15,7 @@ export function AllEvents({
   infoComponent: { title: string; description: string };
 }) {
   return (
-    <SearchableListSection<IUEvent>
+    <SearchableListSection
       description={infoComponent.description}
       endpoint={endPoints.events.get}
       errorMessage="Error al obtener los eventos"

@@ -58,7 +58,7 @@ export function RestauerasePasswordModal() {
         return;
       }
       toast.success('Contraseña actualizada correctamente');
-      onOpenChange(false);
+      onOpenChange();
       window.location.reload();
     });
   };

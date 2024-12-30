@@ -6,19 +6,19 @@ import { useForm, Controller } from 'react-hook-form';
 import { CustomCheckbox } from './checkboxForm';
 import { FieldConfig, FormConfig } from '@/interfaces/IUform';
 
-interface DynamicFormProps<T> {
+interface DynamicFormProps {
   formConfig: FormConfig;
-  onSubmit: (data: T, photos: File[]) => void;
-  initialData?: Partial<T>;
+  onSubmit: (data: any, photos: File[]) => void;
+  initialData?: Partial<any>;
   externalErrors?: Record<string, string>; // Manejo de errores externos
 }
 
-const DynamicForm = <T extends Record<string, any>>({
+const DynamicForm = ({
   formConfig,
   onSubmit,
   initialData = {},
   externalErrors = {},
-}: DynamicFormProps<T>) => {
+}: DynamicFormProps) => {
   const [photos, setPhotos] = useState<File[]>([]);
   const [generalErrors, setGeneralErrors] = useState<string[]>([]); // Para errores generales
 
@@ -28,7 +28,7 @@ const DynamicForm = <T extends Record<string, any>>({
     control,
     formState: { errors },
     setError,
-  } = useForm<T>({
+  } = useForm<any>({
     defaultValues: initialData,
   });
 
@@ -40,7 +40,7 @@ const DynamicForm = <T extends Record<string, any>>({
     Object.entries(externalErrors).forEach(([fieldName, errorMessage]) => {
       if (formConfig[fieldName]) {
         // Si el campo existe en el formulario, se configura como un error específico
-        setError(fieldName as keyof T, {
+        setError(fieldName, {
           type: 'manual',
           message: errorMessage,
         });
@@ -91,7 +91,7 @@ const DynamicForm = <T extends Record<string, any>>({
         return (
           <Select key={fieldName} {...commonProps}>
             {config.options ? (
-              config.options?.map((option) => (
+              config.options.map((option) => (
                 <SelectItem key={option.value} value={option.value}>
                   {option.label}
                 </SelectItem>
@@ -132,7 +132,7 @@ const DynamicForm = <T extends Record<string, any>>({
     }
   };
 
-  const handleFormSubmit = (data: T) => {
+  const handleFormSubmit = (data: any) => {
     onSubmit(data, photos);
   };
 
@@ -156,9 +156,11 @@ const DynamicForm = <T extends Record<string, any>>({
       {Object.entries(formConfig).map(([fieldName, config]) => (
         <div key={fieldName}>
           {renderField(fieldName, config)}
-          <div className="text-red-500 text-sm">
-            {errors[fieldName]?.message}
-          </div>
+            <div className="text-red-500 text-sm">
+              {typeof errors[fieldName]?.message === 'string'
+                ? errors[fieldName]?.message
+                : ''}
+            </div>
         </div>
       ))}
 

@@ -23,6 +23,8 @@ export function InforShorts({ idEvent }: { idEvent: number }) {
     );
   }
 
+  if (!data) return <div>Error al obtener la información del evento</div>;
+
   return (
     <Card className="max-w-sm mx-auto">
       <Link

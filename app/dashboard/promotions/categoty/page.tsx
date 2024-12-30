@@ -19,7 +19,9 @@ export default function DashboardEvents() {
         setSearch={handleSearch}
         searchFields={searchFieldsCategory}
       />
-      <SearchableTableSection<IUCategory>
+      <SearchableTableSection
+      added_url='services/servicecategory/'
+        description=''
         pageSize={10}
         title="Todas las categorias"
         fetchData={getServiceCategorys}

@@ -27,6 +27,7 @@ export default function ServicesCard({ id }: { id: number }) {
   if (isLoading) {
     return <CardInfoLoadin />;
   }
+  if (!data) return <div>Error al obtener la información del servicio</div>;
 
   return (
     <Card className="w-full mx-auto">
@@ -40,18 +41,18 @@ export default function ServicesCard({ id }: { id: number }) {
             >
               Popular
             </Chip>
-            <ImageCarousel images={data.photos} />
+            <ImageCarousel images={data ? data.photos : []} />
           </div>
 
           <div className="flex flex-col gap-4 p-4">
             <div>
-              <h1 className="text-2xl font-bold">{data.service_name}</h1>
+              <h1 className="text-2xl font-bold">{ data ? data.service_name : ''}</h1>
               <div className="flex items-center gap-2 mt-2">
                 <span className="text-2xl font-semibold">
-                  ${data.service_unitary_cost}
+                  ${data ? data.service_unitary_cost : ''}
                 </span>
                 <Chip size="sm" variant="flat">
-                  {data.view_count} visualizaciones
+                  {data ? data.view_count : ''} visualizaciones
                 </Chip>
               </div>
             </div>

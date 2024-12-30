@@ -37,7 +37,7 @@ export function UserRentalsDistribution() {
 
   // Extraer el número de rentas de cada usuario
   const reservationCounts = data.results.map(
-    (user) => user.reservation_count || 0,
+    (user) => user.reservation_count  || 0,
   );
 
   // Definir rangos para el histograma

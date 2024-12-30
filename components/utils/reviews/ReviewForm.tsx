@@ -14,7 +14,7 @@ interface ReviewFormData {
 
 interface ReviewFormProps {
   id: number;
-  fetchData: (data: IUReview) => Promise<any>;
+  fetchData: (data?: any, id?: number) => Promise<any>;
   onReviewAdded: () => void;
 }
 
@@ -30,7 +30,7 @@ export const ReviewForm = ({
   const handleFormSubmit = useCallback(
     (data: ReviewFormData) => {
       console.log('data', data);
-      const reviewData: IUReview = {
+      const reviewData: any = {
         ...data,
         rating_score: rating,
         id: id,

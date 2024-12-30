@@ -19,7 +19,8 @@ export default function DashboardEvents() {
         setSearch={handleSearch}
         searchFields={searchFieldsServices}
       />
-      <SearchableTableSection<IUService>
+      <SearchableTableSection
+      description=''
         pageSize={10}
         title="Todos servicios"
         fetchData={getServices}

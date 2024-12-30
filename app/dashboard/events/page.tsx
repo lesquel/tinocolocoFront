@@ -16,7 +16,8 @@ export default function DashboardEvents() {
   return (
     <div>
       <SearchForm setSearch={handleSearch} searchFields={searchFieldsEvent} />
-      <SearchableTableSection<IUEvent>
+      <SearchableTableSection
+        description=''
         pageSize={10}
         title="Todos Los Eventos"
         added_url="events/event/"
@@ -31,10 +32,8 @@ export default function DashboardEvents() {
           { name: 'Estado', uid: 'is_active' },
           { name: 'Acciones', uid: 'actions' },
         ]}
-        onEdit={(item) =>
-          window.open(`${URL_BACKEND}${added_url}add/`, '_blank')
-        }
-        onDelete={(item) => console.log('Eliminar evento', item)}
+        onEdit={(item) =>{}}
+        onDelete={(item) =>{}}
       />
     </div>
   );

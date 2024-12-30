@@ -9,15 +9,11 @@ interface SearchField {
   value: string;
   label: string;
 }
-interface SearchableListSectionProps<T> {
+interface SearchableListSectionProps {
   title: string;
   description: string;
-  fetchData: (params: {
-    page: number;
-    page_size: number;
-    [key: string]: any;
-  }) => Promise<{ count: number; results: T[] }>;
-  renderCard: (item: T) => JSX.Element;
+  fetchData: (params: any) => Promise<any>;
+  renderCard: (item: any) => JSX.Element;
   endpoint: string;
   pageSize?: number;
   noDataMessage?: string;
@@ -26,7 +22,7 @@ interface SearchableListSectionProps<T> {
   searchFields: SearchField[];
 }
 
-export function SearchableListSection<T>({
+export function SearchableListSection({
   title,
   description,
   fetchData,
@@ -36,7 +32,7 @@ export function SearchableListSection<T>({
   errorMessage = 'Error al obtener los datos',
   loadingMessage = 'Cargando...',
   searchFields,
-}: SearchableListSectionProps<T>) {
+}: SearchableListSectionProps) {
   const [search, setSearch] = useState<any>({});
 
   return (
@@ -45,7 +41,7 @@ export function SearchableListSection<T>({
         <TitleSection description={description} title={title} />
         <SearchForm setSearch={setSearch} searchFields={searchFields} />
       </div>
-      <ListComponent<T>
+      <ListComponent
         errorMessage={errorMessage}
         fetchData={fetchData}
         loadingMessage={loadingMessage}

@@ -18,7 +18,7 @@ import {
 } from '@nextui-org/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import {  MdExpandMore } from 'react-icons/md';
+import { MdExpandMore } from 'react-icons/md';
 import { siteConfig } from '@/config/site';
 import { getTokenFromCookie } from '@/features/auth/utils/getUserInfo';
 import { IUUser, Role } from '@/interfaces/IUser';
@@ -195,22 +195,21 @@ export default function Header() {
               >
                 {siteConfig.navMenuItems.account.label}
               </DropdownItem>
-              {userInfo.user.role === Role.ADMIN && (
-                <DropdownItem
-                  key="dashboard"
-                  href={siteConfig.navMenuItems.dashboard.href}
-                >
-                  {siteConfig.navMenuItems.dashboard.label}
-                </DropdownItem>
-              )}
-              {userInfo.user && userInfo.user.role !== Role.ADMIN && (
-                <DropdownItem
-                  key="myRentals"
-                  href={siteConfig.navMenuItems.myRentals.href}
-                >
-                  {siteConfig.navMenuItems.myRentals.label}
-                </DropdownItem>
-              )}
+              <DropdownItem
+                key={
+                  userInfo.user.role === Role.ADMIN ? 'dashboard' : 'myRentals'
+                }
+                href={
+                  userInfo.user.role === Role.ADMIN
+                    ? siteConfig.navMenuItems.dashboard.href
+                    : siteConfig.navMenuItems.myRentals.href
+                }
+              >
+                {userInfo.user.role === Role.ADMIN
+                  ? siteConfig.navMenuItems.dashboard.label
+                  : siteConfig.navMenuItems.myRentals.label}
+              </DropdownItem>
+
               <DropdownItem
                 key="logout"
                 color="danger"

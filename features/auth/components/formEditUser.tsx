@@ -14,7 +14,7 @@ export default function FormEditUser() {
   const [externalErrors, setExternalErrors] = useState<Record<string, string>>(
     {},
   );
-  const fetchUser = useCallback(() => getUser(userInfo?.user?.id), []);
+  const fetchUser = useCallback(() => getUser(userInfo ? userInfo.user.id : 0), []);
   const { data, error, isLoading } = useApiRequest(fetchUser);
   const {
     error: updateError,

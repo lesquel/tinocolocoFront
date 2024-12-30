@@ -26,12 +26,12 @@ export function AllRentals() {
     () =>
       getMyRentals({
         options: { page_size: pageSize, page: currentPage },
-      }) as Promise<PaginationResponse<{ id: string; [key: string]: any }>>,
+      }),
     [currentPage], // Dependencia para recargar los datos cuando la página cambie
   );
 
   const { data, error, isLoading } =
-    useApiRequest<PaginationResponse<any>>(fetchRentals);
+    useApiRequest(fetchRentals);
 
   const handlePageChange = (page: number) => {
     if (page >= 1 && data && page <= data.amount_of_pages) {

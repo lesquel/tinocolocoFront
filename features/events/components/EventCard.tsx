@@ -34,6 +34,8 @@ export default function EventCard({ id }: { id: number }) {
 
   const event = data;
 
+  if (!data && !event) return <div>Error al obtener la información del evento</div>;
+
   return (
     <Card className="w-full mx-auto">
       <CardBody className="w-full">
@@ -46,18 +48,18 @@ export default function EventCard({ id }: { id: number }) {
             >
               Popular
             </Chip>
-            <ImageCarousel images={event.photos} />
+            <ImageCarousel images={ event ? event.photos : []} />
           </div>
 
           <div className="flex flex-col gap-4 p-4">
             <div>
-              <h1 className="text-2xl font-bold">{event.event_name}</h1>
+              <h1 className="text-2xl font-bold">{ event ? event.event_name : ''}</h1>
               <div className="flex items-center gap-2 mt-2">
                 <span className="text-2xl font-semibold">
-                  ${event.event_reference_value}
+                  ${ event ? event.event_reference_value : ''}
                 </span>
                 <Chip size="sm" variant="flat">
-                  {event.view_count} visualizaciones
+                  { event ? event.view_count : ''} visualizaciones
                 </Chip>
               </div>
             </div>
@@ -66,13 +68,11 @@ export default function EventCard({ id }: { id: number }) {
               <p className="text-sm text-default-500">Detalles de eventos:</p>
               <div className="flex flex-wrap items-center gap-2 mt-1">
                 <Chip size="sm">
-                  {event.event_allowed_hours}{' '}
-                  {event.event_allowed_hours === 1
-                    ? 'hora extra permitida'
-                    : 'horas extras permitidas'}
+                  {event ? event.event_allowed_hours : ''}
+                  { event ? event.event_allowed_hours === 1 ? 'hora extra permitida' : 'horas extras permitidas' : ''}
                 </Chip>
                 <Chip size="sm">
-                  ${event.event_extra_hour_rate} extra por hora
+                  ${event ? event.event_extra_hour_rate : ''} extra por hora
                 </Chip>
               </div>
             </div>
@@ -83,7 +83,7 @@ export default function EventCard({ id }: { id: number }) {
                 aria-label="Descripción"
                 title="Descripción"
               >
-                <p>{event.event_description}</p>
+                <p>{ event ? event.event_description : ''}</p>
               </AccordionItem>
               <AccordionItem
                 key="1"
@@ -91,16 +91,16 @@ export default function EventCard({ id }: { id: number }) {
                 title="Detalles del evento"
               >
                 <div className="space-y-2">
-                  <ChipCategory idCategory={event.event_category} />
-                  <p>Precio del evento: ${event.event_reference_value}</p>
+                  <ChipCategory idCategory={ event ? event.event_category : 0} />
+                  <p>Precio del evento: ${ event ? event.event_reference_value : ''}</p>
                   <p>
                     Fecha de creación:{' '}
-                    {new Date(event.creation_date).toLocaleDateString()}
+                    {new Date( event ? event.creation_date : new Date()).toLocaleDateString()}
                   </p>
                   <p>
                     Fecha de actualización:{' '}
                     {new Date(
-                      event.last_actualization_date,
+                      event ? event.last_actualization_date : new Date(),
                     ).toLocaleDateString()}
                   </p>
                 </div>
@@ -108,7 +108,7 @@ export default function EventCard({ id }: { id: number }) {
             </Accordion>
 
             <div className="mt-4 flex gap-2">
-              <ConditionalRentalButton id={event.id} />
+              <ConditionalRentalButton id={ event ? event.id : 0} />
               {/* <Button
                 isIconOnly
                 variant="flat"

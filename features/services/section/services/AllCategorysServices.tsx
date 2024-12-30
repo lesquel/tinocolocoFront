@@ -14,7 +14,7 @@ export function AllCategorysServices({
   infoComponent: { title: string; description: string };
 }) {
   return (
-    <SearchableListSection<IUCategory>
+    <SearchableListSection
       description={infoComponent.description}
       endpoint={endPoints.events.category.get}
       errorMessage="Error al obtener los Categorias"

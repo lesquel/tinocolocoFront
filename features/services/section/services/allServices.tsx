@@ -16,7 +16,7 @@ export function AllServices({
   infoComponent: { title: string; description: string };
 }) {
   return (
-    <SearchableListSection<IUService>
+    <SearchableListSection
       searchFields={searchFieldsServices}
       description={infoComponent.description}
       endpoint={endPoints.services.get}
