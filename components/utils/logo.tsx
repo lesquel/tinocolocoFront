@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Skeleton } from '@nextui-org/react';
+import { Skeleton, Link } from '@nextui-org/react';
 import { getBusiness } from '@/features/business/services/businessServices';
 import { useApiRequest } from '@/hooks/useApiRequest';
 import { IUBusiness } from '@/interfaces/IUBusiness';
@@ -22,16 +22,18 @@ export const Logo = () => {
   }
 
   return (
-    <div className="h-[50px]">
+    <Link href='/' className="h-[50px]">
       {' '}
       {/* Contenedor con altura fija */}
       <Image
+       
+
         alt={`${data.business_name} logo`}
         className="object-contain max-w-[150px] max-h-[50px] w-auto h-full"
         height={50}
         src={data.business_logo_url}
         width={70}
       />
-    </div>
+    </Link>
   );
 };

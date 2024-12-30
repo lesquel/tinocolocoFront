@@ -15,8 +15,8 @@ import {
   DropdownItem,
   Avatar,
   Button,
+  Link,
 } from '@nextui-org/react';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { MdExpandMore } from 'react-icons/md';
 import { siteConfig } from '@/config/site';
@@ -24,6 +24,7 @@ import { getTokenFromCookie } from '@/features/auth/utils/getUserInfo';
 import { IUUser, Role } from '@/interfaces/IUser';
 import { Logo } from '@/components/utils/logo';
 import User from '@/public/images/user.png';
+import { link } from 'fs';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -60,11 +61,9 @@ export default function Header() {
         />
       </NavbarContent>
 
-      <NavbarContent className="sm:hidden pr-3" justify="center">
-        <NavbarBrand>
-          <Link href="/">
+      <NavbarContent  className="sm:hidden pr-3" justify="center">
+        <NavbarBrand >
             <Logo />
-          </Link>
         </NavbarBrand>
       </NavbarContent>
 
