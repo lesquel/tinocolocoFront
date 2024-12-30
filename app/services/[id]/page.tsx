@@ -3,15 +3,14 @@ import { Section } from '@/components/sections/layout/section';
 import ServicesCard from '@/features/services/components/ServicesCard';
 import { SectionReview } from '@/features/services/section/services/reviews/secitonReview';
 
-interface Params {
-  id: string;
+interface EventPageProps {
+  params: {
+    id: string;
+  };
+  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-interface Props {
-  params: Params;
-}
-
-export default function Event({ params }: Props) {
+export default function Event({ params }: EventPageProps) {
   const servicesId = parseInt(params.id, 10);
 
   if (isNaN(servicesId)) {

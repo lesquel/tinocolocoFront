@@ -1,6 +1,13 @@
 import { RentalSection } from '@/features/rentals/sections/RentalSection';
 
-export default function RentalPage({ params }: { params: { id: string } }) {
+interface RentalPageProps {
+  params: {
+    id: string;
+  };
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
+
+export default function RentalPage({ params }: RentalPageProps) {
   const id = parseInt(params.id, 10);
 
   return (

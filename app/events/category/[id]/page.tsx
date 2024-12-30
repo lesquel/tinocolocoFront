@@ -2,12 +2,15 @@ import { Container } from '@/components/sections/layout/container';
 import { Section } from '@/components/sections/layout/section';
 import { GetEventsByCategory } from '@/features/events/section/category/category';
 
-export default function CategoryEvent({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const { id } = params;  // No need to await params
+interface CategoryEventProps {
+  params: {
+    id: string;
+  };
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
+
+export default function CategoryEvent({ params }: CategoryEventProps) {
+  const { id } = params;
   const idcategory = parseInt(id, 10);
 
   return (
