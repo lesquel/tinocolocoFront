@@ -1,9 +1,16 @@
+// app/events/[id]/page.tsx
+
 import { Container } from '@/components/sections/layout/container';
 import { Section } from '@/components/sections/layout/section';
 import { SectionReview } from '@/features/events/section/events/review/secitonReview';
 import EventCard from '@/features/events/components/EventCard';
 
-export default function Event({ params }: { params: { id: string } }) {
+// Define the type for the page props
+interface EventPageProps {
+  params: { id: string };
+}
+
+const Event = ({ params }: EventPageProps) => {
   const eventId = parseInt(params.id, 10);
 
   console.log('eventId', eventId);
@@ -17,4 +24,6 @@ export default function Event({ params }: { params: { id: string } }) {
       <SectionReview eventId={eventId} />
     </Container>
   );
-}
+};
+
+export default Event;

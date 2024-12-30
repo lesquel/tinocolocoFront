@@ -2,12 +2,12 @@ import { Container } from '@/components/sections/layout/container';
 import { Section } from '@/components/sections/layout/section';
 import { GetEventsByCategory } from '@/features/events/section/category/category';
 
-export default async function CategotyEvent({
+export default function CategoryEvent({
   params,
 }: {
   params: { id: string };
 }) {
-  const { id } = await params;
+  const { id } = params;  // No need to await params
   const idcategory = parseInt(id, 10);
 
   return (

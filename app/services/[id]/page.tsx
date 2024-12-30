@@ -3,8 +3,20 @@ import { Section } from '@/components/sections/layout/section';
 import ServicesCard from '@/features/services/components/ServicesCard';
 import { SectionReview } from '@/features/services/section/services/reviews/secitonReview';
 
-export default function Event({ params }: { params: { id: string } }) {
+interface Params {
+  id: string;
+}
+
+interface Props {
+  params: Params;
+}
+
+export default function Event({ params }: Props) {
   const servicesId = parseInt(params.id, 10);
+
+  if (isNaN(servicesId)) {
+    return <div>Error: Invalid service ID</div>;
+  }
 
   return (
     <Container>
