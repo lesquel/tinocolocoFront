@@ -5,7 +5,7 @@ import { Section } from '@/components/sections/layout/section';
 import { SectionReview } from '@/features/events/section/events/review/secitonReview';
 import EventCard from '@/features/events/components/EventCard';
 
-export default async function Event({ params }: { params: { id: string } }) {
+export default async function Event({ params }: { params: { id: number } }) {
   const eventId = await params.id;
   return (
     <Container>
