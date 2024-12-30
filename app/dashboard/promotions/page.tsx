@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
 import { SearchableTableSection } from "@/features/dashboard/section/SearchableTableSection";
-import { getPromotions } from "../../../features/promotions/services/promotions";
+import { getPromotions } from "../../../features/promotions_/services/promotions";
 import { IUPromotion } from "@/interfaces/IUPromotions";
 import { SearchForm } from "@/components/utils/SearchForm";
-import { searchFieldsPromotions } from "../../../features/promotions/utils/seacrFieldsPromotions";
+import { searchFieldsPromotions } from "../../../features/promotions_/utils/seacrFieldsPromotions";
 
 export default function DashboardEvents() {
   const [searchParams, setSearchParams] = useState<any>({});
