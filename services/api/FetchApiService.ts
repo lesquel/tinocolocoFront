@@ -93,9 +93,9 @@ export class FetchApiService implements ApiService {
           cause: 'noFound',
         });
         // notFound()
-      } else if (response.status !== 200) {
+      } else if (response.status >= 250) {
         toast.error('Error al enviar la petición', {
-          style: {
+          style: {a
             background: '#000000',
             color: '#FFEBE9',
           },
